@@ -1,0 +1,11 @@
+20:55:51 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+switch3D.cc
+switch3D.cc:211:13: warning: switch condition has boolean value
+            switch (Switch3D::getSwitchState())
+            ^       ~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+Creating shared library: out/gcc-debug//libqueueinglib.dylib
+
+20:55:52 Build Finished (took 1s.117ms)
+

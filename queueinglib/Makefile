@@ -51,6 +51,7 @@ OBJS = \
     $O/Server.o \
     $O/Sink.o \
     $O/Source.o \
+    $O/switch3D.o \
     $O/contFrame_m.o \
     $O/Job_m.o \
     $O/Oframe_m.o \
@@ -340,6 +341,18 @@ $O/contFrame_m.o: contFrame_m.cc \
 	contFrame_m.h
 $O/releaseOFDL_m.o: releaseOFDL_m.cc \
 	releaseOFDL_m.h
+$O/switch3D.o: switch3D.cc \
+	ModuleInfo.h \
+	Ocontroller.h \
+	Oframe_m.h \
+	Osource.h \
+	ParameterCont_m.h \
+	QueueingDefs.h \
+	SyncFrame_m.h \
+	contFrame_m.h \
+	releaseOFDL_m.h \
+	switch3D.h \
+	switchingCont_m.h
 $O/switchingCont_m.o: switchingCont_m.cc \
 	switchingCont_m.h
 

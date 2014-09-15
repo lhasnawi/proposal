@@ -1,0 +1,186 @@
+00:17:11 **** Clean-only build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug clean 
+Cleaning...
+00:17:12 **** Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+MSGC: Job.msg
+Allocate.cc
+Classifier.cc
+Clone.cc
+Deallocate.cc
+Delay.cc
+Fork.cc
+Job.cc
+JobList.cc
+Join.cc
+Merge.cc
+MSGC: switchingCont.msg
+ModuleInfo.cc
+ModuleInfo.cc:252:10: warning: expression result unused [-Wunused-value]
+    for (currentIter ; currentIter.end()==false; currentIter++)
+         ^~~~~~~~~~~
+1 warning generated.
+MSGC: Oframe.msg
+MSGC: ParameterCont.msg
+MSGC: SyncFrame.msg
+MSGC: contFrame.msg
+MSGC: releaseOFDL.msg
+Ocombiner.cc
+Ocontroller.cc
+Ocontroller.cc:326:18: warning: explicitly assigning a variable of type 'int' to itself [-Wself-assign]
+    frameCounter = frameCounter;
+    ~~~~~~~~~~~~ ^ ~~~~~~~~~~~~
+Ocontroller.cc:482:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+Ocontroller.cc:503:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+Ocontroller.cc:1048:37: warning: unused variable 'contCurrent' [-Wunused-variable]
+                   SwitchingCont *  contCurrent = (  SwitchingCont *) currentIter();
+                                    ^
+Ocontroller.cc:1469:1: warning: '/*' within block comment [-Wcomment]
+/*
+^
+Ocontroller.cc:2304:10: warning: unused variable 'exit' [-Wunused-variable]
+    bool exit = false;
+         ^
+Ocontroller.cc:2435:22: warning: expression result unused [-Wunused-value]
+                for (currentIter; currentIter.end()==false;currentIter++)
+                     ^~~~~~~~~~~
+Ocontroller.cc:2577:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+8 warnings generated.
+OFDL.cc
+OFDL.cc:245:15: warning: unused variable 'd' [-Wunused-variable]
+    simtime_t d = simTime() - frm->getTimestamp();
+              ^
+OFDL.cc:256:15: warning: unused variable 'd' [-Wunused-variable]
+    simtime_t d = simTime() - frm->getTimestamp();
+              ^
+2 warnings generated.
+Osink.cc
+Osource.cc
+In file included from Osource.cc:10:
+./Osource.h:40:21: warning: private field 'timeslotSignal' is not used [-Wunused-private-field]
+        simsignal_t timeslotSignal;
+                    ^
+./Osource.h:62:20: warning: private field 'beginingOfTheFrames' is not used [-Wunused-private-field]
+        simtime_t *beginingOfTheFrames;
+                   ^
+2 warnings generated.
+Osplitter.cc
+Osplitter.cc:270:17: warning: switch condition has boolean value
+                switch (Osplitter::getSwitchState())
+                ^       ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+Oswitch.cc
+Oswitch.cc:210:13: warning: switch condition has boolean value
+            switch (Oswitch::getSwitchState())
+            ^       ~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+PassiveQueue.cc
+Queue.cc
+ResourceBasedQueue.cc
+ResourcePool.cc
+Router.cc
+SelectionStrategies.cc
+Server.cc
+Sink.cc
+Source.cc
+contFrame_m.cc
+Job_m.cc
+Oframe_m.cc
+ParameterCont_m.cc
+releaseOFDL_m.cc
+switchingCont_m.cc
+SyncFrame_m.cc
+Creating shared library: out/gcc-debug//libqueueinglib.dylib
+00:19:32 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+20:23:51 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+20:55:06 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+switch3D.cc
+switch3D.cc:25:11: error: definition of implicitly declared default constructor
+Switch3D::Switch3D() {
+          ^
+switch3D.cc:30:11: error: definition of implicitly declared destructor
+Switch3D::~Switch3D() {
+          ^
+switch3D.cc:33:12: error: use of undeclared identifier 'cont'
+    delete cont;
+           ^
+switch3D.cc:38:1: error: unknown type name 'ContFrame'
+ContFrame * Switch3D::genrateCont()
+^
+switch3D.cc:41:5: error: use of undeclared identifier 'cont'
+    cont = new ContFrame();
+    ^
+switch3D.cc:41:16: error: unknown type name 'ContFrame'
+    cont = new ContFrame();
+               ^
+switch3D.cc:42:12: error: use of undeclared identifier 'cont'
+    return cont;
+           ^
+switch3D.cc:47:16: error: out-of-line definition of 'switchToCross' does not match any declaration in 'queueing::Switch3D'
+void Switch3D::switchToCross()
+               ^~~~~~~~~~~~~
+switch3D.cc:49:5: error: use of undeclared identifier 'barState'
+    barState = false;
+    ^
+switch3D.cc:52:16: error: out-of-line definition of 'switchToBar' does not match any declaration in 'queueing::Switch3D'
+void Switch3D::switchToBar()
+               ^~~~~~~~~~~
+switch3D.cc:54:5: error: use of undeclared identifier 'barState'
+    barState = true;
+    ^
+switch3D.cc:57:16: error: out-of-line definition of 'getSwitchState' does not match any declaration in 'queueing::Switch3D'
+bool Switch3D::getSwitchState()
+               ^~~~~~~~~~~~~~
+switch3D.cc:59:12: error: use of undeclared identifier 'barState'
+    return barState;
+           ^
+switch3D.cc:67:17: error: no member named 'startHolding' in 'queueing::Switch3D'
+    WATCH(this->startHolding);
+          ~~~~  ^
+/Developer/omnetpp-4.5/include/cwatch.h:333:51: note: expanded from macro 'WATCH'
+#define WATCH(variable)    createWatch(#variable,(variable))
+                                                  ^
+switch3D.cc:68:17: error: no member named 'releaseTime' in 'queueing::Switch3D'
+    WATCH(this->releaseTime);
+          ~~~~  ^
+/Developer/omnetpp-4.5/include/cwatch.h:333:51: note: expanded from macro 'WATCH'
+#define WATCH(variable)    createWatch(#variable,(variable))
+                                                  ^
+switch3D.cc:69:17: error: no member named 'guardTime' in 'queueing::Switch3D'
+    WATCH(this->guardTime);
+          ~~~~  ^
+/Developer/omnetpp-4.5/include/cwatch.h:333:51: note: expanded from macro 'WATCH'
+#define WATCH(variable)    createWatch(#variable,(variable))
+                                                  ^
+switch3D.cc:70:17: error: no member named 'barState' in 'queueing::Switch3D'
+    WATCH(this->barState);
+          ~~~~  ^
+/Developer/omnetpp-4.5/include/cwatch.h:333:51: note: expanded from macro 'WATCH'
+#define WATCH(variable)    createWatch(#variable,(variable))
+                                                  ^
+switch3D.cc:76:18: error: out-of-line definition of 'getDataRate' does not match any declaration in 'queueing::Switch3D'
+double Switch3D::getDataRate() const {
+                 ^~~~~~~~~~~
+switch3D.cc:77:12: error: use of undeclared identifier 'dataRate'
+    return dataRate;
+           ^
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+make: *** [out/gcc-debug//switch3D.o] Error 1
+20:55:51 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+switch3D.cc
+switch3D.cc:211:13: warning: switch condition has boolean value
+            switch (Switch3D::getSwitchState())
+            ^       ~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+Creating shared library: out/gcc-debug//libqueueinglib.dylib
