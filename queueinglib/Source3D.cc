@@ -132,21 +132,16 @@ void Source3D::initialize()
     this->numFrames = par ("numFramesP");
     this->dataRate = par ("dataRateP");
     this->wavelength = par("wavelengthP");
-
-
-
-
-
+    this->setTimeslotDuration();
+    this->setGuardTime();
+    Source3D::setInterArrivalTime();
+    scheduleAt(0, osourceEvent);
 
 
 }
 
 void Source3D::handleMessage(cMessage *msg)
 {
-
-
-
-
 
      if (strcmp(msg->getName(),"osourceEvent")==0) //&& (stopTime < 0 || stopTime > simTime()))
     {
@@ -266,9 +261,9 @@ double Source3D::getGuardTime()  {
     return guardTime;
 }
 
-void Source3D::setGuardTime(double guardTime) {
-    this->guardTime = guardTime;
-    Source3D::setInterArrivalTime();
+void Source3D::setGuardTime() {
+    this->guardTime = this->getTimeslotDuration()*.1;
+
 }
 
 int Source3D::getNumFrames()  {
@@ -291,8 +286,8 @@ double Source3D::getTimeslotDuration()  {
     return timeslotDuration;
 }
 
-void Source3D::setTimeslotDuration(double timeslotDuration) {
-    this->timeslotDuration = timeslotDuration;
+void Source3D::setTimeslotDuration() {
+    this->timeslotDuration = this->timeslotSize/dataRate;
 }
 
 int Source3D::getTimeslotSize()  {

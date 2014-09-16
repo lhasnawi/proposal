@@ -207,8 +207,6 @@ void Osource::finish()
 
         //Setters
 
-
-
 void Osource::setFrameCounter()
 {
     frameCounter = 0;

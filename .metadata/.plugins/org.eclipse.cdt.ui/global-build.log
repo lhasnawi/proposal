@@ -184,3 +184,307 @@ switch3D.cc:211:13: warning: switch condition has boolean value
             ^       ~~~~~~~~~~~~~~~~~~~~~~~~~~
 1 warning generated.
 Creating shared library: out/gcc-debug//libqueueinglib.dylib
+13:42:14 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Allocate.cc
+Classifier.cc
+Clone.cc
+Deallocate.cc
+Delay.cc
+Fork.cc
+Job.cc
+JobList.cc
+Join.cc
+Merge.cc
+ModuleInfo.cc
+ModuleInfo.cc: In member function 'bool queueing::ModuleInfo::validateConflect(int)':
+ModuleInfo.cc:252:22: warning: statement has no effect [-Wunused-value]
+Ocombiner.cc
+Ocontroller.cc
+Ocontroller.cc:1469:1: warning: "/*" within comment [-Wcomment]
+Ocontroller.cc: In member function 'int queueing::Ocontroller::getNumberFromFile(int, int)':
+Ocontroller.cc:116:52: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Ocontroller.cc:132:52: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Ocontroller.cc:149:52: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Ocontroller.cc: In member function 'int queueing::Ocontroller::getSWCFromFile(int, int)':
+Ocontroller.cc:182:49: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Ocontroller.cc:200:45: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Ocontroller.cc:218:49: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Ocontroller.cc: In member function 'bool queueing::Ocontroller::allSWCQEmpty()':
+Ocontroller.cc:1048:37: warning: unused variable 'contCurrent' [-Wunused-variable]
+Ocontroller.cc: In member function 'int queueing::Ocontroller::selectPath(int)':
+Ocontroller.cc:1970:10: warning: variable 'pathSwitchingConflect' set but not used [-Wunused-but-set-variable]
+Ocontroller.cc: In member function 'void queueing::Ocontroller::insertSWCInOrder(queueing::SwitchingCont*, std::string)':
+Ocontroller.cc:2304:10: warning: unused variable 'exit' [-Wunused-variable]
+Ocontroller.cc:2305:9: warning: variable 'queueLegnth' set but not used [-Wunused-but-set-variable]
+Ocontroller.cc: In member function 'void queueing::Ocontroller::printSWCQueue(std::string)':
+Ocontroller.cc:2435:33: warning: statement has no effect [-Wunused-value]
+Ocontroller.cc: In member function 'bool queueing::Ocontroller::OFDLStageIsBusy(int, int)':
+Ocontroller.cc:2577:1: warning: no return statement in function returning non-void [-Wreturn-type]
+Ocontroller.cc: In member function 'queueing::ModuleInfo* queueing::Ocontroller::getModulePointer(int)':
+Ocontroller.cc:503:1: warning: control reaches end of non-void function [-Wreturn-type]
+Ocontroller.cc: In member function 'int queueing::Ocontroller::getModuleIDByName(std::string)':
+Ocontroller.cc:482:1: warning: control reaches end of non-void function [-Wreturn-type]
+OFDL.cc
+OFDL.cc: In member function 'virtual simtime_t queueing::OFDL::startService(queueing::Oframe*)':
+OFDL.cc:245:15: warning: variable 'd' set but not used [-Wunused-but-set-variable]
+OFDL.cc: In member function 'virtual void queueing::OFDL::endService(queueing::Oframe*)':
+OFDL.cc:256:15: warning: variable 'd' set but not used [-Wunused-but-set-variable]
+Osink.cc
+Osource.cc
+Osplitter.cc
+Oswitch.cc
+PassiveQueue.cc
+Queue.cc
+ResourceBasedQueue.cc
+ResourcePool.cc
+Router.cc
+SelectionStrategies.cc
+Server.cc
+Sink.cc
+Source.cc
+source3D.cc
+In file included from source3D.cc:16:0:
+source3D.h:114:1: error: expected declaration before '}' token
+make: *** [out/gcc-debug//source3D.o] Error 1
+13:45:17 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+source3D.cc
+switch3D.cc
+contFrame_m.cc
+Job_m.cc
+Oframe_m.cc
+ParameterCont_m.cc
+releaseOFDL_m.cc
+switchingCont_m.cc
+SyncFrame_m.cc
+Creating shared library: out/gcc-debug//libqueueinglib.dll
+out/gcc-debug//source3D.o: In function `_factoryfunc_20':
+C:\Users\Luai\proposal\queueinglib/source3D.cc:20: undefined reference to `queueing::Source3D::Source3D()'
+collect2.exe: error: ld returned 1 exit status
+make: *** [out/gcc-debug//libqueueinglib.dll] Error 1
+13:46:17 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+source3D.cc
+In file included from source3D.cc:16:0:
+source3D.h:110:1: error: expected declaration before '}' token
+make: *** [out/gcc-debug//source3D.o] Error 1
+13:46:54 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+source3D.cc
+Creating shared library: out/gcc-debug//libqueueinglib.dll
+out/gcc-debug//source3D.o: In function `_factoryfunc_20':
+C:\Users\Luai\proposal\queueinglib/source3D.cc:20: undefined reference to `queueing::Source3D::Source3D()'
+collect2.exe: error: ld returned 1 exit status
+make: *** [out/gcc-debug//libqueueinglib.dll] Error 1
+13:47:36 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+source3D.cc
+Creating shared library: out/gcc-debug//libqueueinglib.dll
+out/gcc-debug//source3D.o: In function `_factoryfunc_20':
+C:\Users\Luai\proposal\queueinglib/source3D.cc:20: undefined reference to `queueing::Source3D::Source3D()'
+collect2.exe: error: ld returned 1 exit status
+make: *** [out/gcc-debug//libqueueinglib.dll] Error 1
+13:51:46 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Osource.cc
+Source3D.cc
+Source3D.cc:88:1: error: 'ContFrame' does not name a type
+Source3D.cc: In destructor 'virtual queueing::Source3D::~Source3D()':
+Source3D.cc:115:12: error: 'cont' was not declared in this scope
+Source3D.cc: In member function 'virtual void queueing::Source3D::handleMessage(cMessage*)':
+Source3D.cc:167:9: error: 'ContFrame' was not declared in this scope
+Source3D.cc:167:20: error: 'osourceCont' was not declared in this scope
+Source3D.cc:167:34: error: 'genrateCont' is not a member of 'queueing::Source3D'
+make: *** [out/gcc-debug//Source3D.o] Error 1
+13:52:00 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Source3D.cc:88:1: error: 'ContFrame' does not name a type
+Source3D.cc: In destructor 'virtual queueing::Source3D::~Source3D()':
+Source3D.cc:115:12: error: 'cont' was not declared in this scope
+Source3D.cc: In member function 'virtual void queueing::Source3D::handleMessage(cMessage*)':
+Source3D.cc:167:9: error: 'ContFrame' was not declared in this scope
+Source3D.cc:167:20: error: 'osourceCont' was not declared in this scope
+Source3D.cc:167:34: error: 'genrateCont' is not a member of 'queueing::Source3D'
+make: *** [out/gcc-debug//Source3D.o] Error 1
+13:52:13 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Source3D.cc:88:1: error: 'ContFrame' does not name a type
+Source3D.cc: In member function 'virtual void queueing::Source3D::handleMessage(cMessage*)':
+Source3D.cc:167:9: error: 'ContFrame' was not declared in this scope
+Source3D.cc:167:20: error: 'osourceCont' was not declared in this scope
+Source3D.cc:167:34: error: 'genrateCont' is not a member of 'queueing::Source3D'
+make: *** [out/gcc-debug//Source3D.o] Error 1
+13:52:50 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Source3D.cc: In member function 'virtual void queueing::Source3D::handleMessage(cMessage*)':
+Source3D.cc:154:9: error: 'ContFrame' was not declared in this scope
+Source3D.cc:154:20: error: 'osourceCont' was not declared in this scope
+Source3D.cc:154:34: error: 'genrateCont' is not a member of 'queueing::Source3D'
+make: *** [out/gcc-debug//Source3D.o] Error 1
+13:53:27 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Creating shared library: out/gcc-debug//libqueueinglib.dll
+13:57:34 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Creating shared library: out/gcc-debug//libqueueinglib.dll
+14:24:29 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+In file included from Source3D.cc:16:0:
+Source3D.h:44:5: error: 'Byte' does not name a type
+Source3D.cc: In member function 'virtual void queueing::Source3D::initialize()':
+Source3D.cc:114:5: error: 'timeslotSize' was not declared in this scope
+Source3D.cc:131:11: error: 'class queueing::Source3D' has no member named 'timeslotSize'
+Source3D.cc: In member function 'void queueing::Source3D::setTimeslotDuration(double)':
+Source3D.cc:286:36: error: 'class queueing::Source3D' has no member named 'timeslotSlot'
+Source3D.cc: In member function 'int queueing::Source3D::getTimeslotSize()':
+Source3D.cc:290:12: error: 'timeslotSize' was not declared in this scope
+Source3D.cc: In member function 'void queueing::Source3D::setTimeslotSize(int)':
+Source3D.cc:302:11: error: 'class queueing::Source3D' has no member named 'timeslotSize'
+Source3D.cc: In member function 'int queueing::Source3D::getTimeslotSize()':
+Source3D.cc:291:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [out/gcc-debug//Source3D.o] Error 1
+14:25:15 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Source3D.cc: In member function 'void queueing::Source3D::setTimeslotDuration(double)':
+Source3D.cc:286:36: error: 'class queueing::Source3D' has no member named 'timeslotSlot'
+make: *** [out/gcc-debug//Source3D.o] Error 1
+14:25:45 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Creating shared library: out/gcc-debug//libqueueinglib.dll
+14:26:47 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Creating shared library: out/gcc-debug//libqueueinglib.dll
+14:28:24 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Source3D.cc: In member function 'virtual void queueing::Source3D::initialize()':
+Source3D.cc:136:24: error: no matching function for call to 'queueing::Source3D::setGuardTime()'
+Source3D.cc:136:24: note: candidate is:
+In file included from Source3D.cc:16:0:
+Source3D.h:93:10: note: void queueing::Source3D::setGuardTime(double)
+Source3D.h:93:10: note:   candidate expects 1 argument, 0 provided
+Source3D.cc: At global scope:
+Source3D.cc:263:6: error: prototype for 'void queueing::Source3D::setGuardTime()' does not match any in class 'queueing::Source3D'
+In file included from Source3D.cc:16:0:
+Source3D.h:93:10: error: candidate is: void queueing::Source3D::setGuardTime(double)
+make: *** [out/gcc-debug//Source3D.o] Error 1
+14:28:39 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Creating shared library: out/gcc-debug//libqueueinglib.dll
+14:35:31 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Creating shared library: out/gcc-debug//libqueueinglib.dll
+14:37:42 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+14:38:56 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+14:44:11 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+14:44:37 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+14:45:55 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+14:47:28 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+14:47:57 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+14:48:07 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+14:48:19 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+14:51:21 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+14:51:39 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+14:52:08 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+14:52:15 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+14:53:26 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+14:53:30 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+14:54:00 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+14:54:13 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+14:59:06 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+14:59:27 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+15:00:00 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+15:10:40 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+15:13:34 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+15:13:44 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+15:14:23 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+15:14:27 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+15:15:57 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+15:16:13 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+15:18:32 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+15:18:40 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+15:19:06 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+15:20:08 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+15:20:18 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+15:27:06 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+15:27:20 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+15:29:07 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+15:37:41 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+unitconversion.cc
+unitconversion.cc:20:23: fatal error: opp_ctype.h: No such file or directory
+compilation terminated.
+make: *** [out/gcc-debug//unitconversion.o] Error 1
+15:39:05 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+unitconversion.cc
+In file included from unitconversion.cc:20:0:
+opp_ctype.h:22:24: fatal error: commondefs.h: No such file or directory
+compilation terminated.
+make: *** [out/gcc-debug//unitconversion.o] Error 1
+15:40:19 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+unitconversion.cc
+In file included from opp_ctype.h:22:0,
+                 from unitconversion.cc:20:
+commondefs.h:20:22: fatal error: platdefs.h: No such file or directory
+compilation terminated.
+make: *** [out/gcc-debug//unitconversion.o] Error 1
+15:43:35 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+unitconversion.cc
+unitconversion.cc:20:24: fatal error: stringutil.h: No such file or directory
+compilation terminated.
+make: *** [out/gcc-debug//unitconversion.o] Error 1
+15:44:15 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Creating shared library: out/gcc-debug//libqueueinglib.dll
+15:44:43 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 

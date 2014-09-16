@@ -34,8 +34,12 @@ simple Source3D
 		int timeslotSizeP @unit(Byte) = default (1500byte);   // timeslot size in bits
 		int numFramesP = default(2);               		// number of Frames
 		double dataRateP @unit(Gbps)= default (100Gbps); // transmission datarate 
-		int wavelengthP;
+		int wavelengthP = default (0);
+		double timeslotSizeBits @unit(b);
+		
+		double timeslotDurationP @unit(s)=default(timeslotSizeBits/dataRateP);
 		//double guardTimeP @unit(s) = (.001s);
+		
 		
         
         
@@ -46,6 +50,6 @@ simple Source3D
        int numJobs = default(-1);			//default(-1);// number of jobs to be generated (-1 means no limit)         
 
     gates:
-        inout control;
+        //inout control;
         output out;
 }

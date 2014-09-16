@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="TemplateBasedWizard">
-		<item value="bundleentry://278.fwk19764978/templates/emptysimplemodule/" key="simplemodule.template"/>
+		<item value="bundleentry://273.fwk19395259/templates/emptynedfile/" key="nedfile.template"/>
+		<item value="bundleentry://273.fwk19395259/templates/emptysimplemodule/" key="simplemodule.template"/>
 	</section>
 </section>

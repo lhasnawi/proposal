@@ -51,6 +51,7 @@ OBJS = \
     $O/Server.o \
     $O/Sink.o \
     $O/Source.o \
+    $O/Source3D.o \
     $O/switch3D.o \
     $O/contFrame_m.o \
     $O/Job_m.o \
@@ -335,6 +336,11 @@ $O/Source.o: Source.cc \
 	Job_m.h \
 	QueueingDefs.h \
 	Source.h
+$O/Source3D.o: Source3D.cc \
+	Oframe_m.h \
+	ParameterCont_m.h \
+	QueueingDefs.h \
+	Source3D.h
 $O/SyncFrame_m.o: SyncFrame_m.cc \
 	SyncFrame_m.h
 $O/contFrame_m.o: contFrame_m.cc \

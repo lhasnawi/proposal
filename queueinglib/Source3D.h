@@ -90,7 +90,7 @@ public:
     void setDataRate(double dataRate);
 
     double getGuardTime() ;
-    void setGuardTime(double guardTime);
+    void setGuardTime();
 
     int getNumFrames() ;
     void setNumFrames(int numFrames);
@@ -99,7 +99,7 @@ public:
     void setNumTimeslots(int numTimeslots);
 
     double getTimeslotDuration() ;
-    void setTimeslotDuration(double timeslotDuration);
+    void setTimeslotDuration();
 
     int getTimeslotSize() ;
     void setTimeslotSize(int timeslotSize);
