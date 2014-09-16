@@ -488,3 +488,359 @@ make MODE=debug CONFIGNAME=gcc-debug all
 Creating shared library: out/gcc-debug//libqueueinglib.dll
 15:44:43 **** Incremental Build of configuration gcc-debug for project queueinglib ****
 make MODE=debug CONFIGNAME=gcc-debug all 
+17:04:01 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+17:04:53 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+17:06:12 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+17:06:44 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+17:08:58 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+17:09:40 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+17:09:46 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+17:15:15 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Ocombiner.cc
+Ocontroller.cc
+Ocontroller.cc:1469:1: warning: "/*" within comment [-Wcomment]
+Ocontroller.cc: In member function 'int queueing::Ocontroller::getNumberFromFile(int, int)':
+Ocontroller.cc:116:52: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Ocontroller.cc:132:52: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Ocontroller.cc:149:52: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Ocontroller.cc: In member function 'int queueing::Ocontroller::getSWCFromFile(int, int)':
+Ocontroller.cc:182:49: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Ocontroller.cc:200:45: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Ocontroller.cc:218:49: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Ocontroller.cc: In member function 'bool queueing::Ocontroller::allSWCQEmpty()':
+Ocontroller.cc:1048:37: warning: unused variable 'contCurrent' [-Wunused-variable]
+Ocontroller.cc: In member function 'int queueing::Ocontroller::selectPath(int)':
+Ocontroller.cc:1970:10: warning: variable 'pathSwitchingConflect' set but not used [-Wunused-but-set-variable]
+Ocontroller.cc: In member function 'void queueing::Ocontroller::insertSWCInOrder(queueing::SwitchingCont*, std::string)':
+Ocontroller.cc:2304:10: warning: unused variable 'exit' [-Wunused-variable]
+Ocontroller.cc:2305:9: warning: variable 'queueLegnth' set but not used [-Wunused-but-set-variable]
+Ocontroller.cc: In member function 'void queueing::Ocontroller::printSWCQueue(std::string)':
+Ocontroller.cc:2435:33: warning: statement has no effect [-Wunused-value]
+Ocontroller.cc: In member function 'bool queueing::Ocontroller::OFDLStageIsBusy(int, int)':
+Ocontroller.cc:2577:1: warning: no return statement in function returning non-void [-Wreturn-type]
+Ocontroller.cc: In member function 'queueing::ModuleInfo* queueing::Ocontroller::getModulePointer(int)':
+Ocontroller.cc:503:1: warning: control reaches end of non-void function [-Wreturn-type]
+Ocontroller.cc: In member function 'int queueing::Ocontroller::getModuleIDByName(std::string)':
+Ocontroller.cc:482:1: warning: control reaches end of non-void function [-Wreturn-type]
+OFDL.cc
+OFDL.cc: In member function 'virtual simtime_t queueing::OFDL::startService(queueing::Oframe*)':
+OFDL.cc:245:15: warning: variable 'd' set but not used [-Wunused-but-set-variable]
+OFDL.cc: In member function 'virtual void queueing::OFDL::endService(queueing::Oframe*)':
+OFDL.cc:256:15: warning: variable 'd' set but not used [-Wunused-but-set-variable]
+Osource.cc
+Osource.cc: In member function 'double queueing::Osource::getTimeslotDuration()':
+Osource.cc:316:12: error: cannot convert 'simtime_t {aka SimTime}' to 'double' in return
+Osource.cc:317:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [out/gcc-debug//Osource.o] Error 1
+17:15:36 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Osource.cc
+Osource.cc:315:11: error: prototype for 'simtime_t queueing::Osource::getTimeslotDuration()' does not match any in class 'queueing::Osource'
+In file included from Osource.cc:10:0:
+Osource.h:112:12: error: candidate is: double queueing::Osource::getTimeslotDuration()
+make: *** [out/gcc-debug//Osource.o] Error 1
+17:16:29 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Osource.cc
+Osource.cc:315:11: error: prototype for 'simtime_t queueing::Osource::getTimeslotDuration()' does not match any in class 'queueing::Osource'
+In file included from Osource.cc:10:0:
+Osource.h:112:12: error: candidate is: double queueing::Osource::getTimeslotDuration()
+make: *** [out/gcc-debug//Osource.o] Error 1
+17:19:30 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Osource.cc
+Osource.cc: In member function 'double queueing::Osource::getTimeslotDuration()':
+Osource.cc:316:12: error: cannot convert 'simtime_t {aka SimTime}' to 'double' in return
+Osource.cc:317:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [out/gcc-debug//Osource.o] Error 1
+17:19:53 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Ocombiner.cc
+Ocontroller.cc
+Ocontroller.cc:1469:1: warning: "/*" within comment [-Wcomment]
+Ocontroller.cc: In member function 'int queueing::Ocontroller::getNumberFromFile(int, int)':
+Ocontroller.cc:116:52: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Ocontroller.cc:132:52: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Ocontroller.cc:149:52: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Ocontroller.cc: In member function 'int queueing::Ocontroller::getSWCFromFile(int, int)':
+Ocontroller.cc:182:49: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Ocontroller.cc:200:45: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Ocontroller.cc:218:49: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+Ocontroller.cc: In member function 'bool queueing::Ocontroller::allSWCQEmpty()':
+Ocontroller.cc:1048:37: warning: unused variable 'contCurrent' [-Wunused-variable]
+Ocontroller.cc: In member function 'int queueing::Ocontroller::selectPath(int)':
+Ocontroller.cc:1970:10: warning: variable 'pathSwitchingConflect' set but not used [-Wunused-but-set-variable]
+Ocontroller.cc: In member function 'void queueing::Ocontroller::insertSWCInOrder(queueing::SwitchingCont*, std::string)':
+Ocontroller.cc:2304:10: warning: unused variable 'exit' [-Wunused-variable]
+Ocontroller.cc:2305:9: warning: variable 'queueLegnth' set but not used [-Wunused-but-set-variable]
+Ocontroller.cc: In member function 'void queueing::Ocontroller::printSWCQueue(std::string)':
+Ocontroller.cc:2435:33: warning: statement has no effect [-Wunused-value]
+Ocontroller.cc: In member function 'bool queueing::Ocontroller::OFDLStageIsBusy(int, int)':
+Ocontroller.cc:2577:1: warning: no return statement in function returning non-void [-Wreturn-type]
+Ocontroller.cc: In member function 'queueing::ModuleInfo* queueing::Ocontroller::getModulePointer(int)':
+Ocontroller.cc:503:1: warning: control reaches end of non-void function [-Wreturn-type]
+Ocontroller.cc: In member function 'int queueing::Ocontroller::getModuleIDByName(std::string)':
+Ocontroller.cc:482:1: warning: control reaches end of non-void function [-Wreturn-type]
+OFDL.cc
+OFDL.cc: In member function 'virtual simtime_t queueing::OFDL::startService(queueing::Oframe*)':
+OFDL.cc:245:15: warning: variable 'd' set but not used [-Wunused-but-set-variable]
+OFDL.cc: In member function 'virtual void queueing::OFDL::endService(queueing::Oframe*)':
+OFDL.cc:256:15: warning: variable 'd' set but not used [-Wunused-but-set-variable]
+Osource.cc
+Osplitter.cc
+Oswitch.cc
+Source3D.cc
+Source3D.cc:285:11: error: prototype for 'simtime_t queueing::Source3D::getTimeslotDuration()' does not match any in class 'queueing::Source3D'
+In file included from Source3D.cc:16:0:
+Source3D.h:101:12: error: candidate is: double queueing::Source3D::getTimeslotDuration()
+make: *** [out/gcc-debug//Source3D.o] Error 1
+17:21:49 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Source3D.cc: In member function 'void queueing::Source3D::setInterArrivalTime()':
+Source3D.cc:200:79: error: cannot convert 'const SimTime' to 'double' in assignment
+Source3D.cc: In member function 'void queueing::Source3D::setGuardTime()':
+Source3D.cc:265:51: error: cannot convert 'const SimTime' to 'double' in assignment
+make: *** [out/gcc-debug//Source3D.o] Error 1
+17:22:09 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Source3D.cc: In member function 'void queueing::Source3D::setGuardTime()':
+Source3D.cc:265:51: error: cannot convert 'const SimTime' to 'double' in assignment
+make: *** [out/gcc-debug//Source3D.o] Error 1
+17:22:30 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+switch3D.cc
+Creating shared library: out/gcc-debug//libqueueinglib.dll
+17:23:38 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Creating shared library: out/gcc-debug//libqueueinglib.dll
+17:29:30 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Creating shared library: out/gcc-debug//libqueueinglib.dll
+17:30:02 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Creating shared library: out/gcc-debug//libqueueinglib.dll
+17:30:07 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+17:31:39 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Source3D.cc: In member function 'virtual queueing::Oframe* queueing::Source3D::generateFrame()':
+Source3D.cc:38:21: error: 'rm' was not declared in this scope
+Source3D.cc:57:13: error: 'rm' was not declared in this scope
+Source3D.cc:74:52: error: conversion from 'cPar' to 'int64_t {aka long long int}' is ambiguous
+Source3D.cc:74:52: note: candidates are:
+In file included from c:/omnetpp-4.5/include/cparimpl.h:21:0,
+                 from c:/omnetpp-4.5/include/cboolparimpl.h:21,
+                 from c:/omnetpp-4.5/include/omnetpp.h:22,
+                 from QueueingDefs.h:13,
+                 from Source3D.h:20,
+                 from Source3D.cc:16:
+c:/omnetpp-4.5/include/cpar.h:519:5: note: cPar::operator cXMLElement*() const <near match>
+c:/omnetpp-4.5/include/cpar.h:519:5: note:   no known conversion for implicit 'this' parameter from 'cXMLElement*' to 'int64_t {aka long long int}'
+c:/omnetpp-4.5/include/cpar.h:508:5: note: cPar::operator const char*() const <near match>
+c:/omnetpp-4.5/include/cpar.h:508:5: note:   no known conversion for implicit 'this' parameter from 'const char*' to 'int64_t {aka long long int}'
+c:/omnetpp-4.5/include/cpar.h:503:5: note: cPar::operator long double() const
+c:/omnetpp-4.5/include/cpar.h:498:5: note: cPar::operator double() const
+c:/omnetpp-4.5/include/cpar.h:493:5: note: cPar::operator long unsigned int() const
+c:/omnetpp-4.5/include/cpar.h:488:5: note: cPar::operator long int() const
+c:/omnetpp-4.5/include/cpar.h:483:5: note: cPar::operator short unsigned int() const
+c:/omnetpp-4.5/include/cpar.h:478:5: note: cPar::operator short int() const
+c:/omnetpp-4.5/include/cpar.h:473:5: note: cPar::operator unsigned int() const
+c:/omnetpp-4.5/include/cpar.h:468:5: note: cPar::operator int() const
+c:/omnetpp-4.5/include/cpar.h:463:5: note: cPar::operator unsigned char() const
+c:/omnetpp-4.5/include/cpar.h:458:5: note: cPar::operator char() const
+c:/omnetpp-4.5/include/cpar.h:453:5: note: cPar::operator bool() const
+In file included from c:/omnetpp-4.5/include/cchannel.h:25:0,
+                 from c:/omnetpp-4.5/include/omnetpp.h:28,
+                 from QueueingDefs.h:13,
+                 from Source3D.h:20,
+                 from Source3D.cc:16:
+c:/omnetpp-4.5/include/cmessage.h:846:10: error:   initializing argument 1 of 'void cPacket::setByteLength(int64_t)'
+make: *** [out/gcc-debug//Source3D.o] Error 1
+17:31:54 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Source3D.cc: In member function 'virtual queueing::Oframe* queueing::Source3D::generateFrame()':
+Source3D.cc:38:60: error: conversion from 'cPar' to 'int64_t {aka long long int}' is ambiguous
+Source3D.cc:38:60: note: candidates are:
+In file included from c:/omnetpp-4.5/include/cparimpl.h:21:0,
+                 from c:/omnetpp-4.5/include/cboolparimpl.h:21,
+                 from c:/omnetpp-4.5/include/omnetpp.h:22,
+                 from QueueingDefs.h:13,
+                 from Source3D.h:20,
+                 from Source3D.cc:16:
+c:/omnetpp-4.5/include/cpar.h:519:5: note: cPar::operator cXMLElement*() const <near match>
+c:/omnetpp-4.5/include/cpar.h:519:5: note:   no known conversion for implicit 'this' parameter from 'cXMLElement*' to 'int64_t {aka long long int}'
+c:/omnetpp-4.5/include/cpar.h:508:5: note: cPar::operator const char*() const <near match>
+c:/omnetpp-4.5/include/cpar.h:508:5: note:   no known conversion for implicit 'this' parameter from 'const char*' to 'int64_t {aka long long int}'
+c:/omnetpp-4.5/include/cpar.h:503:5: note: cPar::operator long double() const
+c:/omnetpp-4.5/include/cpar.h:498:5: note: cPar::operator double() const
+c:/omnetpp-4.5/include/cpar.h:493:5: note: cPar::operator long unsigned int() const
+c:/omnetpp-4.5/include/cpar.h:488:5: note: cPar::operator long int() const
+c:/omnetpp-4.5/include/cpar.h:483:5: note: cPar::operator short unsigned int() const
+c:/omnetpp-4.5/include/cpar.h:478:5: note: cPar::operator short int() const
+c:/omnetpp-4.5/include/cpar.h:473:5: note: cPar::operator unsigned int() const
+c:/omnetpp-4.5/include/cpar.h:468:5: note: cPar::operator int() const
+c:/omnetpp-4.5/include/cpar.h:463:5: note: cPar::operator unsigned char() const
+c:/omnetpp-4.5/include/cpar.h:458:5: note: cPar::operator char() const
+c:/omnetpp-4.5/include/cpar.h:453:5: note: cPar::operator bool() const
+In file included from c:/omnetpp-4.5/include/cchannel.h:25:0,
+                 from c:/omnetpp-4.5/include/omnetpp.h:28,
+                 from QueueingDefs.h:13,
+                 from Source3D.h:20,
+                 from Source3D.cc:16:
+c:/omnetpp-4.5/include/cmessage.h:846:10: error:   initializing argument 1 of 'void cPacket::setByteLength(int64_t)'
+Source3D.cc:57:52: error: conversion from 'cPar' to 'int64_t {aka long long int}' is ambiguous
+Source3D.cc:57:52: note: candidates are:
+In file included from c:/omnetpp-4.5/include/cparimpl.h:21:0,
+                 from c:/omnetpp-4.5/include/cboolparimpl.h:21,
+                 from c:/omnetpp-4.5/include/omnetpp.h:22,
+                 from QueueingDefs.h:13,
+                 from Source3D.h:20,
+                 from Source3D.cc:16:
+c:/omnetpp-4.5/include/cpar.h:519:5: note: cPar::operator cXMLElement*() const <near match>
+c:/omnetpp-4.5/include/cpar.h:519:5: note:   no known conversion for implicit 'this' parameter from 'cXMLElement*' to 'int64_t {aka long long int}'
+c:/omnetpp-4.5/include/cpar.h:508:5: note: cPar::operator const char*() const <near match>
+c:/omnetpp-4.5/include/cpar.h:508:5: note:   no known conversion for implicit 'this' parameter from 'const char*' to 'int64_t {aka long long int}'
+c:/omnetpp-4.5/include/cpar.h:503:5: note: cPar::operator long double() const
+c:/omnetpp-4.5/include/cpar.h:498:5: note: cPar::operator double() const
+c:/omnetpp-4.5/include/cpar.h:493:5: note: cPar::operator long unsigned int() const
+c:/omnetpp-4.5/include/cpar.h:488:5: note: cPar::operator long int() const
+c:/omnetpp-4.5/include/cpar.h:483:5: note: cPar::operator short unsigned int() const
+c:/omnetpp-4.5/include/cpar.h:478:5: note: cPar::operator short int() const
+c:/omnetpp-4.5/include/cpar.h:473:5: note: cPar::operator unsigned int() const
+c:/omnetpp-4.5/include/cpar.h:468:5: note: cPar::operator int() const
+c:/omnetpp-4.5/include/cpar.h:463:5: note: cPar::operator unsigned char() const
+c:/omnetpp-4.5/include/cpar.h:458:5: note: cPar::operator char() const
+c:/omnetpp-4.5/include/cpar.h:453:5: note: cPar::operator bool() const
+In file included from c:/omnetpp-4.5/include/cchannel.h:25:0,
+                 from c:/omnetpp-4.5/include/omnetpp.h:28,
+                 from QueueingDefs.h:13,
+                 from Source3D.h:20,
+                 from Source3D.cc:16:
+c:/omnetpp-4.5/include/cmessage.h:846:10: error:   initializing argument 1 of 'void cPacket::setByteLength(int64_t)'
+Source3D.cc:74:52: error: conversion from 'cPar' to 'int64_t {aka long long int}' is ambiguous
+Source3D.cc:74:52: note: candidates are:
+In file included from c:/omnetpp-4.5/include/cparimpl.h:21:0,
+                 from c:/omnetpp-4.5/include/cboolparimpl.h:21,
+                 from c:/omnetpp-4.5/include/omnetpp.h:22,
+                 from QueueingDefs.h:13,
+                 from Source3D.h:20,
+                 from Source3D.cc:16:
+c:/omnetpp-4.5/include/cpar.h:519:5: note: cPar::operator cXMLElement*() const <near match>
+c:/omnetpp-4.5/include/cpar.h:519:5: note:   no known conversion for implicit 'this' parameter from 'cXMLElement*' to 'int64_t {aka long long int}'
+c:/omnetpp-4.5/include/cpar.h:508:5: note: cPar::operator const char*() const <near match>
+c:/omnetpp-4.5/include/cpar.h:508:5: note:   no known conversion for implicit 'this' parameter from 'const char*' to 'int64_t {aka long long int}'
+c:/omnetpp-4.5/include/cpar.h:503:5: note: cPar::operator long double() const
+c:/omnetpp-4.5/include/cpar.h:498:5: note: cPar::operator double() const
+c:/omnetpp-4.5/include/cpar.h:493:5: note: cPar::operator long unsigned int() const
+c:/omnetpp-4.5/include/cpar.h:488:5: note: cPar::operator long int() const
+c:/omnetpp-4.5/include/cpar.h:483:5: note: cPar::operator short unsigned int() const
+c:/omnetpp-4.5/include/cpar.h:478:5: note: cPar::operator short int() const
+c:/omnetpp-4.5/include/cpar.h:473:5: note: cPar::operator unsigned int() const
+c:/omnetpp-4.5/include/cpar.h:468:5: note: cPar::operator int() const
+c:/omnetpp-4.5/include/cpar.h:463:5: note: cPar::operator unsigned char() const
+c:/omnetpp-4.5/include/cpar.h:458:5: note: cPar::operator char() const
+c:/omnetpp-4.5/include/cpar.h:453:5: note: cPar::operator bool() const
+In file included from c:/omnetpp-4.5/include/cchannel.h:25:0,
+                 from c:/omnetpp-4.5/include/omnetpp.h:28,
+                 from QueueingDefs.h:13,
+                 from Source3D.h:20,
+                 from Source3D.cc:16:
+c:/omnetpp-4.5/include/cmessage.h:846:10: error:   initializing argument 1 of 'void cPacket::setByteLength(int64_t)'
+make: *** [out/gcc-debug//Source3D.o] Error 1
+17:32:51 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Creating shared library: out/gcc-debug//libqueueinglib.dll
+17:33:29 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Source3D.cc: In member function 'void queueing::Source3D::setGuardTime()':
+Source3D.cc:265:51: error: cannot convert 'const SimTime' to 'double' in assignment
+Source3D.cc: At global scope:
+Source3D.cc:285:8: error: prototype for 'double queueing::Source3D::getTimeslotDuration()' does not match any in class 'queueing::Source3D'
+In file included from Source3D.cc:16:0:
+Source3D.h:101:15: error: candidate is: simtime_t queueing::Source3D::getTimeslotDuration()
+make: *** [out/gcc-debug//Source3D.o] Error 1
+17:33:40 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Source3D.cc: In member function 'void queueing::Source3D::setInterArrivalTime()':
+Source3D.cc:200:56: error: request for member 'dbl' in 'queueing::Source3D::getTimeslotDuration()', which is of non-class type 'double'
+Source3D.cc: In member function 'double queueing::Source3D::getTimeslotDuration()':
+Source3D.cc:286:12: error: cannot convert 'simtime_t {aka SimTime}' to 'double' in return
+Source3D.cc:287:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [out/gcc-debug//Source3D.o] Error 1
+17:33:59 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Source3D.cc: In member function 'void queueing::Source3D::setInterArrivalTime()':
+Source3D.cc:200:56: error: 'queueing::Source3D::getTimeslotDuration()' cannot be used as a function
+Source3D.cc: In member function 'double queueing::Source3D::getTimeslotDuration()':
+Source3D.cc:286:12: error: cannot convert 'simtime_t {aka SimTime}' to 'double' in return
+Source3D.cc:287:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [out/gcc-debug//Source3D.o] Error 1
+17:34:51 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Source3D.cc: In member function 'void queueing::Source3D::setInterArrivalTime()':
+Source3D.cc:200:56: error: 'queueing::Source3D::getTimeslotDuration()' cannot be used as a function
+Source3D.cc: In member function 'double queueing::Source3D::getTimeslotDuration()':
+Source3D.cc:286:12: error: cannot convert 'simtime_t {aka SimTime}' to 'double' in return
+Source3D.cc:287:1: warning: control reaches end of non-void function [-Wreturn-type]
+make: *** [out/gcc-debug//Source3D.o] Error 1
+17:35:11 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Source3D.cc: In member function 'void queueing::Source3D::setInterArrivalTime()':
+Source3D.cc:200:56: error: 'queueing::Source3D::getTimeslotDuration()' cannot be used as a function
+make: *** [out/gcc-debug//Source3D.o] Error 1
+17:35:22 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Creating shared library: out/gcc-debug//libqueueinglib.dll
+17:35:37 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+17:42:22 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Source3D.cc: In member function 'virtual queueing::Oframe* queueing::Source3D::generateFrame()':
+Source3D.cc:43:39: error: no matching function for call to 'queueing::Oframe::isPacket(bool)'
+Source3D.cc:43:39: note: candidate is:
+In file included from c:/omnetpp-4.5/include/cchannel.h:25:0,
+                 from c:/omnetpp-4.5/include/omnetpp.h:28,
+                 from QueueingDefs.h:13,
+                 from Source3D.h:20,
+                 from Source3D.cc:16:
+c:/omnetpp-4.5/include/cmessage.h:829:18: note: virtual bool cPacket::isPacket() const
+c:/omnetpp-4.5/include/cmessage.h:829:18: note:   candidate expects 0 arguments, 1 provided
+make: *** [out/gcc-debug//Source3D.o] Error 1
+17:43:20 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Creating shared library: out/gcc-debug//libqueueinglib.dll
+17:43:44 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Creating shared library: out/gcc-debug//libqueueinglib.dll
+17:47:02 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Source3D.cc
+Creating shared library: out/gcc-debug//libqueueinglib.dll
+17:47:11 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 

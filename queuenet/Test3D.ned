@@ -1,3 +1,4 @@
+import ned.DelayChannel;
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
@@ -30,6 +31,6 @@ network Network
             @display("p=293,116");
         }
     connections:
-        source3D.out --> osink.in++;
+        source3D.out --> DelayChannel {  delay = 1s; } --> osink.in++;
 }
 
