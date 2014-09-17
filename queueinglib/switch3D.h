@@ -26,7 +26,7 @@
 #include <string.h>
 #include <iostream>
 #include "ModuleInfo.h"
-#include "Ocontroller.h"
+#include "Controller3D.h"
 
 namespace queueing {
 
@@ -51,7 +51,7 @@ private:
 
 
 public:
-   Ocontroller* myCtl;
+   Controller3D * myCtl;
    Switch3D();
    virtual ~Switch3D();
    virtual void switchToCross();

@@ -184,3 +184,393 @@ switch3D.cc:211:13: warning: switch condition has boolean value
             ^       ~~~~~~~~~~~~~~~~~~~~~~~~~~
 1 warning generated.
 Creating shared library: out/gcc-debug//libqueueinglib.dylib
+22:30:41 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Controller3D.cc
+switch3D.cc
+In file included from switch3D.cc:16:
+./switch3D.h:54:4: error: unknown type name 'Ocontroller'
+   Ocontroller* myCtl;
+   ^
+switch3D.cc:20:1: error: cannot initialize a variable of type 'cModule *' with an rvalue of type 'queueing::Switch3D *'
+Define_Module(Switch3D);
+^~~~~~~~~~~~~~~~~~~~~~~
+/Developer/omnetpp-4.5/include/regmacros.h:166:35: note: expanded from macro 'Define_Module'
+#define Define_Module(CLASSNAME)  __REGISTER_CLASS(CLASSNAME, cModule, "module")
+                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Developer/omnetpp-4.5/include/regmacros.h:178:73: note: expanded from macro '__REGISTER_CLASS'
+  static cObject *MAKE_UNIQUE_WITHIN_FILE(__factoryfunc_)() {BASECLASS *ret = new CLASSNAME; return ret; } \
+                                                                        ^     ~~~~~~~~~~~~~
+switch3D.cc:156:36: error: cannot initialize object parameter of type 'const cNamedObject' with an expression of type 'queueing::Switch3D'
+        oswitchCont->setModuleName(this->getName());
+                                   ^~~~
+switch3D.cc:157:34: error: cannot initialize object parameter of type 'const cModule' with an expression of type 'queueing::Switch3D'
+        oswitchCont->setModuleID(this->getId());
+                                 ^~~~
+switch3D.cc:163:22: error: use of undeclared identifier 'Ocontroller'
+            myCtl = (Ocontroller*)myPtr;
+                     ^
+switch3D.cc:163:34: error: expected expression
+            myCtl = (Ocontroller*)myPtr;
+                                 ^
+switch3D.cc:172:9: error: no matching member function for call to 'send'
+        send(oswitchCont,"control$o");
+        ^~~~
+/Developer/omnetpp-4.5/include/csimplemodule.h:231:9: note: candidate function not viable: no known conversion from 'queueing::Switch3D' to 'cSimpleModule' for object argument
+    int send(cMessage *msg, const char *gatename, int gateindex=-1)  {return sendDelayed(msg, SIMTIME_ZERO, gatename, gateindex);}
+        ^
+/Developer/omnetpp-4.5/include/csimplemodule.h:225:9: note: candidate function not viable: no known conversion from 'queueing::Switch3D' to 'cSimpleModule' for object argument
+    int send(cMessage *msg, int gateid)  {return sendDelayed(msg, SIMTIME_ZERO, gateid);}
+        ^
+/Developer/omnetpp-4.5/include/csimplemodule.h:236:9: note: candidate function not viable: no known conversion from 'queueing::Switch3D' to 'cSimpleModule' for object argument
+    int send(cMessage *msg, cGate *outputgate)  {return sendDelayed(msg, SIMTIME_ZERO, outputgate);}
+        ^
+switch3D.cc:182:40: error: cannot initialize object parameter of type 'const cNamedObject' with an expression of type 'queueing::Switch3D'
+        Switch3D::setModuleBusyStateTo(this->getName(), 1);
+                                       ^~~~
+switch3D.cc:183:10: error: cannot initialize object parameter of type 'cComponent' with an expression of type 'queueing::Switch3D'
+         bubble ("StateReleased");
+         ^~~~~~
+switch3D.cc:184:25: error: cannot initialize object parameter of type 'const cNamedObject' with an expression of type 'queueing::Switch3D'
+         EV<<"Module "<<this->getName()<<" released its state available state "<<Switch3D::getModuleBusyStateTo(this->getName())<<endl;
+                        ^~~~
+switch3D.cc:184:113: error: cannot initialize object parameter of type 'const cNamedObject' with an expression of type 'queueing::Switch3D'
+         EV<<"Module "<<this->getName()<<" released its state available state "<<Switch3D::getModuleBusyStateTo(this->getName())<<endl;
+                                                                                                                ^~~~
+switch3D.cc:185:10: error: cannot initialize object parameter of type 'cSimpleModule' with an expression of type 'queueing::Switch3D'
+         cancelAndDelete (releaseMessage);
+         ^~~~~~~~~~~~~~~
+switch3D.cc:199:9: error: cannot initialize object parameter of type 'cSimpleModule' with an expression of type 'queueing::Switch3D'
+        scheduleAt(releaseTime, releaseMessage);
+        ^~~~~~~~~~
+switch3D.cc:209:17: error: cannot initialize object parameter of type 'cComponent' with an expression of type 'queueing::Switch3D'
+                getDisplayString().setTagArg("i",1, "cyan3");
+                ^~~~~~~~~~~~~~~~
+switch3D.cc:216:54: error: no matching member function for call to 'gate'
+                if (msg->getArrivalGate()==Switch3D::gate("in",0))
+                                           ~~~~~~~~~~^~~~
+/Developer/omnetpp-4.5/include/cmodule.h:585:20: note: candidate function not viable: no known conversion from 'queueing::Switch3D' to 'cModule' for object argument
+    virtual cGate *gate(const char *gatename, int index=-1);
+                   ^
+/Developer/omnetpp-4.5/include/cmodule.h:593:18: note: candidate function not viable: no known conversion from 'queueing::Switch3D' to 'const cModule' for object argument
+    const cGate *gate(const char *gatename, int index=-1) const {
+                 ^
+/Developer/omnetpp-4.5/include/cmodule.h:642:20: note: candidate function not viable: requires single argument 'id', but 2 arguments were provided
+    virtual cGate *gate(int id);
+                   ^
+/Developer/omnetpp-4.5/include/cmodule.h:651:18: note: candidate function not viable: requires single argument 'id', but 2 arguments were provided
+    const cGate *gate(int id) const {return const_cast<cModule *>(this)->gate(id);}
+                 ^
+switch3D.cc:218:40: error: no matching member function for call to 'gate'
+                    send(msg,Switch3D::gate("out",0));
+                             ~~~~~~~~~~^~~~
+/Developer/omnetpp-4.5/include/cmodule.h:585:20: note: candidate function not viable: no known conversion from 'queueing::Switch3D' to 'cModule' for object argument
+    virtual cGate *gate(const char *gatename, int index=-1);
+                   ^
+/Developer/omnetpp-4.5/include/cmodule.h:593:18: note: candidate function not viable: no known conversion from 'queueing::Switch3D' to 'const cModule' for object argument
+    const cGate *gate(const char *gatename, int index=-1) const {
+                 ^
+/Developer/omnetpp-4.5/include/cmodule.h:642:20: note: candidate function not viable: requires single argument 'id', but 2 arguments were provided
+    virtual cGate *gate(int id);
+                   ^
+/Developer/omnetpp-4.5/include/cmodule.h:651:18: note: candidate function not viable: requires single argument 'id', but 2 arguments were provided
+    const cGate *gate(int id) const {return const_cast<cModule *>(this)->gate(id);}
+                 ^
+switch3D.cc:222:32: error: cannot initialize object parameter of type 'cComponent' with an expression of type 'queueing::Switch3D'
+                               getDisplayString().setTagArg("i",2, "grey");
+                               ^~~~~~~~~~~~~~~~
+switch3D.cc:226:40: error: no matching member function for call to 'gate'
+                    send(msg,Switch3D::gate("out",1));
+                             ~~~~~~~~~~^~~~
+/Developer/omnetpp-4.5/include/cmodule.h:585:20: note: candidate function not viable: no known conversion from 'queueing::Switch3D' to 'cModule' for object argument
+    virtual cGate *gate(const char *gatename, int index=-1);
+                   ^
+/Developer/omnetpp-4.5/include/cmodule.h:593:18: note: candidate function not viable: no known conversion from 'queueing::Switch3D' to 'const cModule' for object argument
+    const cGate *gate(const char *gatename, int index=-1) const {
+                 ^
+/Developer/omnetpp-4.5/include/cmodule.h:642:20: note: candidate function not viable: requires single argument 'id', but 2 arguments were provided
+    virtual cGate *gate(int id);
+                   ^
+/Developer/omnetpp-4.5/include/cmodule.h:651:18: note: candidate function not viable: requires single argument 'id', but 2 arguments were provided
+    const cGate *gate(int id) const {return const_cast<cModule *>(this)->gate(id);}
+                 ^
+switch3D.cc:230:32: error: cannot initialize object parameter of type 'cComponent' with an expression of type 'queueing::Switch3D'
+                               getDisplayString().setTagArg("i",2, "grey");
+                               ^~~~~~~~~~~~~~~~
+fatal error: too many errors emitted, stopping now [-ferror-limit=]
+20 errors generated.
+make: *** [out/gcc-debug//switch3D.o] Error 1
+22:30:56 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+switch3D.cc
+In file included from switch3D.cc:16:
+./switch3D.h:54:16: error: expected member name or ';' after declaration specifiers
+   Controller3D.h* myCtl;
+   ~~~~~~~~~~~~^
+switch3D.cc:163:13: error: use of undeclared identifier 'myCtl'
+            myCtl = (Ocontroller*)myPtr;
+            ^
+switch3D.cc:163:22: error: use of undeclared identifier 'Ocontroller'
+            myCtl = (Ocontroller*)myPtr;
+                     ^
+switch3D.cc:163:34: error: expected expression
+            myCtl = (Ocontroller*)myPtr;
+                                 ^
+switch3D.cc:168:13: error: use of undeclared identifier 'myCtl'
+            myCtl = NULL;
+            ^
+switch3D.cc:211:13: warning: switch condition has boolean value
+            switch (Switch3D::getSwitchState())
+            ^       ~~~~~~~~~~~~~~~~~~~~~~~~~~
+switch3D.cc:267:45: error: use of undeclared identifier 'myCtl'
+        list<ModuleInfo>::iterator iStart = myCtl->modules.begin();
+                                            ^
+switch3D.cc:268:43: error: use of undeclared identifier 'myCtl'
+        list<ModuleInfo>::iterator iEnd = myCtl->modules.end();
+                                          ^
+switch3D.cc:297:53: error: use of undeclared identifier 'myCtl'
+                list<ModuleInfo>::iterator iStart = myCtl->modules.begin();
+                                                    ^
+switch3D.cc:298:51: error: use of undeclared identifier 'myCtl'
+                list<ModuleInfo>::iterator iEnd = myCtl->modules.end();
+                                                  ^
+1 warning and 9 errors generated.
+make: *** [out/gcc-debug//switch3D.o] Error 1
+22:31:34 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Controller3D.cc
+switch3D.cc
+In file included from switch3D.cc:16:
+./switch3D.h:54:16: error: expected member name or ';' after declaration specifiers
+   Controller3D.h* myCtl;
+   ~~~~~~~~~~~~^
+switch3D.cc:163:13: error: use of undeclared identifier 'myCtl'
+            myCtl = (Ocontroller*)myPtr;
+            ^
+switch3D.cc:163:22: error: use of undeclared identifier 'Ocontroller'
+            myCtl = (Ocontroller*)myPtr;
+                     ^
+switch3D.cc:163:34: error: expected expression
+            myCtl = (Ocontroller*)myPtr;
+                                 ^
+switch3D.cc:168:13: error: use of undeclared identifier 'myCtl'
+            myCtl = NULL;
+            ^
+switch3D.cc:211:13: warning: switch condition has boolean value
+            switch (Switch3D::getSwitchState())
+            ^       ~~~~~~~~~~~~~~~~~~~~~~~~~~
+switch3D.cc:267:45: error: use of undeclared identifier 'myCtl'
+        list<ModuleInfo>::iterator iStart = myCtl->modules.begin();
+                                            ^
+switch3D.cc:268:43: error: use of undeclared identifier 'myCtl'
+        list<ModuleInfo>::iterator iEnd = myCtl->modules.end();
+                                          ^
+switch3D.cc:297:53: error: use of undeclared identifier 'myCtl'
+                list<ModuleInfo>::iterator iStart = myCtl->modules.begin();
+                                                    ^
+switch3D.cc:298:51: error: use of undeclared identifier 'myCtl'
+                list<ModuleInfo>::iterator iEnd = myCtl->modules.end();
+                                                  ^
+1 warning and 9 errors generated.
+make: *** [out/gcc-debug//switch3D.o] Error 1
+22:33:25 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+switch3D.cc
+In file included from switch3D.cc:16:
+./switch3D.h:54:16: error: expected member name or ';' after declaration specifiers
+   Controller3D.h* myCtl;
+   ~~~~~~~~~~~~^
+switch3D.cc:163:13: error: use of undeclared identifier 'myCtl'
+            myCtl = (Ocontroller*)myPtr;
+            ^
+switch3D.cc:163:22: error: use of undeclared identifier 'Ocontroller'
+            myCtl = (Ocontroller*)myPtr;
+                     ^
+switch3D.cc:163:34: error: expected expression
+            myCtl = (Ocontroller*)myPtr;
+                                 ^
+switch3D.cc:168:13: error: use of undeclared identifier 'myCtl'
+            myCtl = NULL;
+            ^
+switch3D.cc:211:13: warning: switch condition has boolean value
+            switch (Switch3D::getSwitchState())
+            ^       ~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning and 5 errors generated.
+make: *** [out/gcc-debug//switch3D.o] Error 1
+22:33:41 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+switch3D.cc
+switch3D.cc:163:22: error: use of undeclared identifier 'Ocontroller'
+            myCtl = (Ocontroller*)myPtr;
+                     ^
+switch3D.cc:163:34: error: expected expression
+            myCtl = (Ocontroller*)myPtr;
+                                 ^
+switch3D.cc:211:13: warning: switch condition has boolean value
+            switch (Switch3D::getSwitchState())
+            ^       ~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning and 2 errors generated.
+make: *** [out/gcc-debug//switch3D.o] Error 1
+22:34:16 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+switch3D.cc
+switch3D.cc:211:13: warning: switch condition has boolean value
+            switch (Switch3D::getSwitchState())
+            ^       ~~~~~~~~~~~~~~~~~~~~~~~~~~
+switch3D.cc:313:9: warning: control reaches end of non-void function [-Wreturn-type]
+        }
+        ^
+2 warnings generated.
+Creating shared library: out/gcc-debug//libqueueinglib.dylib
+duplicate symbol __ZN8queueing5myPtrE in:
+    out/gcc-debug//Controller3D.o
+    out/gcc-debug//Ocontroller.o
+ld: 1 duplicate symbol for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [out/gcc-debug//libqueueinglib.dylib] Error 1
+22:35:04 **** Clean-only build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug clean 
+Cleaning...
+22:35:04 **** Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+MSGC: Job.msg
+Allocate.cc
+Classifier.cc
+Clone.cc
+Controller3D.cc
+Deallocate.cc
+Delay.cc
+Fork.cc
+Job.cc
+JobList.cc
+Join.cc
+Merge.cc
+MSGC: switchingCont.msg
+ModuleInfo.cc
+ModuleInfo.cc:252:10: warning: expression result unused [-Wunused-value]
+    for (currentIter ; currentIter.end()==false; currentIter++)
+         ^~~~~~~~~~~
+1 warning generated.
+MSGC: Oframe.msg
+MSGC: ParameterCont.msg
+MSGC: SyncFrame.msg
+MSGC: contFrame.msg
+MSGC: releaseOFDL.msg
+Ocombiner.cc
+Ocontroller.cc
+Ocontroller.cc:326:18: warning: explicitly assigning a variable of type 'int' to itself [-Wself-assign]
+    frameCounter = frameCounter;
+    ~~~~~~~~~~~~ ^ ~~~~~~~~~~~~
+Ocontroller.cc:482:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+Ocontroller.cc:503:1: warning: control may reach end of non-void function [-Wreturn-type]
+}
+^
+Ocontroller.cc:1048:37: warning: unused variable 'contCurrent' [-Wunused-variable]
+                   SwitchingCont *  contCurrent = (  SwitchingCont *) currentIter();
+                                    ^
+Ocontroller.cc:1469:1: warning: '/*' within block comment [-Wcomment]
+/*
+^
+Ocontroller.cc:2304:10: warning: unused variable 'exit' [-Wunused-variable]
+    bool exit = false;
+         ^
+Ocontroller.cc:2435:22: warning: expression result unused [-Wunused-value]
+                for (currentIter; currentIter.end()==false;currentIter++)
+                     ^~~~~~~~~~~
+Ocontroller.cc:2577:1: warning: control reaches end of non-void function [-Wreturn-type]
+}
+^
+8 warnings generated.
+OFDL.cc
+OFDL.cc:245:15: warning: unused variable 'd' [-Wunused-variable]
+    simtime_t d = simTime() - frm->getTimestamp();
+              ^
+OFDL.cc:256:15: warning: unused variable 'd' [-Wunused-variable]
+    simtime_t d = simTime() - frm->getTimestamp();
+              ^
+2 warnings generated.
+Osink.cc
+Osource.cc
+In file included from Osource.cc:10:
+./Osource.h:40:21: warning: private field 'timeslotSignal' is not used [-Wunused-private-field]
+        simsignal_t timeslotSignal;
+                    ^
+./Osource.h:62:20: warning: private field 'beginingOfTheFrames' is not used [-Wunused-private-field]
+        simtime_t *beginingOfTheFrames;
+                   ^
+2 warnings generated.
+Osplitter.cc
+Osplitter.cc:270:17: warning: switch condition has boolean value
+                switch (Osplitter::getSwitchState())
+                ^       ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+Oswitch.cc
+Oswitch.cc:210:13: warning: switch condition has boolean value
+            switch (Oswitch::getSwitchState())
+            ^       ~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning generated.
+PassiveQueue.cc
+Queue.cc
+ResourceBasedQueue.cc
+ResourcePool.cc
+Router.cc
+SelectionStrategies.cc
+Server.cc
+Sink.cc
+Source.cc
+switch3D.cc
+switch3D.cc:211:13: warning: switch condition has boolean value
+            switch (Switch3D::getSwitchState())
+            ^       ~~~~~~~~~~~~~~~~~~~~~~~~~~
+switch3D.cc:313:9: warning: control reaches end of non-void function [-Wreturn-type]
+        }
+        ^
+2 warnings generated.
+contFrame_m.cc
+Job_m.cc
+Oframe_m.cc
+ParameterCont_m.cc
+releaseOFDL_m.cc
+switchingCont_m.cc
+SyncFrame_m.cc
+Creating shared library: out/gcc-debug//libqueueinglib.dylib
+duplicate symbol __ZN8queueing5myPtrE in:
+    out/gcc-debug//Controller3D.o
+    out/gcc-debug//Ocontroller.o
+ld: 1 duplicate symbol for architecture x86_64
+clang: error: linker command failed with exit code 1 (use -v to see invocation)
+make: *** [out/gcc-debug//libqueueinglib.dylib] Error 1
+01:22:20 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+Controller3D.cc
+switch3D.cc
+switch3D.cc:161:13: error: use of undeclared identifier 'myPtr'
+        if (myPtr != NULL)
+            ^
+switch3D.cc:163:36: error: use of undeclared identifier 'myPtr'
+            myCtl = (Controller3D*)myPtr;
+                                   ^
+switch3D.cc:211:13: warning: switch condition has boolean value
+            switch (Switch3D::getSwitchState())
+            ^       ~~~~~~~~~~~~~~~~~~~~~~~~~~
+1 warning and 2 errors generated.
+make: *** [out/gcc-debug//switch3D.o] Error 1
+01:22:47 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+switch3D.cc
+switch3D.cc:211:13: warning: switch condition has boolean value
+            switch (Switch3D::getSwitchState())
+            ^       ~~~~~~~~~~~~~~~~~~~~~~~~~~
+switch3D.cc:313:9: warning: control reaches end of non-void function [-Wreturn-type]
+        }
+        ^
+2 warnings generated.
+Creating shared library: out/gcc-debug//libqueueinglib.dylib
+01:48:42 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+01:49:24 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+01:59:10 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 

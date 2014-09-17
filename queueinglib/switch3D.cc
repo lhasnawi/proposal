@@ -20,7 +20,7 @@ namespace queueing {
 Define_Module(Switch3D);
 
 
-extern void *myPtr;
+extern void *myPtr3D;
 
 Switch3D::Switch3D() {
     // TODO Auto-generated constructor stub
@@ -158,9 +158,9 @@ void Switch3D::handleMessage(cMessage *msg)
         oswitchCont->setModuleType(4);// module 4 -> switch
         oswitchCont->setKind(0);
 
-        if (myPtr != NULL)
+        if (myPtr3D != NULL)
         {
-            myCtl = (Ocontroller*)myPtr;
+            myCtl = (Controller3D*)myPtr3D;
 
         }
         else
@@ -263,7 +263,7 @@ void Switch3D::handleMessage(cMessage *msg)
 void Switch3D::setModuleBusyStateTo(string moduleName, bool availableState)
 {
 
-        list<ModuleInfo>::iterator itt;
+      /*  list<ModuleInfo>::iterator itt;
         list<ModuleInfo>::iterator iStart = myCtl->modules.begin();
         list<ModuleInfo>::iterator iEnd = myCtl->modules.end();
 
@@ -286,12 +286,13 @@ void Switch3D::setModuleBusyStateTo(string moduleName, bool availableState)
                    }
 
                    }// end of IF moduleType
-               }}
+               }*/
+               }
 
 
         bool Switch3D::getModuleBusyStateTo(string moduleName)
         {
-            bool currentState;
+           /* bool currentState;
 
                 list<ModuleInfo>::iterator itt;
                 list<ModuleInfo>::iterator iStart = myCtl->modules.begin();
@@ -306,7 +307,7 @@ void Switch3D::setModuleBusyStateTo(string moduleName, bool availableState)
 
                            }// end of IF moduleType
                    }
-                return currentState;
+                return currentState;*/
 
 
         }

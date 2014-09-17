@@ -27,6 +27,7 @@ OBJS = \
     $O/Allocate.o \
     $O/Classifier.o \
     $O/Clone.o \
+    $O/Controller3D.o \
     $O/Deallocate.o \
     $O/Delay.o \
     $O/Fork.o \
@@ -171,6 +172,8 @@ $O/Clone.o: Clone.cc \
 	Job.h \
 	Job_m.h \
 	QueueingDefs.h
+$O/Controller3D.o: Controller3D.cc \
+	Controller3D.h
 $O/Deallocate.o: Deallocate.cc \
 	Deallocate.h \
 	IResourcePool.h \
@@ -342,15 +345,11 @@ $O/contFrame_m.o: contFrame_m.cc \
 $O/releaseOFDL_m.o: releaseOFDL_m.cc \
 	releaseOFDL_m.h
 $O/switch3D.o: switch3D.cc \
+	Controller3D.h \
 	ModuleInfo.h \
-	Ocontroller.h \
 	Oframe_m.h \
-	Osource.h \
 	ParameterCont_m.h \
-	QueueingDefs.h \
-	SyncFrame_m.h \
 	contFrame_m.h \
-	releaseOFDL_m.h \
 	switch3D.h \
 	switchingCont_m.h
 $O/switchingCont_m.o: switchingCont_m.cc \
