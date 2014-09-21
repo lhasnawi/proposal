@@ -1,5 +1,12 @@
+<<<<<<< HEAD
 01:59:10 **** Incremental Build of configuration gcc-debug for project queueinglib ****
 make MODE=debug CONFIGNAME=gcc-debug all 
 
 01:59:10 Build Finished (took 62ms)
+=======
+17:47:11 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
+
+17:47:12 Build Finished (took 1s.482ms)
+>>>>>>> FETCH_HEAD
 

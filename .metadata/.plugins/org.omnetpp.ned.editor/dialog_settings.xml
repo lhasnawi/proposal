@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+<<<<<<< HEAD
 	<section name="org.omnetpp.ned.editor.graph.dialogs.PropertiesDialog:simple-module">
 		<item value="689" key="DIALOG_WIDTH"/>
 		<item value="290" key="DIALOG_Y_ORIGIN"/>
@@ -7,5 +8,21 @@
 		<item value="918" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Lucida Grande|13.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 		<item value="0" key="activePage"/>
+=======
+	<section name="org.omnetpp.ned.editor.graph.misc.ParametersDialog">
+		<item value="869" key="DIALOG_WIDTH"/>
+		<item value="185" key="DIALOG_Y_ORIGIN"/>
+		<item value="511" key="DIALOG_HEIGHT"/>
+		<item value="535" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.omnetpp.ned.editor.graph.dialogs.PropertiesDialog:connection">
+		<item value="751" key="DIALOG_WIDTH"/>
+		<item value="57" key="DIALOG_Y_ORIGIN"/>
+		<item value="702" key="DIALOG_HEIGHT"/>
+		<item value="594" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="2" key="activePage"/>
+>>>>>>> FETCH_HEAD
 	</section>
 </section>

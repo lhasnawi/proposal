@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import ned.DelayChannel;
+>>>>>>> FETCH_HEAD
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
@@ -12,13 +16,19 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
+<<<<<<< HEAD
 import org.omnetpp.queueing.Controller3D;
 import org.omnetpp.queueing.Switch3D;
+=======
+import org.omnetpp.queueing.Osink;
+import org.omnetpp.queueing.Source3D;
+>>>>>>> FETCH_HEAD
 
 
 //
 // TODO documentation
 //
+<<<<<<< HEAD
 network Test3D
 {
     @display("bgb=939,660");
@@ -44,5 +54,19 @@ network Test3D
         switch3D5: Switch3D {
             @display("p=672,415");
         }
+=======
+network Network
+{
+    @display("bgb=503,312");
+    submodules:
+        source3D: Source3D {
+            @display("p=63,103");
+        }
+        osink: Osink {
+            @display("p=293,116");
+        }
+    connections:
+        source3D.out --> DelayChannel {  delay = 1s; } --> osink.in++;
+>>>>>>> FETCH_HEAD
 }
 

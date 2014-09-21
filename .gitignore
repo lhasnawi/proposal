@@ -1,0 +1,5 @@
+# exclude everything in this folder
+/Users/Luai/proposal/.metadata/*
+.metadata/.log
+
+.metadata/.log

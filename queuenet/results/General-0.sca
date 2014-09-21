@@ -1,0 +1,23 @@
+version 2
+run General-0-20140916-17:47:15-6168
+attr configname General
+attr datetime 20140916-17:47:15
+attr experiment General
+attr inifile network.ini
+attr iterationvars ""
+attr iterationvars2 $repetition=0
+attr measurement ""
+attr network Network
+attr processid 6168
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+
+scalar Network.source3D 	created:mean 	2
+attr interpolationmode  none
+attr title  "Number of Timeslots Created by Source, mean"
+scalar Network.osink 	arrivedToSink:mean 	1
+attr interpolationmode  none
+attr title  "Number of Timeslots Arrived to Sink, mean"

@@ -1,0 +1,3 @@
+[General]
+network = Network
+*.source3D.timeslotSizeBits.convertUnit(*.source3D.timeslotSizeP,"b")

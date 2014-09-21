@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="TemplateBasedWizard">
+<<<<<<< HEAD
 		<item value="bundleentry://278.fwk11985823/templates/emptynedfile/" key="nedfile.template"/>
 		<item value="bundleentry://278.fwk11985823/templates/emptysimplemodule/" key="simplemodule.template"/>
+=======
+		<item value="bundleentry://273.fwk19395259/templates/emptynedfile/" key="nedfile.template"/>
+		<item value="bundleentry://273.fwk19395259/templates/emptysimplemodule/" key="simplemodule.template"/>
+>>>>>>> FETCH_HEAD
 	</section>
 </section>
