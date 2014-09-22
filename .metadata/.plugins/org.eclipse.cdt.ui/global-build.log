@@ -1339,3 +1339,5 @@ make MODE=debug CONFIGNAME=gcc-debug all
 make MODE=debug CONFIGNAME=gcc-debug all 
 01:11:21 **** Build of configuration gcc-debug for project queueinglib ****
 make MODE=debug CONFIGNAME=gcc-debug all 
+01:16:27 **** Incremental Build of configuration gcc-debug for project queueinglib ****
+make MODE=debug CONFIGNAME=gcc-debug all 
