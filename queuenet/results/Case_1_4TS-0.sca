@@ -1,14 +1,14 @@
 version 2
-run Case_1_4TS-0-20140922-00:53:53-4400
+run Case_1_4TS-0-20140922-01:02:51-4606
 attr configname Case_1_4TS
-attr datetime 20140922-00:53:53
+attr datetime 20140922-01:02:51
 attr experiment Case_1_4TS
 attr inifile OTSI4.ini
-attr iterationvars $0=0
-attr iterationvars2 "$0=0, $repetition=0"
-attr measurement $0=0
+attr iterationvars $0=9
+attr iterationvars2 "$0=9, $repetition=0"
+attr measurement $0=9
 attr network _4TS_OTSI
-attr processid 4400
+attr processid 4606
 attr repetition 0
 attr replication #0
 attr resultdir results
@@ -110,7 +110,7 @@ scalar _4TS_OTSI.ocontroller 	timeslotSizeP 	100000000
 scalar _4TS_OTSI.ocontroller 	numFramesP 	2
 scalar _4TS_OTSI.ocontroller 	dataRateP 	10000000
 scalar _4TS_OTSI.ocontroller 	caseIndex 	1
-scalar _4TS_OTSI.ocontroller 	switchingAssignment 	0
+scalar _4TS_OTSI.ocontroller 	switchingAssignment 	9
 scalar _4TS_OTSI.ocontroller 	switchingAssignmentOdd 	0
 scalar _4TS_OTSI.ocontroller 	switchingAssignmentEven 	0
 scalar _4TS_OTSI.osource 	startTime 	1

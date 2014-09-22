@@ -26,6 +26,6 @@
 <stringAttribute key="org.omnetpp.launch.RUN" value=""/>
 <stringAttribute key="org.omnetpp.launch.SHARED_LIBS" value="${opp_shared_libs:/queuenet}"/>
 <booleanAttribute key="org.omnetpp.launch.SHOW_DEBUG_VIEW" value="false"/>
-<stringAttribute key="org.omnetpp.launch.USER_INTERFACE" value=""/>
+<stringAttribute key="org.omnetpp.launch.USER_INTERFACE" value="Cmdenv"/>
 <stringAttribute key="org.omnetpp.launch.WORKING_DIRECTORY" value="/queuenet"/>
 </launchConfiguration>
