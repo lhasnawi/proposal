@@ -10542,3 +10542,29 @@ java.lang.Exception
 
 !ENTRY org.omnetpp.cdt 1 0 2014-09-22 01:27:43.185
 !MESSAGE CDT's builder is missing from project P/queuenet when org.omnetpp.cdt.MakefileBuilder is running! Not configured, or perhaps a custom builder is in use?
+!SESSION 2014-09-22 12:56:42.990 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -keyring /Users/Luai/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -keyring /Users/Luai/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2014-09-22 12:57:01.599
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.omnetpp.main 1 0 2014-09-22 12:57:05.568
+!MESSAGE OMNeT++ IDE 4.5.0.140714-c6b1772 started.
+!SESSION 2014-09-22 12:57:26.741 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_65
+java.vendor=Apple Inc.
+BootLoader constants: OS=macosx, ARCH=x86, WS=cocoa, NL=en_US
+Framework arguments:  -keyring /Users/Luai/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86 -keyring /Users/Luai/.eclipse_keyring -showlocation
+
+!ENTRY org.eclipse.core.net 1 0 2014-09-22 12:57:33.522
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.omnetpp.main 1 0 2014-09-22 12:57:36.291
+!MESSAGE OMNeT++ IDE 4.5.0.140714-c6b1772 started.
