@@ -44,5 +44,5 @@ simple Osink
         double guardTimeP @unit(s) = (.001s);
     gates:
         input in[];
-        //inout control;        
+        inout control;        
 }

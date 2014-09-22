@@ -1,33 +1,40 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?scdStore version="2"?><scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
+<?scdStore version="2"?>
+
+<scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
 <instance id="org.omnetpp.cdt.gnu.config.debug.203991212">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
-<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/include/c++"/>
-<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/include/c++/mingw32"/>
-<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/include/c++/backward"/>
-<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/include"/>
-<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/../../../../include"/>
-<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/include-fixed"/>
+<includePath path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
+<includePath path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/include"/>
+<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/include/c++" removed="true"/>
+<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/include/c++/mingw32" removed="true"/>
+<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/include/c++/backward" removed="true"/>
+<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/include" removed="true"/>
+<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/../../../../include" removed="true"/>
+<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/include-fixed" removed="true"/>
 <includePath path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/c++/v1" removed="true"/>
 <includePath path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/5.1/include" removed="true"/>
 <includePath path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include" removed="true"/>
 <includePath path="/usr/include" removed="true"/>
 <includePath path="/System/Library/Frameworks (framework directory)" removed="true"/>
 <includePath path="/Library/Frameworks (framework directory)" removed="true"/>
-<includePath path="/Developer/omnetpp-4.5/include" removed="true"/>
+<includePath path="/Developer/omnetpp-4.5/include"/>
 <includePath path="/Users/Luai/proposal/queueinglib"/>
 <includePath path="/Users/Luai/proposal/queueinglib/templates"/>
 <includePath path="/Users/Luai/proposal/queueinglib/templates/queueing"/>
-<includePath path="C:\omnetpp-4.5\include"/>
-<includePath path="C:\Users\Luai\proposal\queueinglib"/>
-<includePath path="C:\Users\Luai\proposal\queueinglib\templates"/>
-<includePath path="C:\Users\Luai\proposal\queueinglib\templates\queueing"/>
+<includePath path="C:\omnetpp-4.5\include" removed="true"/>
+<includePath path="C:\Users\Luai\proposal\queueinglib" removed="true"/>
+<includePath path="C:\Users\Luai\proposal\queueinglib\templates" removed="true"/>
+<includePath path="C:\Users\Luai\proposal\queueinglib\templates\queueing" removed="true"/>
 <definedSymbol symbol="__llvm__=1"/>
 <definedSymbol symbol="__clang__=1"/>
 <definedSymbol symbol="__clang_major__=5"/>
+<definedSymbol symbol="__clang_major__=6"/>
 <definedSymbol symbol="__clang_minor__=1"/>
+<definedSymbol symbol="__clang_minor__=0"/>
 <definedSymbol symbol="__clang_patchlevel__=0"/>
 <definedSymbol symbol="__clang_version__=&quot;5.1 (clang-503.0.40)&quot;"/>
+<definedSymbol symbol="__clang_version__=&quot;6.0 (clang-600.0.51)&quot;"/>
 <definedSymbol symbol="__GNUC_MINOR__=2"/>
 <definedSymbol symbol="__GNUC_MINOR__=7"/>
 <definedSymbol symbol="__GNUC_PATCHLEVEL__=1"/>
@@ -43,6 +50,7 @@
 <definedSymbol symbol="__PRAGMA_REDEFINE_EXTNAME=1"/>
 <definedSymbol symbol="__VERSION__=&quot;4.2.1 Compatible Apple LLVM 5.1 (clang-503.0.40)&quot;"/>
 <definedSymbol symbol="__VERSION__=&quot;4.7.2&quot;"/>
+<definedSymbol symbol="__VERSION__=&quot;4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.51)&quot;"/>
 <definedSymbol symbol="__CONSTANT_CFSTRINGS__=1"/>
 <definedSymbol symbol="__block=__attribute__((__blocks__(byref)))"/>
 <definedSymbol symbol="__BLOCKS__=1"/>
@@ -229,6 +237,7 @@
 <definedSymbol symbol="__MACH__=1"/>
 <definedSymbol symbol="OBJC_NEW_PROPERTIES=1"/>
 <definedSymbol symbol="__apple_build_version__=5030040"/>
+<definedSymbol symbol="__apple_build_version__=6000051"/>
 <definedSymbol symbol="__weak=__attribute__((objc_gc(weak)))"/>
 <definedSymbol symbol="__strong="/>
 <definedSymbol symbol="__unsafe_unretained="/>
