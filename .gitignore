@@ -45,3 +45,4 @@ nbproject
 .project
 .settings
 composer.lock
+*.dylib
