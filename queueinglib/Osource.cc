@@ -135,10 +135,6 @@ void Osource::initialize()
 
 
 
-
-
-
-
 }
 
 void Osource::handleMessage(cMessage *msg)

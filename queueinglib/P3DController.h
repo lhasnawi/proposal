@@ -13,20 +13,32 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package org.omnetpp.queueing;
+#ifndef __QUEUEINGLIB_P3DCONTROLLER_H_
+#define __QUEUEINGLIB_P3DCONTROLLER_H_
 
-//
-// TODO auto-generated module
-//
-simple Switch3D
+#include <omnetpp.h>
+#include "P3DControlMessage_m.h"
+#include "P3DBroadcastParameter_m.h"
+
+namespace queueing {
+
+
+class P3DController : public cSimpleModule
 {
-    
-        @display("i=block/switch,#808000");
-        
-    
-	gates:
-    
-        input in[2];
-        output out[2];
-		inout control;
-}
+private:
+    int numberOfTimeslots;
+    int numberOfFrames;
+    cMessage * P3DControllerEvent;
+    P3DBroadcastParameter * BC;
+
+
+protected:
+    virtual void initialize();
+    virtual void handleMessage(cMessage *msg);
+    virtual void broadcastParameter();
+
+};
+
+} //namespace
+
+#endif
