@@ -1,6 +1,5 @@
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=FETCH_HEAD
 eclipse.preferences.version=1
-<<<<<<< HEAD
-org.eclipse.gef.psize=253
-=======
-org.eclipse.gef.psize=477
->>>>>>> FETCH_HEAD
+org.eclipse.gef.psize=235
