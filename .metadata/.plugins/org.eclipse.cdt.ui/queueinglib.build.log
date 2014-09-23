@@ -1,5 +1,0 @@
-16:18:07 **** Incremental Build of configuration gcc-debug for project queueinglib ****
-make MODE=debug CONFIGNAME=gcc-debug all 
-
-16:18:07 Build Finished (took 755ms)
-
