@@ -43,6 +43,9 @@ OBJS = \
     $O/Osource.o \
     $O/Osplitter.o \
     $O/Oswitch.o \
+    $O/P3DController.o \
+    $O/P3DSink.o \
+    $O/P3DSource.o \
     $O/PassiveQueue.o \
     $O/Queue.o \
     $O/ResourceBasedQueue.o \
@@ -52,11 +55,12 @@ OBJS = \
     $O/Server.o \
     $O/Sink.o \
     $O/Source.o \
-    $O/Source3D.o \
-    $O/switch3D.o \
     $O/contFrame_m.o \
     $O/Job_m.o \
     $O/Oframe_m.o \
+    $O/P3DBroadcastParameter_m.o \
+    $O/P3DControlMessage_m.o \
+    $O/P3DTimeslot_m.o \
     $O/ParameterCont_m.o \
     $O/releaseOFDL_m.o \
     $O/switchingCont_m.o \
@@ -67,6 +71,9 @@ MSGFILES = \
     contFrame.msg \
     Job.msg \
     Oframe.msg \
+    P3DBroadcastParameter.msg \
+    P3DControlMessage.msg \
+    P3DTimeslot.msg \
     ParameterCont.msg \
     releaseOFDL.msg \
     switchingCont.msg \
@@ -287,6 +294,26 @@ $O/Oswitch.o: Oswitch.cc \
 	contFrame_m.h \
 	releaseOFDL_m.h \
 	switchingCont_m.h
+$O/P3DBroadcastParameter_m.o: P3DBroadcastParameter_m.cc \
+	P3DBroadcastParameter_m.h
+$O/P3DControlMessage_m.o: P3DControlMessage_m.cc \
+	P3DControlMessage_m.h
+$O/P3DController.o: P3DController.cc \
+	P3DBroadcastParameter_m.h \
+	P3DControlMessage_m.h \
+	P3DController.h
+$O/P3DSink.o: P3DSink.cc \
+	P3DBroadcastParameter_m.h \
+	P3DControlMessage_m.h \
+	P3DSink.h \
+	P3DTimeslot_m.h
+$O/P3DSource.o: P3DSource.cc \
+	P3DBroadcastParameter_m.h \
+	P3DControlMessage_m.h \
+	P3DSource.h \
+	P3DTimeslot_m.h
+$O/P3DTimeslot_m.o: P3DTimeslot_m.cc \
+	P3DTimeslot_m.h
 $O/ParameterCont_m.o: ParameterCont_m.cc \
 	ParameterCont_m.h
 $O/PassiveQueue.o: PassiveQueue.cc \
@@ -339,25 +366,12 @@ $O/Source.o: Source.cc \
 	Job_m.h \
 	QueueingDefs.h \
 	Source.h
-$O/Source3D.o: Source3D.cc \
-	Oframe_m.h \
-	ParameterCont_m.h \
-	QueueingDefs.h \
-	Source3D.h
 $O/SyncFrame_m.o: SyncFrame_m.cc \
 	SyncFrame_m.h
 $O/contFrame_m.o: contFrame_m.cc \
 	contFrame_m.h
 $O/releaseOFDL_m.o: releaseOFDL_m.cc \
 	releaseOFDL_m.h
-$O/switch3D.o: switch3D.cc \
-	Controller3D.h \
-	ModuleInfo.h \
-	Oframe_m.h \
-	ParameterCont_m.h \
-	contFrame_m.h \
-	switch3D.h \
-	switchingCont_m.h
 $O/switchingCont_m.o: switchingCont_m.cc \
 	switchingCont_m.h
 

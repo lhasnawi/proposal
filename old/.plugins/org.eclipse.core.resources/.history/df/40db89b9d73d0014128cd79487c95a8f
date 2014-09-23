@@ -1,3 +1,0 @@
-[General]
-network = Network
-*.source3D.timeslotSizeBits = convertUnit(timeslotSizeP,"b")
