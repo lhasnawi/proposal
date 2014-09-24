@@ -24,6 +24,7 @@ simple P3DController
     
    int numberOfTimeslotsP = default (2);
    int numberOfFramesP = default (2);
+   int numberofWavelength = default (2);
         gates:
     
     inout control[];

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.omnetpp.common.image.ImageSelectionDialog">
+		<item value="551" key="DIALOG_WIDTH"/>
+		<item value="-94" key="DIALOG_Y_ORIGIN"/>
+		<item value="583" key="DIALOG_HEIGHT"/>
+		<item value="69" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Lucida Grande|13.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="TemplateBasedWizard">
+		<item value="bundleentry://276.fwk10044878/templates/msgfile/" key="msgfile.template"/>
+		<item value="bundleentry://278.fwk10044878/templates/nedfile/" key="nedfile.template"/>
+	</section>
+</section>

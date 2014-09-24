@@ -27,7 +27,6 @@ OBJS = \
     $O/Allocate.o \
     $O/Classifier.o \
     $O/Clone.o \
-    $O/Controller3D.o \
     $O/Deallocate.o \
     $O/Delay.o \
     $O/Fork.o \
@@ -44,6 +43,7 @@ OBJS = \
     $O/Osplitter.o \
     $O/Oswitch.o \
     $O/P3DController.o \
+    $O/P3DModuleDB.o \
     $O/P3DSink.o \
     $O/P3DSource.o \
     $O/PassiveQueue.o \
@@ -59,6 +59,7 @@ OBJS = \
     $O/Job_m.o \
     $O/Oframe_m.o \
     $O/P3DBroadcastParameter_m.o \
+    $O/P3DModuleCont_m.o \
     $O/P3DTimeslot_m.o \
     $O/ParameterCont_m.o \
     $O/releaseOFDL_m.o \
@@ -71,6 +72,7 @@ MSGFILES = \
     Job.msg \
     Oframe.msg \
     P3DBroadcastParameter.msg \
+    P3DModuleCont.msg \
     P3DTimeslot.msg \
     ParameterCont.msg \
     releaseOFDL.msg \
@@ -178,8 +180,6 @@ $O/Clone.o: Clone.cc \
 	Job.h \
 	Job_m.h \
 	QueueingDefs.h
-$O/Controller3D.o: Controller3D.cc \
-	Controller3D.h
 $O/Deallocate.o: Deallocate.cc \
 	Deallocate.h \
 	IResourcePool.h \
@@ -296,13 +296,21 @@ $O/P3DBroadcastParameter_m.o: P3DBroadcastParameter_m.cc \
 	P3DBroadcastParameter_m.h
 $O/P3DController.o: P3DController.cc \
 	P3DBroadcastParameter_m.h \
-	P3DController.h
+	P3DController.h \
+	P3DModuleCont_m.h \
+	P3DModuleDB.h
+$O/P3DModuleCont_m.o: P3DModuleCont_m.cc \
+	P3DModuleCont_m.h
+$O/P3DModuleDB.o: P3DModuleDB.cc \
+	P3DModuleDB.h
 $O/P3DSink.o: P3DSink.cc \
 	P3DBroadcastParameter_m.h \
+	P3DModuleCont_m.h \
 	P3DSink.h \
 	P3DTimeslot_m.h
 $O/P3DSource.o: P3DSource.cc \
 	P3DBroadcastParameter_m.h \
+	P3DModuleCont_m.h \
 	P3DSource.h \
 	P3DTimeslot_m.h
 $O/P3DTimeslot_m.o: P3DTimeslot_m.cc \

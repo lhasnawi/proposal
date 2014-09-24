@@ -18,7 +18,7 @@
 
 #include <omnetpp.h>
 #include "P3DTimeslot_m.h"
-#include "P3DControlMessage_m.h"
+#include "P3DModuleCont_m.h"
 #include "P3DBroadcastParameter_m.h"
 
 namespace queueing {
@@ -35,6 +35,7 @@ private:
 protected:
     virtual void initialize();
     virtual void handleMessage(cMessage *msg);
+    P3DModuleCont * genrateModuleCont();
 };
 
 } //namespace

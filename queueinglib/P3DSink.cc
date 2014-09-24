@@ -15,6 +15,7 @@
 
 #include "P3DSink.h"
 
+
 namespace queueing {
 
 Define_Module(P3DSink);
@@ -33,12 +34,24 @@ void P3DSink::handleMessage(cMessage *msg)
         this->numberOfFrames = BP->getNumberOfFrames();
         delete msg;
 
+        P3DModuleCont *sinkCont = P3DSink::genrateModuleCont();
+        sinkCont->setModuleID(this->getId());
+        sinkCont->setModuleName(this->getName());
+        sinkCont->setModuleType(1);
+        sinkCont->setKind(2);
+        send(sinkCont,"control$o");
+
     }
     else if (msg->getKind()==0)
     {
         this->arrivals++;
         delete msg;
     }
+}
+
+P3DModuleCont * P3DSink::genrateModuleCont(){
+    P3DModuleCont * Mod = new P3DModuleCont();
+    return Mod;
 }
 
 } //namespace

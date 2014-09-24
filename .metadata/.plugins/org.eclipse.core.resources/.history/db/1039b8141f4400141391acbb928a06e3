@@ -1,0 +1,36 @@
+/*
+ * P3DModuleDB.h
+ *
+ *  Created on: Sep 24, 2014
+ *      Author: Luai
+ */
+
+#include <iostream>
+#include <omnetpp.h>
+#include <string>
+
+#ifndef P3DMODULEDB_H_
+#define P3DMODULEDB_H_
+
+namespace queueing {
+using namespace std;
+
+class P3DModuleDB {
+private:
+    int moduleID;
+    string moduleName;
+    int moduleType;
+public:
+    P3DModuleDB();
+    virtual ~P3DModuleDB();
+    int getModuleId() const;
+    void setModuleId(int moduleId);
+    const string& getModuleName() const;
+    void setModuleName(const string& moduleName);
+    int getModuleType() const;
+    void setModuleType(int moduleType);
+};
+
+} /* namespace queueing */
+
+#endif /* P3DMODULEDB_H_ */

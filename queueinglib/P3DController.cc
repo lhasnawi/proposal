@@ -31,8 +31,37 @@ void P3DController::initialize()
 
 void P3DController::handleMessage(cMessage *msg)
 {
-    if (msg->getKind()==1)
-    {}
+    if (msg->getKind()==2)
+    {
+        P3DModuleCont * modCont = check_and_cast<P3DModuleCont *>(msg);
+        P3DModuleDB mod;
+        switch(modCont->getModuleType())
+        {
+        case 0:
+        {
+            mod.setModuleId(modCont->getModuleID());
+            mod.setModuleName(modCont->getModuleName());
+            mod.setModuleType(modCont->getModuleType());
+            mod.setContOutputPortID(msg->getArrivalGateId());
+            sourceSinkList.push_back(mod);
+            delete msg;
+            bubble ("Source added");
+        }
+            break;
+        case 1:
+        {
+            mod.setModuleId(modCont->getModuleID());
+            mod.setModuleName(modCont->getModuleName());
+            mod.setModuleType(modCont->getModuleType());
+            mod.setContOutputPortID(msg->getArrivalGateId());
+            sourceSinkList.push_back(mod);
+            delete msg;
+            bubble ("Sink added");
+        }
+            break;
+        }
+
+    }
 }
 
 void P3DController::broadcastParameter() {

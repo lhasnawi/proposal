@@ -48,6 +48,17 @@ void P3DSource::handleMessage(cMessage *msg){
         this->numberOfFrames = BP->getNumberOfFrames();
         this->numberOfJobs = this->numberOfTimeslots * this->numberOfFrames;
         delete msg;
+
+        P3DModuleCont *osourceCont = P3DSource::genrateModuleCont();
+        osourceCont->setModuleID(this->getId());
+        osourceCont->setModuleName(this->getName());
+        osourceCont->setModuleType(0);
+        osourceCont->setKind(2);
+        send(osourceCont,"control$o");
+
+
+
+
     }
     else if (msg->getKind()==1 && (this->frameIndex < this->numberOfFrames && this->timeslotIndex < this->numberOfTimeslots))
     {
@@ -70,6 +81,11 @@ void P3DSource::increaseTimeslotIndex() {
         this->frameIndex++;
         this->timeslotIndex = 0;
     }
+}
+
+P3DModuleCont * P3DSource::genrateModuleCont(){
+    P3DModuleCont * Mod = new P3DModuleCont();
+    return Mod;
 }
 
 } //namespace

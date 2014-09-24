@@ -15,7 +15,6 @@
 
 import ned.IdealChannel;
 import org.omnetpp.queueing.ControlChannel;
-import org.omnetpp.queueing.Controller3D;
 import org.omnetpp.queueing.P3DController;
 import org.omnetpp.queueing.P3DSink;
 import org.omnetpp.queueing.P3DSource;
@@ -26,19 +25,29 @@ import org.omnetpp.queueing.P3DSource;
 //
 network P3DSwitch2222
 {
-    @display("bgb=547,179;i=block/network;bgi=background/green,t;is=n");
+    @display("bgb=547,247;i=block/network;bgi=background/green,t;is=n");
     submodules:
-        p3DSource: P3DSource {
+        p3DSource0: P3DSource {
             @display("p=67,100");
+
         }
-        p3DSink: P3DSink {
+        p3DSink0: P3DSink {
             @display("p=494,100");
         }
         p3DController: P3DController {
-            @display("p=279,20");
+            @display("p=270,32");
+        }
+        p3DSource1: P3DSource {
+            @display("p=67,189");
+        }
+        p3DSink1: P3DSink {
+            @display("p=494,189");
         }
     connections:
-        p3DSource.dataOut --> IdealChannel --> p3DSink.dataIn;
-        p3DController.control++ <--> ControlChannel <--> p3DSource.control;
-        p3DController.control++ <--> ControlChannel <--> p3DSink.control;
+        p3DSource0.dataOut --> IdealChannel --> p3DSink0.dataIn;
+        p3DController.control++ <--> ControlChannel <--> p3DSource0.control;
+        p3DController.control++ <--> ControlChannel <--> p3DSink0.control;
+        p3DSource1.dataOut --> IdealChannel --> p3DSink1.dataIn;
+        p3DController.control++ <--> ControlChannel <--> p3DSource1.control;
+        p3DController.control++ <--> ControlChannel <--> p3DSink1.control;
 }

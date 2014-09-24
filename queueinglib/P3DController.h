@@ -17,10 +17,16 @@
 #define __QUEUEINGLIB_P3DCONTROLLER_H_
 
 #include <omnetpp.h>
-#include "P3DControlMessage_m.h"
+#include "P3DModuleCont_m.h"
 #include "P3DBroadcastParameter_m.h"
+#include <P3DModuleDB.h>
+#include <list>
+#include <string.h>
+#include <string>
+#include <iostream>
 
 namespace queueing {
+using namespace std;
 
 
 class P3DController : public cSimpleModule
@@ -30,6 +36,8 @@ private:
     int numberOfFrames;
     cMessage * P3DControllerEvent;
     P3DBroadcastParameter * BC;
+    list <P3DModuleDB> sourceSinkList;
+    list <P3DModuleDB> switchesList;
 
 
 protected:

@@ -18,8 +18,9 @@
 
 #include <omnetpp.h>
 #include "P3DTimeslot_m.h"
-#include "P3DControlMessage_m.h"
 #include "P3DBroadcastParameter_m.h"
+#include "P3DModuleCont_m.h"
+
 
 namespace queueing {
 
@@ -38,14 +39,17 @@ class P3DSource : public cSimpleModule
     P3DTimeslot * TS;
     cMessage * P3DSourceEvent;
 
+
   protected:
     virtual void initialize();
     virtual void handleMessage(cMessage *msg);
   public:
     P3DTimeslot * generateTimeslot();
+    P3DModuleCont * genrateModuleCont();
     void increaseTimeslotIndex();
 };
 
 } //namespace
 
 #endif
+;
