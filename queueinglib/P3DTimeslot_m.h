@@ -33,6 +33,7 @@ namespace queueing {
  * packet P3DTimeslot {
  *     
  *     int timeslotIndex;
+ *     int frameIndex;
  * 
  *     
  * 
@@ -43,6 +44,7 @@ class QUEUEING_API P3DTimeslot : public ::cPacket
 {
   protected:
     int timeslotIndex_var;
+    int frameIndex_var;
 
   private:
     void copy(const P3DTimeslot& other);
@@ -63,6 +65,8 @@ class QUEUEING_API P3DTimeslot : public ::cPacket
     // field getter/setter methods
     virtual int getTimeslotIndex() const;
     virtual void setTimeslotIndex(int timeslotIndex);
+    virtual int getFrameIndex() const;
+    virtual void setFrameIndex(int frameIndex);
 };
 
 inline void doPacking(cCommBuffer *b, P3DTimeslot& obj) {obj.parsimPack(b);}

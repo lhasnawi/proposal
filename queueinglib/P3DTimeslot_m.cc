@@ -59,6 +59,7 @@ Register_Class(P3DTimeslot);
 P3DTimeslot::P3DTimeslot(const char *name, int kind) : ::cPacket(name,kind)
 {
     this->timeslotIndex_var = 0;
+    this->frameIndex_var = 0;
 }
 
 P3DTimeslot::P3DTimeslot(const P3DTimeslot& other) : ::cPacket(other)
@@ -81,18 +82,21 @@ P3DTimeslot& P3DTimeslot::operator=(const P3DTimeslot& other)
 void P3DTimeslot::copy(const P3DTimeslot& other)
 {
     this->timeslotIndex_var = other.timeslotIndex_var;
+    this->frameIndex_var = other.frameIndex_var;
 }
 
 void P3DTimeslot::parsimPack(cCommBuffer *b)
 {
     ::cPacket::parsimPack(b);
     doPacking(b,this->timeslotIndex_var);
+    doPacking(b,this->frameIndex_var);
 }
 
 void P3DTimeslot::parsimUnpack(cCommBuffer *b)
 {
     ::cPacket::parsimUnpack(b);
     doUnpacking(b,this->timeslotIndex_var);
+    doUnpacking(b,this->frameIndex_var);
 }
 
 int P3DTimeslot::getTimeslotIndex() const
@@ -103,6 +107,16 @@ int P3DTimeslot::getTimeslotIndex() const
 void P3DTimeslot::setTimeslotIndex(int timeslotIndex)
 {
     this->timeslotIndex_var = timeslotIndex;
+}
+
+int P3DTimeslot::getFrameIndex() const
+{
+    return frameIndex_var;
+}
+
+void P3DTimeslot::setFrameIndex(int frameIndex)
+{
+    this->frameIndex_var = frameIndex;
 }
 
 class P3DTimeslotDescriptor : public cClassDescriptor
@@ -152,7 +166,7 @@ const char *P3DTimeslotDescriptor::getProperty(const char *propertyname) const
 int P3DTimeslotDescriptor::getFieldCount(void *object) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
-    return basedesc ? 1+basedesc->getFieldCount(object) : 1;
+    return basedesc ? 2+basedesc->getFieldCount(object) : 2;
 }
 
 unsigned int P3DTimeslotDescriptor::getFieldTypeFlags(void *object, int field) const
@@ -165,8 +179,9 @@ unsigned int P3DTimeslotDescriptor::getFieldTypeFlags(void *object, int field) c
     }
     static unsigned int fieldTypeFlags[] = {
         FD_ISEDITABLE,
+        FD_ISEDITABLE,
     };
-    return (field>=0 && field<1) ? fieldTypeFlags[field] : 0;
+    return (field>=0 && field<2) ? fieldTypeFlags[field] : 0;
 }
 
 const char *P3DTimeslotDescriptor::getFieldName(void *object, int field) const
@@ -179,8 +194,9 @@ const char *P3DTimeslotDescriptor::getFieldName(void *object, int field) const
     }
     static const char *fieldNames[] = {
         "timeslotIndex",
+        "frameIndex",
     };
-    return (field>=0 && field<1) ? fieldNames[field] : NULL;
+    return (field>=0 && field<2) ? fieldNames[field] : NULL;
 }
 
 int P3DTimeslotDescriptor::findField(void *object, const char *fieldName) const
@@ -188,6 +204,7 @@ int P3DTimeslotDescriptor::findField(void *object, const char *fieldName) const
     cClassDescriptor *basedesc = getBaseClassDescriptor();
     int base = basedesc ? basedesc->getFieldCount(object) : 0;
     if (fieldName[0]=='t' && strcmp(fieldName, "timeslotIndex")==0) return base+0;
+    if (fieldName[0]=='f' && strcmp(fieldName, "frameIndex")==0) return base+1;
     return basedesc ? basedesc->findField(object, fieldName) : -1;
 }
 
@@ -201,8 +218,9 @@ const char *P3DTimeslotDescriptor::getFieldTypeString(void *object, int field) c
     }
     static const char *fieldTypeStrings[] = {
         "int",
+        "int",
     };
-    return (field>=0 && field<1) ? fieldTypeStrings[field] : NULL;
+    return (field>=0 && field<2) ? fieldTypeStrings[field] : NULL;
 }
 
 const char *P3DTimeslotDescriptor::getFieldProperty(void *object, int field, const char *propertyname) const
@@ -243,6 +261,7 @@ std::string P3DTimeslotDescriptor::getFieldAsString(void *object, int field, int
     P3DTimeslot *pp = (P3DTimeslot *)object; (void)pp;
     switch (field) {
         case 0: return long2string(pp->getTimeslotIndex());
+        case 1: return long2string(pp->getFrameIndex());
         default: return "";
     }
 }
@@ -258,6 +277,7 @@ bool P3DTimeslotDescriptor::setFieldAsString(void *object, int field, int i, con
     P3DTimeslot *pp = (P3DTimeslot *)object; (void)pp;
     switch (field) {
         case 0: pp->setTimeslotIndex(string2long(value)); return true;
+        case 1: pp->setFrameIndex(string2long(value)); return true;
         default: return false;
     }
 }

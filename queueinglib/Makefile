@@ -59,7 +59,6 @@ OBJS = \
     $O/Job_m.o \
     $O/Oframe_m.o \
     $O/P3DBroadcastParameter_m.o \
-    $O/P3DControlMessage_m.o \
     $O/P3DTimeslot_m.o \
     $O/ParameterCont_m.o \
     $O/releaseOFDL_m.o \
@@ -72,7 +71,6 @@ MSGFILES = \
     Job.msg \
     Oframe.msg \
     P3DBroadcastParameter.msg \
-    P3DControlMessage.msg \
     P3DTimeslot.msg \
     ParameterCont.msg \
     releaseOFDL.msg \
@@ -296,20 +294,15 @@ $O/Oswitch.o: Oswitch.cc \
 	switchingCont_m.h
 $O/P3DBroadcastParameter_m.o: P3DBroadcastParameter_m.cc \
 	P3DBroadcastParameter_m.h
-$O/P3DControlMessage_m.o: P3DControlMessage_m.cc \
-	P3DControlMessage_m.h
 $O/P3DController.o: P3DController.cc \
 	P3DBroadcastParameter_m.h \
-	P3DControlMessage_m.h \
 	P3DController.h
 $O/P3DSink.o: P3DSink.cc \
 	P3DBroadcastParameter_m.h \
-	P3DControlMessage_m.h \
 	P3DSink.h \
 	P3DTimeslot_m.h
 $O/P3DSource.o: P3DSource.cc \
 	P3DBroadcastParameter_m.h \
-	P3DControlMessage_m.h \
 	P3DSource.h \
 	P3DTimeslot_m.h
 $O/P3DTimeslot_m.o: P3DTimeslot_m.cc \

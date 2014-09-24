@@ -19,26 +19,24 @@ namespace queueing {
 
 Define_Module(P3DSource);
 
-
-
 P3DTimeslot * P3DSource::generateTimeslot(){
     TS = new P3DTimeslot();
     TS->setKind(0);
     TS->setByteLength(1500);
     TS->setName("Timeslot");
+    TS->setTimeslotIndex(this->timeslotIndex);
+    TS->setFrameIndex(this->frameIndex);
+    increaseTimeslotIndex();
     return TS;
 
 }
 
-
-
 void P3DSource::initialize(){
-    this->timeslotCounter=0;
-
+    this->timeslotIndex=0;
+    this->frameIndex=0;
     P3DSourceEvent = new cMessage();
     P3DSourceEvent->setKind(1);
     P3DSourceEvent->setName("SourceEvent");
-
     scheduleAt(1, P3DSourceEvent);
 }
 
@@ -51,16 +49,26 @@ void P3DSource::handleMessage(cMessage *msg){
         this->numberOfJobs = this->numberOfTimeslots * this->numberOfFrames;
         delete msg;
     }
-    else if (msg->getKind()==1 && this->timeslotCounter < this->numberOfJobs)
+    else if (msg->getKind()==1 && (this->frameIndex < this->numberOfFrames && this->timeslotIndex < this->numberOfTimeslots))
     {
         scheduleAt(simTime()+1, P3DSourceEvent);
         P3DTimeslot *TS = generateTimeslot();
         send (TS,"dataOut");
-        this->timeslotCounter++;
+
     }
     else
     {
         delete msg;
+    }
+}
+
+void P3DSource::increaseTimeslotIndex() {
+
+    this->timeslotIndex++;
+    if (timeslotIndex >= numberOfTimeslots)
+    {
+        this->frameIndex++;
+        this->timeslotIndex = 0;
     }
 }
 

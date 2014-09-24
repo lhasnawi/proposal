@@ -21,6 +21,7 @@ namespace queueing;
 packet P3DTimeslot {
     
     int timeslotIndex;
+    int frameIndex;
 
     
 

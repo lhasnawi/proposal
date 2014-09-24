@@ -29,10 +29,12 @@ namespace queueing {
 class P3DSource : public cSimpleModule
 {
   private:
-    int timeslotCounter;
     int numberOfJobs;
     int numberOfTimeslots;
     int numberOfFrames;
+    int timeslotIndex;
+    int frameIndex;
+
     P3DTimeslot * TS;
     cMessage * P3DSourceEvent;
 
@@ -41,6 +43,7 @@ class P3DSource : public cSimpleModule
     virtual void handleMessage(cMessage *msg);
   public:
     P3DTimeslot * generateTimeslot();
+    void increaseTimeslotIndex();
 };
 
 } //namespace
