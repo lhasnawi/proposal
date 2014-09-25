@@ -28,4 +28,5 @@ simple P3DController
         gates:
     
     inout control[];
+    inout modDB;
 }

@@ -19,11 +19,12 @@
 #include <omnetpp.h>
 #include "P3DModuleCont_m.h"
 #include "P3DBroadcastParameter_m.h"
-#include <P3DModuleDB.h>
 #include <list>
 #include <string.h>
 #include <string>
 #include <iostream>
+#include <P3DModuleDB.h>
+#include "P3DMod.h"
 
 namespace queueing {
 using namespace std;
@@ -38,6 +39,7 @@ private:
     P3DBroadcastParameter * BC;
     list <P3DModuleDB> sourceSinkList;
     list <P3DModuleDB> switchesList;
+
 
 
 protected:

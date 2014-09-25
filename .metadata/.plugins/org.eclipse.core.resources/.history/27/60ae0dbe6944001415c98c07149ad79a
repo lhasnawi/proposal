@@ -1,0 +1,97 @@
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+//
+//
+// TODO documentation
+//
+import ned.IdealChannel;
+import org.omnetpp.queueing.ControlChannel;
+import org.omnetpp.queueing.P3DController;
+import org.omnetpp.queueing.P3DMod;
+import org.omnetpp.queueing.P3DSink;
+import org.omnetpp.queueing.P3DSource;
+import org.omnetpp.queueing.P3DWLC;
+
+
+network P3DSwitch
+{
+    @display("bgb=1044,453");
+    submodules:
+        Source0w0: P3DSource {
+            @display("p=67,100");
+
+        }
+        p3DSink0: P3DSink {
+            @display("p=938,100");
+        }
+        p3DController: P3DController {
+            @display("p=521,32");
+        }
+        Source1w1: P3DSource {
+            @display("p=67,189");
+        }
+        p3DSink1: P3DSink {
+            @display("p=938,189");
+        }
+        p3DMod: P3DMod {
+            @display("p=838,24");
+        }
+        Source2w0: P3DSource {
+            @display("p=67,260");
+        }
+        Source3w1: P3DSource {
+            @display("p=64,350");
+        }
+        p3DSink2: P3DSink {
+            @display("p=938,260");
+        }
+        p3DSink3: P3DSink {
+            @display("p=938,350");
+        }
+        WLC01: P3DWLC {
+            @display("p=521,121");
+        }
+        WLC10: P3DWLC {
+            @display("p=521,210");
+        }
+        WLC01_2: P3DWLC {
+            @display("p=521,281");
+        }
+        WLC10_2: P3DWLC {
+            @display("p=521,371");
+        }
+        p3DSwitch: org.omnetpp.queueing.P3DSwitch {
+            @display("p=287,171");
+        }
+        p3DSwitch1: org.omnetpp.queueing.P3DSwitch {
+            @display("p=287,270");
+        }
+        p3DSwitch2: org.omnetpp.queueing.P3DSwitch {
+            @display("p=747,152");
+        }
+        p3DSwitch3: org.omnetpp.queueing.P3DSwitch {
+            @display("p=756,281");
+        }
+    connections:
+        p3DController.control++ <--> ControlChannel <--> Source0w0.control;
+        p3DController.control++ <--> ControlChannel <--> p3DSink0.control;
+        p3DController.control++ <--> ControlChannel <--> Source1w1.control;
+        p3DController.control++ <--> ControlChannel <--> p3DSink1.control;
+        p3DController.modDB <--> ControlChannel <--> p3DMod.control;
+        Source2w0.control <--> ControlChannel <--> p3DController.control++;
+        Source3w1.control <--> ControlChannel <--> p3DController.control++;
+        p3DSink2.control <--> ControlChannel <--> p3DController.control++;
+        p3DSink3.control <--> ControlChannel <--> p3DController.control++;
+}
+

@@ -26,6 +26,7 @@ P3DTimeslot * P3DSource::generateTimeslot(){
     TS->setName("Timeslot");
     TS->setTimeslotIndex(this->timeslotIndex);
     TS->setFrameIndex(this->frameIndex);
+    TS->setWavelegnthIndex(par("wavelengthP"));
     increaseTimeslotIndex();
     return TS;
 

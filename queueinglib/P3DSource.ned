@@ -22,7 +22,7 @@ simple P3DSource
 {
     @display("i=block/source;is=n");
     
-    int wavelength = default (0);   
+    int wavelengthP;  
     gates:
         output dataOut;
         inout control;

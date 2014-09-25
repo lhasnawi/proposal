@@ -43,9 +43,12 @@ OBJS = \
     $O/Osplitter.o \
     $O/Oswitch.o \
     $O/P3DController.o \
+    $O/P3DMod.o \
     $O/P3DModuleDB.o \
     $O/P3DSink.o \
     $O/P3DSource.o \
+    $O/P3DSwitch.o \
+    $O/P3DWLC.o \
     $O/PassiveQueue.o \
     $O/Queue.o \
     $O/ResourceBasedQueue.o \
@@ -297,6 +300,11 @@ $O/P3DBroadcastParameter_m.o: P3DBroadcastParameter_m.cc \
 $O/P3DController.o: P3DController.cc \
 	P3DBroadcastParameter_m.h \
 	P3DController.h \
+	P3DMod.h \
+	P3DModuleCont_m.h \
+	P3DModuleDB.h
+$O/P3DMod.o: P3DMod.cc \
+	P3DMod.h \
 	P3DModuleCont_m.h \
 	P3DModuleDB.h
 $O/P3DModuleCont_m.o: P3DModuleCont_m.cc \
@@ -313,8 +321,13 @@ $O/P3DSource.o: P3DSource.cc \
 	P3DModuleCont_m.h \
 	P3DSource.h \
 	P3DTimeslot_m.h
+$O/P3DSwitch.o: P3DSwitch.cc \
+	P3DSwitch.h
 $O/P3DTimeslot_m.o: P3DTimeslot_m.cc \
 	P3DTimeslot_m.h
+$O/P3DWLC.o: P3DWLC.cc \
+	P3DTimeslot_m.h \
+	P3DWLC.h
 $O/ParameterCont_m.o: ParameterCont_m.cc \
 	ParameterCont_m.h
 $O/PassiveQueue.o: PassiveQueue.cc \

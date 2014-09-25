@@ -1,0 +1,7 @@
+[General]
+network = P3DSwitch2222
+*.p3DSource0.wavelength = 0
+*.p3DSource1.wavelength = 1
+*.p3DSource2.wavelength = 0
+*.p3DSource3.wavelength = 1
+

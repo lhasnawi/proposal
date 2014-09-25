@@ -20,3 +20,17 @@ Tcl error: moduleinspector.cc#594: no such field in this object
 "ModuleInspector:drawMessageOnGate .network.c ptr030FE808 ptr0311BA18"
 
 
+----------------------------------------------------------------------
+
+
+Tcl error: moduleinspector.cc#631: ptr0x7f94959a0750 not found
+    while executing
+"error "$tag not found""
+    (procedure "ModuleInspector:getSubmodCoords" line 4)
+    invoked from within
+"ModuleInspector:getSubmodCoords $c $modptr"
+    (procedure "ModuleInspector:drawNextEventMarker" line 2)
+    invoked from within
+"ModuleInspector:drawNextEventMarker .network.c ptr0x7f94959a0750 2"
+
+

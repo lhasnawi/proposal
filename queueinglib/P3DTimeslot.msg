@@ -22,6 +22,7 @@ packet P3DTimeslot {
     
     int timeslotIndex;
     int frameIndex;
+    int wavelegnthIndex;
 
     
 
