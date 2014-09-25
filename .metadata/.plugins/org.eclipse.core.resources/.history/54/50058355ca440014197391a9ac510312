@@ -1,9 +1,9 @@
 [General]
 network = P3DSwitch2222
-*.Source0w0.wavelengthP = 0
-*.Source1w1.wavelengthP = 1
-*.Source2w0.wavelengthP = 0
-*.Source3w1.wavelengthP = 1
+*.p3DSource0.wavelengthP = 0
+*.p3DSource1.wavelengthP = 1
+*.p3DSource2.wavelengthP = 0
+*.p3DSource3.wavelengthP = 1
 *.WLC01.inWL = 0
 *.WLC01.outWL = 1
 *.WLC10.inWL = 1
