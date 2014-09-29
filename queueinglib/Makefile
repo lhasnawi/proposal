@@ -58,6 +58,10 @@ OBJS = \
     $O/Server.o \
     $O/Sink.o \
     $O/Source.o \
+    $O/SSCombiner.o \
+    $O/SSController.o \
+    $O/SSSource.o \
+    $O/SSSplitter.o \
     $O/contFrame_m.o \
     $O/Job_m.o \
     $O/Oframe_m.o \
@@ -355,6 +359,27 @@ $O/ResourcePool.o: ResourcePool.cc \
 $O/Router.o: Router.cc \
 	QueueingDefs.h \
 	Router.h
+$O/SSCombiner.o: SSCombiner.cc \
+	Oframe_m.h \
+	P3DBroadcastParameter_m.h \
+	P3DModuleCont_m.h \
+	SSCombiner.h
+$O/SSController.o: SSController.cc \
+	P3DBroadcastParameter_m.h \
+	P3DMod.h \
+	P3DModuleCont_m.h \
+	P3DModuleDB.h \
+	SSController.h
+$O/SSSource.o: SSSource.cc \
+	Oframe_m.h \
+	P3DBroadcastParameter_m.h \
+	P3DModuleCont_m.h \
+	SSSource.h
+$O/SSSplitter.o: SSSplitter.cc \
+	Oframe_m.h \
+	P3DBroadcastParameter_m.h \
+	P3DModuleCont_m.h \
+	SSSplitter.h
 $O/SelectionStrategies.o: SelectionStrategies.cc \
 	IPassiveQueue.h \
 	IServer.h \

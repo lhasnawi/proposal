@@ -2,26 +2,32 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="289" key="DIALOG_WIDTH"/>
-		<item value="199" key="DIALOG_Y_ORIGIN"/>
-		<item value="816" key="DIALOG_X_ORIGIN"/>
+		<item value="155" key="DIALOG_Y_ORIGIN"/>
 		<item value="417" key="DIALOG_HEIGHT"/>
+		<item value="1248" key="DIALOG_X_ORIGIN"/>
 		<item value="1|Lucida Grande|13.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="casesensitive"/>
 		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="" key="selection"/>
+		<item value="Duration" key="selection"/>
 		<list key="findhistory">
+			<item value="duration"/>
+			<item value="out"/>
+			<item value="in"/>
+			<item value="getSwitchState"/>
+			<item value="TS"/>
 			<item value="wat"/>
 			<item value="modules"/>
 			<item value="genrateCont"/>
-			<item value="P3DControllerEvent"/>
-			<item value="kind"/>
 		</list>
 		<list key="replacehistory">
+			<item value="dataOut"/>
+			<item value="dataIn"/>
+			<item value="frm"/>
 		</list>
 	</section>
 </section>

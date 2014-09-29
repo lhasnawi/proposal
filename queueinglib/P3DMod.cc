@@ -53,7 +53,42 @@ void P3DMod::handleMessage(cMessage *msg)
             bubble ("Sink added");
         }
             break;
+        case 2:
+        {
+            mod.setModuleId(modCont->getModuleID());
+            mod.setModuleName(modCont->getModuleName());
+            mod.setModuleType(modCont->getModuleType());
+            mod.setContOutputPortId(modCont->getArrivalGateId());
+            switchesList.push_back(mod);
+            delete msg;
+            bubble ("Splitter added");
         }
+            break;
+
+        case 3:
+        {
+            mod.setModuleId(modCont->getModuleID());
+            mod.setModuleName(modCont->getModuleName());
+            mod.setModuleType(modCont->getModuleType());
+            mod.setContOutputPortId(modCont->getArrivalGateId());
+            switchesList.push_back(mod);
+            delete msg;
+            bubble ("Switch added");
+        }
+            break;
+        case 4:
+        {
+            mod.setModuleId(modCont->getModuleID());
+            mod.setModuleName(modCont->getModuleName());
+            mod.setModuleType(modCont->getModuleType());
+            mod.setContOutputPortId(modCont->getArrivalGateId());
+            switchesList.push_back(mod);
+            delete msg;
+            bubble ("Combiner added");
+        }
+            break;
+        }
+
 
 
 }

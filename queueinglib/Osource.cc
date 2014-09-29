@@ -202,7 +202,6 @@ void Osource::finish()
 
 }
 
-        //Setters
 
 void Osource::setFrameCounter()
 {
@@ -213,7 +212,6 @@ void Osource::setTimeslotCounter()
 {
     timeslotCounter =0;
 }
-
 
 
 double Osource::getInterArrivalTime()
@@ -231,12 +229,6 @@ void Osource::setJobCounter(int jobCounter)
     this->jobCounter = jobCounter;
 }
 
-
-
-        //Getters
-
-
-
 int Osource::getFrameCounter()
 {
     return frameCounter;
@@ -251,8 +243,6 @@ int Osource::getJobCounter() const
 {
     return jobCounter;
 }
-
-
 
 void Osource::increaseFrameCounter()
 {
@@ -337,8 +327,6 @@ void Osource::increaseJobCounter()
 
     this->jobCounter++;
 }
-
-
 
 
 }; //namespace

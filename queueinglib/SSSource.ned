@@ -28,5 +28,5 @@ simple SSSource
      
     gates:
         inout control;
-        output out;
+        output dataOut;
 }

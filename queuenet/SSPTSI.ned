@@ -17,10 +17,14 @@ import ned.IdealChannel;
 import org.omnetpp.queueing.ControlChannel;
 import org.omnetpp.queueing.OFDL;
 import org.omnetpp.queueing.Ocombiner;
+import org.omnetpp.queueing.Osink;
 import org.omnetpp.queueing.Osplitter;
 import org.omnetpp.queueing.Oswitch;
+import org.omnetpp.queueing.P3DMod;
+import org.omnetpp.queueing.SSCombiner;
 import org.omnetpp.queueing.SSController;
 import org.omnetpp.queueing.SSSource;
+import org.omnetpp.queueing.SSSplitter;
 
 
 //
@@ -28,29 +32,8 @@ import org.omnetpp.queueing.SSSource;
 //
 network SSPTSI
 {
-    @display("bgb=942,635;bgg=40,2,grey70");
+    @display("bgb=991,635;bgg=40,2,grey70");
     submodules:
-        osplitter0: Osplitter {
-            @display("p=134,422");
-        }
-        osplitter1: Osplitter {
-            @display("p=222,326");
-        }
-        osplitter2: Osplitter {
-            @display("p=222,505");
-        }
-        osplitter3: Osplitter {
-            @display("p=299,287");
-        }
-        osplitter4: Osplitter {
-            @display("p=301,369");
-        }
-        osplitter5: Osplitter {
-            @display("p=299,453");
-        }
-        osplitter6: Osplitter {
-            @display("p=301,546");
-        }
         ofdl: OFDL {
             @display("p=383,268;is=s");
         }
@@ -135,32 +118,59 @@ network SSPTSI
         ofdl27: OFDL {
             @display("p=497,515;is=s");
         }
-        ocombiner: Ocombiner {
-            @display("p=867,414");
-        }
-        ocombiner1: Ocombiner {
-            @display("p=803,330");
-        }
-        ocombiner2: Ocombiner {
-            @display("p=803,505");
-        }
-        ocombiner3: Ocombiner {
-            @display("p=725,287");
-        }
-        ocombiner4: Ocombiner {
-            @display("p=725,383");
-        }
-        ocombiner5: Ocombiner {
-            @display("p=725,453");
-        }
-        ocombiner6: Ocombiner {
-            @display("p=725,546");
-        }
         ssSource: SSSource {
-            @display("p=28,414");
+            @display("p=30,422");
         }
         ssController: SSController {
             @display("p=488,33");
+        }
+        p3DMod: P3DMod {
+            @display("p=669,33");
+        }
+        osink: Osink {
+            @display("p=951,408");
+        }
+        ssSplitter0: SSSplitter {
+            @display("p=102,424");
+        }
+        ssSplitter1: SSSplitter {
+            @display("p=199,330");
+        }
+        ssSplitter2: SSSplitter {
+            @display("p=199,453");
+        }
+        ssSplitter3: SSSplitter {
+            @display("p=298,287");
+        }
+        ssSplitter4: SSSplitter {
+            @display("p=298,369");
+        }
+        ssSplitter5: SSSplitter {
+            @display("p=298,447");
+        }
+        ssSplitter6: SSSplitter {
+            @display("p=298,523");
+        }
+        ssCombiner: SSCombiner {
+            @display("p=884,409");
+        }
+        ssCombiner1: SSCombiner {
+            @display("p=827,330");
+        }
+        ssCombiner2: SSCombiner {
+            @display("p=827,474");
+        }
+        ssCombiner3: SSCombiner {
+            @display("p=736,270");
+        }
+        ssCombiner4: SSCombiner {
+            @display("p=736,361");
+        }
+        ssCombiner5: SSCombiner {
+            @display("p=736,447");
+        }
+        ssCombiner6: SSCombiner {
+            @display("p=736,546");
         }
     connections:
         ofdl.out --> IdealChannel --> ofdl1.in;
@@ -184,43 +194,7 @@ network SSPTSI
         ofdl22.out --> IdealChannel --> ofdl23.in;
         ofdl23.out --> IdealChannel --> ofdl24.in;
         ofdl25.out --> IdealChannel --> ofdl26.in;
-        osplitter3.out[0] --> IdealChannel --> ofdl.in;
-        osplitter3.out[1] --> IdealChannel --> ofdl7.in;
-        osplitter4.out[0] --> IdealChannel --> ofdl13.in;
-        osplitter4.out[1] --> IdealChannel --> ofdl18.in;
-        osplitter5.out[0] --> IdealChannel --> ofdl22.in;
-        osplitter5.out[1] --> IdealChannel --> ofdl25.in;
-        osplitter6.out[0] --> IdealChannel --> ofdl27.in;
-        osplitter6.out[1] --> IdealChannel --> ocombiner6.in[1];
-        osplitter1.out[0] --> IdealChannel --> osplitter3.in;
-        osplitter1.out[1] --> IdealChannel --> osplitter4.in;
-        osplitter2.out[0] --> IdealChannel --> osplitter5.in;
-        osplitter2.out[1] --> IdealChannel --> osplitter6.in;
-        osplitter0.out[0] --> IdealChannel --> osplitter1.in;
-        osplitter0.out[1] --> IdealChannel --> osplitter2.in;
-
-        ofdl6.out --> IdealChannel --> ocombiner3.in[0];
-        ofdl12.out --> IdealChannel --> ocombiner3.in[1];
-        ofdl17.out --> IdealChannel --> ocombiner4.in[0];
-        ofdl21.out --> IdealChannel --> ocombiner4.in[1];
-        ofdl24.out --> IdealChannel --> ocombiner5.in[0];
-        ofdl26.out --> IdealChannel --> ocombiner5.in[1];
-        ofdl27.out --> IdealChannel --> ocombiner6.in[0];
-        ocombiner3.out --> IdealChannel --> ocombiner1.in[0];
-        ocombiner4.out --> IdealChannel --> ocombiner1.in[1];
-        ocombiner5.out --> IdealChannel --> ocombiner2.in[0];
-        ocombiner6.out --> IdealChannel --> ocombiner2.in[1];
-        ocombiner1.out --> IdealChannel --> ocombiner.in[0];
-        ocombiner2.out --> IdealChannel --> ocombiner.in[1];
-        ssSource.out --> IdealChannel --> osplitter0.in;
         ssController.control++ <--> ControlChannel <--> ssSource.control;
-        ssController.control++ <--> ControlChannel <--> osplitter1.control;
-        ssController.control++ <--> ControlChannel <--> osplitter0.control;
-        ssController.control++ <--> ControlChannel <--> osplitter3.control;
-        ssController.control++ <--> ControlChannel <--> osplitter4.control;
-        ssController.control++ <--> ControlChannel <--> osplitter2.control;
-        ssController.control++ <--> ControlChannel <--> osplitter5.control;
-        ssController.control++ <--> ControlChannel <--> osplitter6.control;
         ssController.control++ <--> ControlChannel <--> ofdl.control;
         ssController.control++ <--> ControlChannel <--> ofdl1.control;
         ssController.control++ <--> ControlChannel <--> ofdl2.control;
@@ -249,11 +223,49 @@ network SSPTSI
         ssController.control++ <--> ControlChannel <--> ofdl25.control;
         ssController.control++ <--> ControlChannel <--> ofdl26.control;
         ssController.control++ <--> ControlChannel <--> ofdl27.control;
-        ssController.control++ <--> ControlChannel <--> ocombiner3.control;
-        ssController.control++ <--> ControlChannel <--> ocombiner4.control;
-        ssController.control++ <--> ControlChannel <--> ocombiner5.control;
-        ssController.control++ <--> ControlChannel <--> ocombiner6.control;
-        ssController.control++ <--> ControlChannel <--> ocombiner1.control;
-        ssController.control++ <--> ControlChannel <--> ocombiner2.control;
-        ssController.control++ <--> ControlChannel <--> ocombiner.control;
+        ssController.modDB <--> ControlChannel <--> p3DMod.control;
+        ssController.control++ <--> ControlChannel <--> osink.control;
+        ssSplitter0.control <--> ControlChannel <--> ssController.control++;
+        ssSplitter1.control <--> ControlChannel <--> ssController.control++;
+        ssSplitter3.control <--> ControlChannel <--> ssController.control++;
+        ssSplitter2.control <--> ControlChannel <--> ssController.control++;
+        ssSplitter4.control <--> ControlChannel <--> ssController.control++;
+        ssSplitter5.control <--> ControlChannel <--> ssController.control++;
+        ssSplitter6.control <--> ControlChannel <--> ssController.control++;
+        ssSource.dataOut --> IdealChannel --> ssSplitter0.dataIn;
+        ssSplitter0.dataOut[0] --> IdealChannel --> ssSplitter1.dataIn;
+        ssSplitter0.dataOut[1] --> IdealChannel --> ssSplitter2.dataIn;
+        ssSplitter1.dataOut[0] --> IdealChannel --> ssSplitter3.dataIn;
+        ssSplitter1.dataOut[1] --> IdealChannel --> ssSplitter4.dataIn;
+        ssSplitter2.dataOut[0] --> IdealChannel --> ssSplitter5.dataIn;
+        ssSplitter2.dataOut[1] --> IdealChannel --> ssSplitter6.dataIn;
+        ssSplitter3.dataOut[0] --> IdealChannel --> ofdl.in;
+        ssSplitter3.dataOut[1] --> IdealChannel --> ofdl7.in;
+        ssSplitter4.dataOut[0] --> IdealChannel --> ofdl13.in;
+        ssSplitter4.dataOut[1] --> IdealChannel --> ofdl18.in;
+        ssSplitter5.dataOut[0] --> IdealChannel --> ofdl22.in;
+        ssSplitter5.dataOut[1] --> IdealChannel --> ofdl25.in;
+        ssSplitter6.dataOut[0] --> IdealChannel --> ofdl27.in;
+        ofdl6.out --> IdealChannel --> ssCombiner3.dataIn[0];
+        ofdl12.out --> IdealChannel --> ssCombiner3.dataIn[1];
+        ofdl17.out --> IdealChannel --> ssCombiner4.dataIn[0];
+        ofdl21.out --> IdealChannel --> ssCombiner4.dataIn[1];
+        ofdl24.out --> IdealChannel --> ssCombiner5.dataIn[0];
+        ofdl26.out --> IdealChannel --> ssCombiner5.dataIn[1];
+        ofdl27.out --> IdealChannel --> ssCombiner6.dataIn[0];
+        ssSplitter6.dataOut[1] --> IdealChannel --> ssCombiner6.dataIn[1];
+        ssCombiner3.dataOut --> IdealChannel --> ssCombiner1.dataIn[0];
+        ssCombiner4.dataOut --> IdealChannel --> ssCombiner1.dataIn[1];
+        ssCombiner5.dataOut --> IdealChannel --> ssCombiner2.dataIn[0];
+        ssCombiner6.dataOut --> IdealChannel --> ssCombiner2.dataIn[1];
+        ssCombiner1.dataOut --> IdealChannel --> ssCombiner.dataIn[0];
+        ssCombiner2.dataOut --> IdealChannel --> ssCombiner.dataIn[1];
+        ssCombiner.dataOut --> IdealChannel --> osink.in++;
+        ssCombiner3.control <--> ControlChannel <--> ssController.control++;
+        ssCombiner4.control <--> ControlChannel <--> ssController.control++;
+        ssCombiner5.control <--> ControlChannel <--> ssController.control++;
+        ssCombiner6.control <--> ControlChannel <--> ssController.control++;
+        ssCombiner1.control <--> ControlChannel <--> ssController.control++;
+        ssCombiner2.control <--> ControlChannel <--> ssController.control++;
+        ssCombiner.control <--> ControlChannel <--> ssController.control++;
 }

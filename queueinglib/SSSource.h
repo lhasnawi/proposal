@@ -17,6 +17,9 @@
 #define __QUEUEINGLIB_SSSOURCE_H_
 
 #include <omnetpp.h>
+#include "Oframe_m.h"
+#include "P3DBroadcastParameter_m.h"
+#include "P3DModuleCont_m.h"
 
 namespace queueing {
 
@@ -25,9 +28,21 @@ namespace queueing {
  */
 class SSSource : public cSimpleModule
 {
+private:
+  int numberOfJobs;
+  int numberOfTimeslots;
+  int numberOfFrames;
+  int timeslotIndex;
+  int frameIndex;
+
+  Oframe *frm;
+  cMessage * SSSourceEvent;
   protected:
     virtual void initialize();
     virtual void handleMessage(cMessage *msg);
+    Oframe * generateTimeslot();
+    void increaseTimeslotIndex();
+    P3DModuleCont * genrateModuleCont();
 };
 
 } //namespace

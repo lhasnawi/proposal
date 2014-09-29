@@ -33,6 +33,9 @@ namespace queueing {
  * message P3DBroadcastParameter {
  * 	int numberOfTimeslots;
  * 	int numberOfFrames;
+ * 	int timeslotSize;
+ * 	double timeslotDuration;
+ * 	double guardTime;
  * }
  * </pre>
  */
@@ -41,6 +44,9 @@ class QUEUEING_API P3DBroadcastParameter : public ::cMessage
   protected:
     int numberOfTimeslots_var;
     int numberOfFrames_var;
+    int timeslotSize_var;
+    double timeslotDuration_var;
+    double guardTime_var;
 
   private:
     void copy(const P3DBroadcastParameter& other);
@@ -63,6 +69,12 @@ class QUEUEING_API P3DBroadcastParameter : public ::cMessage
     virtual void setNumberOfTimeslots(int numberOfTimeslots);
     virtual int getNumberOfFrames() const;
     virtual void setNumberOfFrames(int numberOfFrames);
+    virtual int getTimeslotSize() const;
+    virtual void setTimeslotSize(int timeslotSize);
+    virtual double getTimeslotDuration() const;
+    virtual void setTimeslotDuration(double timeslotDuration);
+    virtual double getGuardTime() const;
+    virtual void setGuardTime(double guardTime);
 };
 
 inline void doPacking(cCommBuffer *b, P3DBroadcastParameter& obj) {obj.parsimPack(b);}

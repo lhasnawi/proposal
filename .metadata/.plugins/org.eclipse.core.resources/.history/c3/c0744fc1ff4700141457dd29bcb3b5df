@@ -1,0 +1,264 @@
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+// 
+
+import ned.IdealChannel;
+import org.omnetpp.queueing.ControlChannel;
+import org.omnetpp.queueing.OFDL;
+import org.omnetpp.queueing.Ocombiner;
+import org.omnetpp.queueing.Osplitter;
+import org.omnetpp.queueing.Oswitch;
+import org.omnetpp.queueing.P3DMod;
+import org.omnetpp.queueing.SSController;
+import org.omnetpp.queueing.SSSource;
+
+
+//
+// TODO auto-generated type
+//
+network SSPTSI
+{
+    @display("bgb=991,635;bgg=40,2,grey70");
+    submodules:
+        osplitter0: Osplitter {
+            @display("p=134,422");
+        }
+        osplitter1: Osplitter {
+            @display("p=222,326");
+        }
+        osplitter2: Osplitter {
+            @display("p=222,505");
+        }
+        osplitter3: Osplitter {
+            @display("p=299,287");
+        }
+        osplitter4: Osplitter {
+            @display("p=301,369");
+        }
+        osplitter5: Osplitter {
+            @display("p=299,453");
+        }
+        osplitter6: Osplitter {
+            @display("p=301,546");
+        }
+        ofdl: OFDL {
+            @display("p=383,268;is=s");
+        }
+        ofdl1: OFDL {
+            @display("p=423,268;is=s");
+        }
+        ofdl2: OFDL {
+            @display("p=465,268;is=s");
+        }
+        ofdl3: OFDL {
+            @display("p=509,268;is=s");
+        }
+        ofdl4: OFDL {
+            @display("p=552,268;is=s");
+        }
+        ofdl5: OFDL {
+            @display("p=596,270;is=s");
+        }
+        ofdl6: OFDL {
+            @display("p=643,269;is=s");
+        }
+        ofdl7: OFDL {
+            @display("p=410,311;is=s");
+        }
+        ofdl8: OFDL {
+            @display("p=446,310;is=s");
+        }
+        ofdl9: OFDL {
+            @display("p=483,310;is=s");
+        }
+        ofdl10: OFDL {
+            @display("p=525,310;is=s");
+        }
+        ofdl11: OFDL {
+            @display("p=566,310;is=s");
+        }
+        ofdl12: OFDL {
+            @display("p=612,312;is=s");
+        }
+        ofdl13: OFDL {
+            @display("p=424,352;is=s");
+        }
+        ofdl14: OFDL {
+            @display("p=469,352;is=s");
+        }
+        ofdl15: OFDL {
+            @display("p=512,352;is=s");
+        }
+        ofdl16: OFDL {
+            @display("p=549,352;is=s");
+        }
+        ofdl17: OFDL {
+            @display("p=588,353;is=s");
+        }
+        ofdl18: OFDL {
+            @display("p=430,394;is=s");
+        }
+        ofdl19: OFDL {
+            @display("p=473,394;is=s");
+        }
+        ofdl20: OFDL {
+            @display("p=515,394;is=s");
+        }
+        ofdl21: OFDL {
+            @display("p=552,394;is=s");
+        }
+        ofdl22: OFDL {
+            @display("p=458,435;is=s");
+        }
+        ofdl23: OFDL {
+            @display("p=502,435;is=s");
+        }
+        ofdl24: OFDL {
+            @display("p=541,435;is=s");
+        }
+        ofdl25: OFDL {
+            @display("p=470,474;is=s");
+        }
+        ofdl26: OFDL {
+            @display("p=516,474;is=s");
+        }
+        ofdl27: OFDL {
+            @display("p=497,515;is=s");
+        }
+        ocombiner: Ocombiner {
+            @display("p=867,414");
+        }
+        ocombiner1: Ocombiner {
+            @display("p=803,330");
+        }
+        ocombiner2: Ocombiner {
+            @display("p=803,505");
+        }
+        ocombiner3: Ocombiner {
+            @display("p=725,287");
+        }
+        ocombiner4: Ocombiner {
+            @display("p=725,383");
+        }
+        ocombiner5: Ocombiner {
+            @display("p=725,453");
+        }
+        ocombiner6: Ocombiner {
+            @display("p=725,546");
+        }
+        ssSource: SSSource {
+            @display("p=30,422");
+        }
+        ssController: SSController {
+            @display("p=488,33");
+        }
+        p3DMod: P3DMod {
+            @display("p=669,33");
+        }
+    connections:
+        ofdl.out --> IdealChannel --> ofdl1.in;
+        ofdl1.out --> IdealChannel --> ofdl2.in;
+        ofdl2.out --> IdealChannel --> ofdl3.in;
+        ofdl3.out --> IdealChannel --> ofdl4.in;
+        ofdl4.out --> IdealChannel --> ofdl5.in;
+        ofdl5.out --> IdealChannel --> ofdl6.in;
+        ofdl7.out --> IdealChannel --> ofdl8.in;
+        ofdl8.out --> IdealChannel --> ofdl9.in;
+        ofdl9.out --> IdealChannel --> ofdl10.in;
+        ofdl10.out --> IdealChannel --> ofdl11.in;
+        ofdl11.out --> IdealChannel --> ofdl12.in;
+        ofdl13.out --> IdealChannel --> ofdl14.in;
+        ofdl14.out --> IdealChannel --> ofdl15.in;
+        ofdl15.out --> IdealChannel --> ofdl16.in;
+        ofdl16.out --> IdealChannel --> ofdl17.in;
+        ofdl18.out --> IdealChannel --> ofdl19.in;
+        ofdl19.out --> IdealChannel --> ofdl20.in;
+        ofdl20.out --> IdealChannel --> ofdl21.in;
+        ofdl22.out --> IdealChannel --> ofdl23.in;
+        ofdl23.out --> IdealChannel --> ofdl24.in;
+        ofdl25.out --> IdealChannel --> ofdl26.in;
+        osplitter3.out[0] --> IdealChannel --> ofdl.in;
+        osplitter3.out[1] --> IdealChannel --> ofdl7.in;
+        osplitter4.out[0] --> IdealChannel --> ofdl13.in;
+        osplitter4.out[1] --> IdealChannel --> ofdl18.in;
+        osplitter5.out[0] --> IdealChannel --> ofdl22.in;
+        osplitter5.out[1] --> IdealChannel --> ofdl25.in;
+        osplitter6.out[0] --> IdealChannel --> ofdl27.in;
+        osplitter6.out[1] --> IdealChannel --> ocombiner6.in[1];
+        osplitter1.out[0] --> IdealChannel --> osplitter3.in;
+        osplitter1.out[1] --> IdealChannel --> osplitter4.in;
+        osplitter2.out[0] --> IdealChannel --> osplitter5.in;
+        osplitter2.out[1] --> IdealChannel --> osplitter6.in;
+        osplitter0.out[0] --> IdealChannel --> osplitter1.in;
+        osplitter0.out[1] --> IdealChannel --> osplitter2.in;
+
+        ofdl6.out --> IdealChannel --> ocombiner3.in[0];
+        ofdl12.out --> IdealChannel --> ocombiner3.in[1];
+        ofdl17.out --> IdealChannel --> ocombiner4.in[0];
+        ofdl21.out --> IdealChannel --> ocombiner4.in[1];
+        ofdl24.out --> IdealChannel --> ocombiner5.in[0];
+        ofdl26.out --> IdealChannel --> ocombiner5.in[1];
+        ofdl27.out --> IdealChannel --> ocombiner6.in[0];
+        ocombiner3.out --> IdealChannel --> ocombiner1.in[0];
+        ocombiner4.out --> IdealChannel --> ocombiner1.in[1];
+        ocombiner5.out --> IdealChannel --> ocombiner2.in[0];
+        ocombiner6.out --> IdealChannel --> ocombiner2.in[1];
+        ocombiner1.out --> IdealChannel --> ocombiner.in[0];
+        ocombiner2.out --> IdealChannel --> ocombiner.in[1];
+        ssSource.out --> IdealChannel --> osplitter0.in;
+        ssController.control++ <--> ControlChannel <--> ssSource.control;
+        ssController.control++ <--> ControlChannel <--> osplitter1.control;
+        ssController.control++ <--> ControlChannel <--> osplitter0.control;
+        ssController.control++ <--> ControlChannel <--> osplitter3.control;
+        ssController.control++ <--> ControlChannel <--> osplitter4.control;
+        ssController.control++ <--> ControlChannel <--> osplitter2.control;
+        ssController.control++ <--> ControlChannel <--> osplitter5.control;
+        ssController.control++ <--> ControlChannel <--> osplitter6.control;
+        ssController.control++ <--> ControlChannel <--> ofdl.control;
+        ssController.control++ <--> ControlChannel <--> ofdl1.control;
+        ssController.control++ <--> ControlChannel <--> ofdl2.control;
+        ssController.control++ <--> ControlChannel <--> ofdl3.control;
+        ssController.control++ <--> ControlChannel <--> ofdl4.control;
+        ssController.control++ <--> ControlChannel <--> ofdl5.control;
+        ssController.control++ <--> ControlChannel <--> ofdl6.control;
+        ssController.control++ <--> ControlChannel <--> ofdl7.control;
+        ssController.control++ <--> ControlChannel <--> ofdl8.control;
+        ssController.control++ <--> ControlChannel <--> ofdl9.control;
+        ssController.control++ <--> ControlChannel <--> ofdl10.control;
+        ssController.control++ <--> ControlChannel <--> ofdl11.control;
+        ssController.control++ <--> ControlChannel <--> ofdl12.control;
+        ssController.control++ <--> ControlChannel <--> ofdl13.control;
+        ssController.control++ <--> ControlChannel <--> ofdl14.control;
+        ssController.control++ <--> ControlChannel <--> ofdl15.control;
+        ssController.control++ <--> ControlChannel <--> ofdl16.control;
+        ssController.control++ <--> ControlChannel <--> ofdl17.control;
+        ssController.control++ <--> ControlChannel <--> ofdl18.control;
+        ssController.control++ <--> ControlChannel <--> ofdl19.control;
+        ssController.control++ <--> ControlChannel <--> ofdl20.control;
+        ssController.control++ <--> ControlChannel <--> ofdl21.control;
+        ssController.control++ <--> ControlChannel <--> ofdl22.control;
+        ssController.control++ <--> ControlChannel <--> ofdl23.control;
+        ssController.control++ <--> ControlChannel <--> ofdl24.control;
+        ssController.control++ <--> ControlChannel <--> ofdl25.control;
+        ssController.control++ <--> ControlChannel <--> ofdl26.control;
+        ssController.control++ <--> ControlChannel <--> ofdl27.control;
+        ssController.control++ <--> ControlChannel <--> ocombiner3.control;
+        ssController.control++ <--> ControlChannel <--> ocombiner4.control;
+        ssController.control++ <--> ControlChannel <--> ocombiner5.control;
+        ssController.control++ <--> ControlChannel <--> ocombiner6.control;
+        ssController.control++ <--> ControlChannel <--> ocombiner1.control;
+        ssController.control++ <--> ControlChannel <--> ocombiner2.control;
+        ssController.control++ <--> ControlChannel <--> ocombiner.control;
+        ssController.modDB <--> ControlChannel <--> p3DMod.control;
+}

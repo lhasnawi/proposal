@@ -1,4 +1,4 @@
-//
+
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Lesser General Public License as published by
 // the Free Software Foundation, either version 3 of the License, or
@@ -25,15 +25,13 @@ simple SSController
 	parameters:
 	    @display("i=device/router");
     	@group(Queueing);
-		int numTimeslotsP; // = default(4);          		// number of Timeslots
-		int timeslotSizeP @unit(bit); //= default (1000000bit);   // timeslot size in bits 1Mbit
-		int numFramesP; // = default(4);               		// number of Frames
-		double dataRateP @unit(bps); //= default (10e6bps); // transmission datarate 
-		int caseIndex;
-		int switchingAssignment; //= default(0);
+		int numberOfTimeslotsP = default (4);
+  		int numberOfFramesP = default (2);
+
 		int switchingAssignmentOdd;
-		int switchingAssignmentEven;
-        
+		int switchingAssignmentEven;   
 	gates:
-        inout control[];
+   		inout control[];
+   		inout modDB;
+
 }

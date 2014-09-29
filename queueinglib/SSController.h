@@ -17,6 +17,14 @@
 #define __QUEUEINGLIB_SSCONTROLLER_H_
 
 #include <omnetpp.h>
+#include <list>
+#include <string>
+#include <iostream>
+#include <P3DModuleDB.h>
+#include "P3DMod.h"
+#include "P3DModuleCont_m.h"
+#include "P3DBroadcastParameter_m.h"
+
 
 namespace queueing {
 
@@ -25,9 +33,22 @@ namespace queueing {
  */
 class SSController : public cSimpleModule
 {
+    private:
+        int numberOfTimeslots;
+        int numberOfFrames;
+        int timeslotSize;
+        double dataRate;
+        double timeslotDuration;
+        double guardTime;
+        cMessage * P3DControllerEvent;
+        P3DBroadcastParameter * BC;
+        list <P3DModuleDB> sourceSinkList;
+        list <P3DModuleDB> switchesList;
+
   protected:
     virtual void initialize();
     virtual void handleMessage(cMessage *msg);
+    virtual void broadcastParameter();
 };
 
 } //namespace

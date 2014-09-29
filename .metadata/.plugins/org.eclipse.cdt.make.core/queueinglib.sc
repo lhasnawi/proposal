@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?scdStore version="2"?><scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
+<?scdStore version="2"?>
+
+<scannerInfo id="org.eclipse.cdt.make.core.discoveredScannerInfo">
 <instance id="org.omnetpp.cdt.gnu.config.debug.203991212">
 <collector id="org.eclipse.cdt.make.core.PerProjectSICollector">
-<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/include/c++"/>
-<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/include/c++/mingw32"/>
-<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/include/c++/backward"/>
-<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/include"/>
-<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/../../../../include"/>
-<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/include-fixed"/>
+<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/include/c++" removed="true"/>
+<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/include/c++/mingw32" removed="true"/>
+<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/include/c++/backward" removed="true"/>
+<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/include" removed="true"/>
+<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/../../../../include" removed="true"/>
+<includePath path="c:\omnetpp-4.5\mingw\bin\../lib/gcc/mingw32/4.7.2/include-fixed" removed="true"/>
 <includePath path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1" removed="true"/>
 <includePath path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/clang/6.0/include" removed="true"/>
 <includePath path="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../lib/c++/v1" removed="true"/>
@@ -16,14 +18,14 @@
 <includePath path="/usr/include" removed="true"/>
 <includePath path="/System/Library/Frameworks (framework directory)" removed="true"/>
 <includePath path="/Library/Frameworks (framework directory)" removed="true"/>
-<includePath path="/Developer/omnetpp-4.5/include" removed="true"/>
-<includePath path="/Users/Luai/git/proposal/queueinglib" removed="true"/>
-<includePath path="/Users/Luai/git/proposal/queueinglib/templates" removed="true"/>
-<includePath path="/Users/Luai/git/proposal/queueinglib/templates/queueing" removed="true"/>
-<includePath path="C:\omnetpp-4.5\include"/>
-<includePath path="C:\Users\Luai\proposal\queueinglib"/>
-<includePath path="C:\Users\Luai\proposal\queueinglib\templates"/>
-<includePath path="C:\Users\Luai\proposal\queueinglib\templates\queueing"/>
+<includePath path="/Developer/omnetpp-4.5/include"/>
+<includePath path="/Users/Luai/git/proposal/queueinglib"/>
+<includePath path="/Users/Luai/git/proposal/queueinglib/templates"/>
+<includePath path="/Users/Luai/git/proposal/queueinglib/templates/queueing"/>
+<includePath path="C:\omnetpp-4.5\include" removed="true"/>
+<includePath path="C:\Users\Luai\proposal\queueinglib" removed="true"/>
+<includePath path="C:\Users\Luai\proposal\queueinglib\templates" removed="true"/>
+<includePath path="C:\Users\Luai\proposal\queueinglib\templates\queueing" removed="true"/>
 <definedSymbol symbol="__llvm__=1"/>
 <definedSymbol symbol="__clang__=1"/>
 <definedSymbol symbol="__clang_major__=5"/>
