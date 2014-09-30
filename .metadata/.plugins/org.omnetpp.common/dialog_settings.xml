@@ -8,8 +8,8 @@
 		<item value="1|Lucida Grande|13.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="TemplateBasedWizard">
-		<item value="bundleentry://276.fwk10044878/templates/msgfile/" key="msgfile.template"/>
+		<item value="bundleentry://276.fwk11985823/templates/msgfile/" key="msgfile.template"/>
 		<item value="bundleentry://278.fwk12606779/templates/nedfile/" key="nedfile.template"/>
-		<item value="bundleentry://278.fwk18471958/templates/emptysimplemodule/" key="simplemodule.template"/>
+		<item value="bundleentry://278.fwk12606779/templates/emptysimplemodule/" key="simplemodule.template"/>
 	</section>
 </section>

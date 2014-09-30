@@ -43,7 +43,7 @@ void SSSource::initialize()
     SSSourceEvent = new cMessage();
     SSSourceEvent->setKind(1);
     SSSourceEvent->setName("SourceEvent");
-    scheduleAt(1, SSSourceEvent);
+
 }
 
 void SSSource::handleMessage(cMessage *msg)
@@ -54,6 +54,8 @@ void SSSource::handleMessage(cMessage *msg)
         this->numberOfTimeslots = BP->getNumberOfTimeslots();
         this->numberOfFrames = BP->getNumberOfFrames();
         this->numberOfJobs = this->numberOfTimeslots * this->numberOfFrames;
+        this->timeslotDuration=BP->getTimeslotDuration();
+        this->guardTime=BP->getGuardTime();
         delete msg;
 
         P3DModuleCont * osourceCont = SSSource::genrateModuleCont();
@@ -62,14 +64,12 @@ void SSSource::handleMessage(cMessage *msg)
         osourceCont->setModuleType(0);
         osourceCont->setKind(2);
         send(osourceCont,"control$o");
-
-
-
+        scheduleAt(1+this->guardTime, SSSourceEvent);
 
     }
     else if (msg->getKind()==1 && (this->frameIndex < this->numberOfFrames && this->timeslotIndex < this->numberOfTimeslots))
     {
-        scheduleAt(simTime()+1, SSSourceEvent);
+        scheduleAt(simTime()+this->timeslotDuration, SSSourceEvent);
         Oframe *frm = generateTimeslot();
         send (frm,"dataOut");
 

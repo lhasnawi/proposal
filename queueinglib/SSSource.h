@@ -34,6 +34,9 @@ private:
   int numberOfFrames;
   int timeslotIndex;
   int frameIndex;
+  double timeslotDuration;
+  double guardTime;
+
 
   Oframe *frm;
   cMessage * SSSourceEvent;

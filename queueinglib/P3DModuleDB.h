@@ -18,6 +18,8 @@
 
 #include <iostream>
 #include <string>
+#include <omnetpp.h>
+#include "SSSwitchingCont_m.h"
 
 namespace queueing {
 using namespace std;
@@ -28,6 +30,7 @@ private:
     string moduleName;
     int moduleType;
     int contOutputPortID;
+    cQueue SwitchingContQ;
 public:
     P3DModuleDB();
     virtual ~P3DModuleDB();
@@ -39,6 +42,7 @@ public:
     void setModuleName(string moduleName);
     int getModuleType() const;
     void setModuleType(int moduleType);
+    void insertInOrder(SSSwitchingCont * sw);
 };
 
 } /* namespace queueing */

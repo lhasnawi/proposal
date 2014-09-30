@@ -60,6 +60,7 @@ OBJS = \
     $O/Source.o \
     $O/SSCombiner.o \
     $O/SSController.o \
+    $O/SSFDL.o \
     $O/SSSource.o \
     $O/SSSplitter.o \
     $O/contFrame_m.o \
@@ -70,6 +71,7 @@ OBJS = \
     $O/P3DTimeslot_m.o \
     $O/ParameterCont_m.o \
     $O/releaseOFDL_m.o \
+    $O/SSSwitchingCont_m.o \
     $O/switchingCont_m.o \
     $O/SyncFrame_m.o
 
@@ -83,6 +85,7 @@ MSGFILES = \
     P3DTimeslot.msg \
     ParameterCont.msg \
     releaseOFDL.msg \
+    SSSwitchingCont.msg \
     switchingCont.msg \
     SyncFrame.msg
 
@@ -306,15 +309,18 @@ $O/P3DController.o: P3DController.cc \
 	P3DController.h \
 	P3DMod.h \
 	P3DModuleCont_m.h \
-	P3DModuleDB.h
+	P3DModuleDB.h \
+	SSSwitchingCont_m.h
 $O/P3DMod.o: P3DMod.cc \
 	P3DMod.h \
 	P3DModuleCont_m.h \
-	P3DModuleDB.h
+	P3DModuleDB.h \
+	SSSwitchingCont_m.h
 $O/P3DModuleCont_m.o: P3DModuleCont_m.cc \
 	P3DModuleCont_m.h
 $O/P3DModuleDB.o: P3DModuleDB.cc \
-	P3DModuleDB.h
+	P3DModuleDB.h \
+	SSSwitchingCont_m.h
 $O/P3DSink.o: P3DSink.cc \
 	P3DBroadcastParameter_m.h \
 	P3DModuleCont_m.h \
@@ -369,7 +375,13 @@ $O/SSController.o: SSController.cc \
 	P3DMod.h \
 	P3DModuleCont_m.h \
 	P3DModuleDB.h \
-	SSController.h
+	SSController.h \
+	SSSwitchingCont_m.h
+$O/SSFDL.o: SSFDL.cc \
+	Oframe_m.h \
+	P3DBroadcastParameter_m.h \
+	QueueingDefs.h \
+	SSFDL.h
 $O/SSSource.o: SSSource.cc \
 	Oframe_m.h \
 	P3DBroadcastParameter_m.h \
@@ -380,6 +392,8 @@ $O/SSSplitter.o: SSSplitter.cc \
 	P3DBroadcastParameter_m.h \
 	P3DModuleCont_m.h \
 	SSSplitter.h
+$O/SSSwitchingCont_m.o: SSSwitchingCont_m.cc \
+	SSSwitchingCont_m.h
 $O/SelectionStrategies.o: SelectionStrategies.cc \
 	IPassiveQueue.h \
 	IServer.h \

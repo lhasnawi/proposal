@@ -59,4 +59,50 @@ int P3DModuleDB::getModuleType() const {
 void P3DModuleDB::setModuleType(int moduleType) {
     this->moduleType = moduleType;
 }
+
+void P3DModuleDB::insertInOrder(SSSwitchingCont * sw)
+{
+    int newDelay = sw->getDelay();
+
+    if (SwitchingContQ.isEmpty()==true) // Switching Control Queue is empty
+    {
+        SwitchingContQ.insert(sw);
+    }
+    else
+        {
+        bool found = false;
+        cQueue::Iterator currentIter =  cQueue::Iterator ( SwitchingContQ, 1);
+        SSSwitchingCont * contCurrent = (  SSSwitchingCont *) currentIter();
+        cQueue::Iterator nextIter =  cQueue::Iterator ( SwitchingContQ, 1);
+        SSSwitchingCont * contNext = (  SSSwitchingCont *) nextIter();
+        nextIter++;
+        do
+        {
+
+            if (newDelay < contCurrent->getDelay())
+            {
+                SwitchingContQ.insertBefore(currentIter.operator ()(),sw) ;
+                found = true;
+            }
+            else if (newDelay > contCurrent->getDelay())
+            {
+                if (newDelay < contNext->getDelay())
+                {
+                    //SwitchingContQ->insertBefore(contNext.operator ()(),sw) ;
+                    found = true;
+                }
+
+            }
+            else
+            {
+            currentIter++;
+            nextIter++;
+            contCurrent = (  SSSwitchingCont *) currentIter();
+            contNext = (  SSSwitchingCont *) nextIter();
+
+            }
+        }while (nextIter.end()!=true || found == false);
+        }
+
+}
 } /* namespace queueing */

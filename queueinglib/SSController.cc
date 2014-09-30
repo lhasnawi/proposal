@@ -27,13 +27,23 @@ void SSController::initialize()
     this->dataRate = 12500000000; //100 Gps -> Byte/sec
     this->timeslotDuration = timeslotSize/dataRate;
     this->guardTime = this->timeslotDuration*.1;        //10% from timeslot duration
+    P3DControllerEvent->setKind(1);
     SSController::broadcastParameter();
 }
 
 void SSController::handleMessage(cMessage *msg)
 {
+    if (msg->getKind()==1)
+    {
+        EV<<"New Guard Time Switching"<<endl;
+        scheduleAt(simTime()+this->timeslotDuration, P3DControllerEvent);
+
+    }
     if (msg->getKind()==2)
+        {
         send (msg,"modDB$o");
+
+        }
 }
 
 void SSController::broadcastParameter() {
@@ -53,6 +63,7 @@ void SSController::broadcastParameter() {
             send(BCP,"control$o",i);
         }
         delete BC;
+    scheduleAt(0+this->guardTime, P3DControllerEvent);
 
 
 }

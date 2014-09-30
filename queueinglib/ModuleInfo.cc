@@ -239,9 +239,6 @@ void ModuleInfo::insertInOrder(SwitchingCont * sw)
         }while (nextIter.end()!=true || found == false);
         }
 
-
-
-
 }
 
 bool ModuleInfo::validateConflect(int delay)
