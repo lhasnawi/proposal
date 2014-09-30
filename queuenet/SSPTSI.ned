@@ -1,0 +1,272 @@
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+// 
+
+import ned.IdealChannel;
+import org.omnetpp.queueing.ControlChannel;
+import org.omnetpp.queueing.OFDL;
+import org.omnetpp.queueing.Ocombiner;
+import org.omnetpp.queueing.Osink;
+import org.omnetpp.queueing.Osplitter;
+import org.omnetpp.queueing.Oswitch;
+import org.omnetpp.queueing.P3DMod;
+import org.omnetpp.queueing.SSCombiner;
+import org.omnetpp.queueing.SSController;
+import org.omnetpp.queueing.SSFDL;
+import org.omnetpp.queueing.SSSource;
+import org.omnetpp.queueing.SSSplitter;
+
+
+//
+// TODO auto-generated type
+//
+network SSPTSI
+{
+    @display("bgb=877,473;bgg=40,2,grey70");
+    submodules:
+        ssSource: SSSource {
+            @display("p=41,271");
+        }
+        ssController: SSController {
+            @display("p=447,34");
+        }
+        p3DMod: P3DMod {
+            @display("p=628,34");
+        }
+        osink: Osink {
+            @display("p=827,271");
+        }
+        ssSplitter0: SSSplitter {
+            @display("p=124,271");
+        }
+        ssSplitter1: SSSplitter {
+            @display("p=211,172");
+        }
+        ssSplitter2: SSSplitter {
+            @display("p=211,363");
+        }
+        ssSplitter3: SSSplitter {
+            @display("p=292,121");
+        }
+        ssSplitter4: SSSplitter {
+            @display("p=292,226");
+        }
+        ssSplitter5: SSSplitter {
+            @display("p=292,320");
+        }
+        ssSplitter6: SSSplitter {
+            @display("p=292,403");
+        }
+        ssCombiner: SSCombiner {
+            @display("p=763,271");
+        }
+        ssCombiner1: SSCombiner {
+            @display("p=703,172");
+        }
+        ssCombiner2: SSCombiner {
+            @display("p=703,363");
+        }
+        ssCombiner3: SSCombiner {
+            @display("p=633,121");
+        }
+        ssCombiner4: SSCombiner {
+            @display("p=633,226");
+        }
+        ssCombiner5: SSCombiner {
+            @display("p=628,320");
+        }
+        ssCombiner6: SSCombiner {
+            @display("p=628,403");
+        }
+        ssfdl: SSFDL {
+            @display("p=346,421;is=s");
+        }
+        ssfdl1: SSFDL {
+            @display("p=386,421;is=s");
+        }
+        ssfdl2: SSFDL {
+            @display("p=422,421;is=s");
+        }
+        ssfdl3: SSFDL {
+            @display("p=457,421;is=s");
+        }
+        ssfdl4: SSFDL {
+            @display("p=499,421;is=s");
+        }
+        ssfdl5: SSFDL {
+            @display("p=531,421;is=s");
+        }
+        ssfdl6: SSFDL {
+            @display("p=566,421;is=s");
+        }
+        ssfdl7: SSFDL {
+            @display("p=364,380;is=s");
+        }
+        ssfdl8: SSFDL {
+            @display("p=404,380;is=s");
+        }
+        ssfdl9: SSFDL {
+            @display("p=440,380;is=s");
+        }
+        ssfdl10: SSFDL {
+            @display("p=475,380;is=s");
+        }
+        ssfdl11: SSFDL {
+            @display("p=517,380;is=s");
+        }
+        ssfdl12: SSFDL {
+            @display("p=549,380;is=s");
+        }
+        ssfdl13: SSFDL {
+            @display("p=387,339;is=s");
+        }
+        ssfdl14: SSFDL {
+            @display("p=427,339;is=s");
+        }
+        ssfdl15: SSFDL {
+            @display("p=463,339;is=s");
+        }
+        ssfdl16: SSFDL {
+            @display("p=498,339;is=s");
+        }
+        ssfdl17: SSFDL {
+            @display("p=540,339;is=s");
+        }
+        ssfdl18: SSFDL {
+            @display("p=413,302;is=s");
+        }
+        ssfdl19: SSFDL {
+            @display("p=453,302;is=s");
+        }
+        ssfdl20: SSFDL {
+            @display("p=489,302;is=s");
+        }
+        ssfdl21: SSFDL {
+            @display("p=524,302;is=s");
+        }
+        ssfdl22: SSFDL {
+            @display("p=427,251;is=s");
+        }
+        ssfdl23: SSFDL {
+            @display("p=467,251;is=s");
+        }
+        ssfdl24: SSFDL {
+            @display("p=503,251;is=s");
+        }
+        ssfdl25: SSFDL {
+            @display("p=449,209;is=s");
+        }
+        ssfdl26: SSFDL {
+            @display("p=489,209;is=s");
+        }
+        ssfdl27: SSFDL {
+            @display("p=467,152;is=s");
+        }
+    connections:
+        ssController.control++ <--> ControlChannel <--> ssSource.control;
+        ssController.modDB <--> ControlChannel <--> p3DMod.control;
+        ssController.control++ <--> ControlChannel <--> osink.control;
+        ssSplitter0.control <--> ControlChannel <--> ssController.control++;
+        ssSplitter1.control <--> ControlChannel <--> ssController.control++;
+        ssSplitter3.control <--> ControlChannel <--> ssController.control++;
+        ssSplitter2.control <--> ControlChannel <--> ssController.control++;
+        ssSplitter4.control <--> ControlChannel <--> ssController.control++;
+        ssSplitter5.control <--> ControlChannel <--> ssController.control++;
+        ssSplitter6.control <--> ControlChannel <--> ssController.control++;
+        ssSource.dataOut --> IdealChannel --> ssSplitter0.dataIn;
+        ssSplitter0.dataOut[0] --> IdealChannel --> ssSplitter1.dataIn;
+        ssSplitter0.dataOut[1] --> IdealChannel --> ssSplitter2.dataIn;
+        ssSplitter1.dataOut[0] --> IdealChannel --> ssSplitter3.dataIn;
+        ssSplitter1.dataOut[1] --> IdealChannel --> ssSplitter4.dataIn;
+        ssSplitter2.dataOut[0] --> IdealChannel --> ssSplitter5.dataIn;
+        ssSplitter2.dataOut[1] --> IdealChannel --> ssSplitter6.dataIn;
+        ssCombiner3.dataOut --> IdealChannel --> ssCombiner1.dataIn[0];
+        ssCombiner4.dataOut --> IdealChannel --> ssCombiner1.dataIn[1];
+        ssCombiner5.dataOut --> IdealChannel --> ssCombiner2.dataIn[0];
+        ssCombiner6.dataOut --> IdealChannel --> ssCombiner2.dataIn[1];
+        ssCombiner1.dataOut --> IdealChannel --> ssCombiner.dataIn[0];
+        ssCombiner2.dataOut --> IdealChannel --> ssCombiner.dataIn[1];
+        ssCombiner.dataOut --> IdealChannel --> osink.in++;
+        ssCombiner3.control <--> ControlChannel <--> ssController.control++;
+        ssCombiner4.control <--> ControlChannel <--> ssController.control++;
+        ssCombiner5.control <--> ControlChannel <--> ssController.control++;
+        ssCombiner6.control <--> ControlChannel <--> ssController.control++;
+        ssCombiner1.control <--> ControlChannel <--> ssController.control++;
+        ssCombiner2.control <--> ControlChannel <--> ssController.control++;
+        ssCombiner.control <--> ControlChannel <--> ssController.control++;
+        ssfdl.dataOut --> IdealChannel --> ssfdl1.dataIn;
+        ssfdl1.dataOut --> IdealChannel --> ssfdl2.dataIn;
+        ssfdl2.dataOut --> IdealChannel --> ssfdl3.dataIn;
+        ssfdl3.dataOut --> IdealChannel --> ssfdl4.dataIn;
+        ssfdl4.dataOut --> IdealChannel --> ssfdl5.dataIn;
+        ssfdl5.dataOut --> IdealChannel --> ssfdl6.dataIn;
+        ssfdl7.dataOut --> IdealChannel --> ssfdl8.dataIn;
+        ssfdl8.dataOut --> IdealChannel --> ssfdl9.dataIn;
+        ssfdl9.dataOut --> IdealChannel --> ssfdl10.dataIn;
+        ssfdl10.dataOut --> IdealChannel --> ssfdl11.dataIn;
+        ssfdl11.dataOut --> IdealChannel --> ssfdl12.dataIn;
+        ssfdl13.dataOut --> IdealChannel --> ssfdl14.dataIn;
+        ssfdl14.dataOut --> IdealChannel --> ssfdl15.dataIn;
+        ssfdl15.dataOut --> IdealChannel --> ssfdl16.dataIn;
+        ssfdl16.dataOut --> IdealChannel --> ssfdl17.dataIn;
+        ssfdl18.dataOut --> IdealChannel --> ssfdl19.dataIn;
+        ssfdl19.dataOut --> IdealChannel --> ssfdl20.dataIn;
+        ssfdl20.dataOut --> IdealChannel --> ssfdl21.dataIn;
+        ssfdl22.dataOut --> IdealChannel --> ssfdl23.dataIn;
+        ssfdl23.dataOut --> IdealChannel --> ssfdl24.dataIn;
+        ssfdl25.dataOut --> IdealChannel --> ssfdl26.dataIn;
+        ssController.control++ <--> ControlChannel <--> ssfdl.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl1.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl2.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl3.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl4.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl5.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl6.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl7.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl8.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl9.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl10.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl11.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl12.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl13.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl14.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl15.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl16.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl17.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl18.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl19.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl20.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl21.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl22.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl23.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl24.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl25.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl26.control;
+        ssController.control++ <--> ControlChannel <--> ssfdl27.control;
+        ssSplitter3.dataOut[0] --> IdealChannel --> ssCombiner3.dataIn[0];
+        ssSplitter3.dataOut[1] --> IdealChannel --> ssfdl27.dataIn;
+        ssfdl27.dataOut --> IdealChannel --> ssCombiner3.dataIn[1];
+        ssSplitter4.dataOut[0] --> IdealChannel --> ssfdl25.dataIn;
+        ssfdl26.dataOut --> IdealChannel --> ssCombiner4.dataIn[0];
+        ssSplitter4.dataOut[1] --> IdealChannel --> ssfdl22.dataIn;
+        ssfdl24.dataOut --> IdealChannel --> ssCombiner4.dataIn[1];
+        ssSplitter5.dataOut[0] --> IdealChannel --> ssfdl18.dataIn;
+        ssfdl21.dataOut --> IdealChannel --> ssCombiner5.dataIn[0];
+        ssSplitter5.dataOut[1] --> IdealChannel --> ssfdl13.dataIn;
+        ssfdl17.dataOut --> IdealChannel --> ssCombiner5.dataIn[1];
+        ssSplitter6.dataOut[0] --> IdealChannel --> ssfdl7.dataIn;
+        ssfdl12.dataOut --> IdealChannel --> ssCombiner6.dataIn[0];
+        ssSplitter6.dataOut[1] --> IdealChannel --> ssfdl.dataIn;
+        ssfdl6.dataOut --> IdealChannel --> ssCombiner6.dataIn[1];
+}
