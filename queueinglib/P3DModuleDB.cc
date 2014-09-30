@@ -60,6 +60,22 @@ void P3DModuleDB::setModuleType(int moduleType) {
     this->moduleType = moduleType;
 }
 
+bool P3DModuleDB::isBarState() const {
+    return barState;
+}
+
+void P3DModuleDB::setBarState(bool barState) {
+    this->barState = barState;
+}
+
+bool P3DModuleDB::isBusy() const {
+    return busy;
+}
+
+void P3DModuleDB::setBusy(bool busy) {
+    this->busy = busy;
+}
+
 void P3DModuleDB::insertInOrder(SSSwitchingCont * sw)
 {
     int newDelay = sw->getDelay();

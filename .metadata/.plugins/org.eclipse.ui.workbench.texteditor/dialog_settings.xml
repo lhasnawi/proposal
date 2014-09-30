@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="" key="selection"/>
+		<item value="commulatedDelayMatrix" key="selection"/>
 		<list key="findhistory">
-			<item value="P3DControllerEvent"/>
-			<item value="out"/>
-			<item value="null"/>
-			<item value="getFromQueue"/>
-			<item value="getServiceTime"/>
-			<item value="arrival"/>
-			<item value="void arrival"/>
-			<item value="frmServiced"/>
+			<item value="commulatedDelayMatrix"/>
+			<item value="push"/>
+			<item value="reserve"/>
+			<item value="pathnames"/>
+			<item value="computede"/>
+			<item value="handleM"/>
+			<item value="fromFile"/>
+			<item value="ini"/>
 		</list>
 		<list key="replacehistory">
 			<item value="dataOut"/>

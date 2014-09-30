@@ -39,10 +39,7 @@ network SSPTSI
             @display("p=41,271");
         }
         ssController: SSController {
-            @display("p=447,34");
-        }
-        p3DMod: P3DMod {
-            @display("p=628,34");
+            @display("p=467,34");
         }
         osink: Osink {
             @display("p=827,271");
@@ -68,7 +65,7 @@ network SSPTSI
         ssSplitter6: SSSplitter {
             @display("p=292,403");
         }
-        ssCombiner: SSCombiner {
+        ssCombiner0: SSCombiner {
             @display("p=763,271");
         }
         ssCombiner1: SSCombiner {
@@ -175,7 +172,6 @@ network SSPTSI
         }
     connections:
         ssController.control++ <--> ControlChannel <--> ssSource.control;
-        ssController.modDB <--> ControlChannel <--> p3DMod.control;
         ssController.control++ <--> ControlChannel <--> osink.control;
         ssSplitter0.control <--> ControlChannel <--> ssController.control++;
         ssSplitter1.control <--> ControlChannel <--> ssController.control++;
@@ -195,16 +191,16 @@ network SSPTSI
         ssCombiner4.dataOut --> IdealChannel --> ssCombiner1.dataIn[1];
         ssCombiner5.dataOut --> IdealChannel --> ssCombiner2.dataIn[0];
         ssCombiner6.dataOut --> IdealChannel --> ssCombiner2.dataIn[1];
-        ssCombiner1.dataOut --> IdealChannel --> ssCombiner.dataIn[0];
-        ssCombiner2.dataOut --> IdealChannel --> ssCombiner.dataIn[1];
-        ssCombiner.dataOut --> IdealChannel --> osink.in++;
+        ssCombiner1.dataOut --> IdealChannel --> ssCombiner0.dataIn[0];
+        ssCombiner2.dataOut --> IdealChannel --> ssCombiner0.dataIn[1];
+        ssCombiner0.dataOut --> IdealChannel --> osink.in++;
         ssCombiner3.control <--> ControlChannel <--> ssController.control++;
         ssCombiner4.control <--> ControlChannel <--> ssController.control++;
         ssCombiner5.control <--> ControlChannel <--> ssController.control++;
         ssCombiner6.control <--> ControlChannel <--> ssController.control++;
         ssCombiner1.control <--> ControlChannel <--> ssController.control++;
         ssCombiner2.control <--> ControlChannel <--> ssController.control++;
-        ssCombiner.control <--> ControlChannel <--> ssController.control++;
+        ssCombiner0.control <--> ControlChannel <--> ssController.control++;
         ssfdl.dataOut --> IdealChannel --> ssfdl1.dataIn;
         ssfdl1.dataOut --> IdealChannel --> ssfdl2.dataIn;
         ssfdl2.dataOut --> IdealChannel --> ssfdl3.dataIn;

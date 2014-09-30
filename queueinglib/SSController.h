@@ -21,9 +21,9 @@
 #include <string>
 #include <iostream>
 #include <P3DModuleDB.h>
-#include "P3DMod.h"
 #include "P3DModuleCont_m.h"
 #include "P3DBroadcastParameter_m.h"
+#include <fstream>
 
 
 namespace queueing {
@@ -36,6 +36,8 @@ class SSController : public cSimpleModule
     private:
         int numberOfTimeslots;
         int numberOfFrames;
+        int timeslotCounter;
+        int frameCounter;
         int timeslotSize;
         double dataRate;
         double timeslotDuration;
@@ -44,11 +46,19 @@ class SSController : public cSimpleModule
         P3DBroadcastParameter * BC;
         list <P3DModuleDB> sourceSinkList;
         list <P3DModuleDB> switchesList;
+        string **pathNames;
+        int **commulatedDelayMatrix;
+        int evenTimeslotAssignment;
+        int oddTimeslotAssignment;
 
   protected:
     virtual void initialize();
     virtual void handleMessage(cMessage *msg);
     virtual void broadcastParameter();
+    int getOutputTimeslot(int row, int column);
+    int computeDelay(int in, int out);
+    void reservePath(int pathIndex, int delay);
+    void setDelayMatrix();
 };
 
 } //namespace

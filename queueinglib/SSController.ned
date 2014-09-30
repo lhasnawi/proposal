@@ -32,6 +32,6 @@ simple SSController
 		int switchingAssignmentEven;   
 	gates:
    		inout control[];
-   		inout modDB;
+
 
 }

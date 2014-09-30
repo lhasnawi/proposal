@@ -21,7 +21,7 @@ Define_Module(SSFDL);
 
 void SSFDL::initialize()
 {
-    WATCH(this->guardTime);
+   WATCH(this->guardTime);
     endServiceMsg = new cMessage("end-service");
     fifo = par("fifo");
     capacity = par("capacity");

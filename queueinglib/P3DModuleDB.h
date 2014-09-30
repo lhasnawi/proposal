@@ -31,6 +31,8 @@ private:
     int moduleType;
     int contOutputPortID;
     cQueue SwitchingContQ;
+    bool busy;
+    bool barState;
 public:
     P3DModuleDB();
     virtual ~P3DModuleDB();
@@ -43,6 +45,10 @@ public:
     int getModuleType() const;
     void setModuleType(int moduleType);
     void insertInOrder(SSSwitchingCont * sw);
+    bool isBarState() const;
+    void setBarState(bool barState);
+    bool isBusy() const;
+    void setBusy(bool busy);
 };
 
 } /* namespace queueing */

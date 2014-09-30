@@ -1,0 +1,151 @@
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+// 
+
+#include "SSController.h"
+
+namespace queueing {
+
+Define_Module(SSController);
+
+void SSController::initialize()
+{
+    this->numberOfTimeslots=par("numberOfTimeslotsP");
+    this->numberOfFrames=par("numberOfFramesP");
+    this->timeslotSize=1500; // 1500 byte
+    this->dataRate = 12500000000; //100 Gps -> Byte/sec
+    this->timeslotDuration = timeslotSize/dataRate;
+    this->guardTime = this->timeslotDuration*.1;        //10% from timeslot duration
+    this->frameCounter = 0;
+    this->timeslotCounter = 0;
+    this->evenTimeslotAssignment = par ("switchingAssignmentEven");
+    this->oddTimeslotAssignment = par("switchingAssignmentOdd");
+    P3DControllerEvent = new cMessage();
+    P3DControllerEvent->setKind(1);
+    SSController::broadcastParameter();
+    scheduleAt(1+this->guardTime, P3DControllerEvent);
+}
+
+void SSController::handleMessage(cMessage *msg)
+{
+    if (msg->getKind()==1) // events
+    {
+        int inTS;
+        int outTS;
+        int pathIndex;
+        int PathNamesIndex;
+        int delay;
+        int SWAssingment;
+
+       inTS = this->timeslotCounter;
+       if(this->frameCounter%2==0)
+       {
+           SWAssingment = this->evenTimeslotAssignment;
+       }
+       else
+       {
+           SWAssingment = this->oddTimeslotAssignment;
+
+       }
+
+       outTS = Ocontroller::getNumberFromFile(SWAssingment+1, inTS+1);//Ocontroller::permutationList[SWAssingment][inTS];
+       EV<<"Current Timeslot @ Controller is . . . "<< inTS<<endl;
+       EV<<"Current Frame @ Controller is . . . "<< Ocontroller::getFrameCounter()<<endl;
+       EV<<"output switching for TS "<< inTS<< "is . . ."<<outTS<<endl;
+       delay = Ocontroller::computeDelay(inTS,outTS);
+       EV<<"required delay for switching TS "<< inTS<< " to "<<outTS<< " is . . . "<<delay<<endl;
+       pathIndex= Ocontroller::selectPath(delay);
+       PathNamesIndex = Ocontroller::getPathNamesIndex(pathIndex);
+       EV<<"Path Names Index is  "<< PathNamesIndex<<endl;
+       Ocontroller::reservePath(PathNamesIndex, pathIndex, delay);
+       //Ocontroller::reserveOFDLStage(PathNamesIndex,delay);
+       //Ocontroller::sendSwitchingCont(PathNamesIndex, pathIndex, delay);
+       Ocontroller::sendSwitchingCont();
+
+       scheduleAt(simTime()+Ocontroller::getTimeslotDuration(), event);
+       Ocontroller::increaseTimeslotCounter();
+       this->jobCounter++;
+
+        }
+            else
+            {
+                EV<<"I am here ....1 "<<endl;
+                if (Ocontroller::allSWCQEmpty()==false)
+                    {
+                    EV<<"I am here ....2 "<<endl;
+                    Ocontroller::sendSwitchingCont();
+                    scheduleAt(simTime()+Ocontroller::getTimeslotDuration(), event);
+                    Ocontroller::increaseTimeslotCounter();
+
+                    }
+                else
+                    {
+                    EV<<"I am here ....3 "<<endl;
+                    Ocontroller::finish();
+                    }
+
+
+            }
+
+        scheduleAt(simTime()+this->timeslotDuration, P3DControllerEvent);
+
+    }
+    if (msg->getKind()==2)
+        {
+        send (msg,"modDB$o");
+
+        }
+}
+
+void SSController::broadcastParameter() {
+
+    BC = new P3DBroadcastParameter();
+    BC->setKind(3);
+    BC->setName("Broadcast");
+    BC->setNumberOfTimeslots(this->numberOfTimeslots);
+    BC->setNumberOfFrames(this->numberOfFrames);
+    BC->setTimeslotDuration(this->timeslotDuration);
+    BC->setGuardTime(this->guardTime);
+
+
+    for (int i=0; i<SSController::gateSize("control$o");i++)
+        {
+        P3DBroadcastParameter * BCP = BC->dup();
+            send(BCP,"control$o",i);
+        }
+        delete BC;
+}
+
+int SSController::getNumberFromFile(int row, int column)
+{
+    int result = -1, rowIndex = 0;
+    string temp;
+    ifstream inFile;
+
+            if(row > 0 && column > 0)
+            {
+             inFile.open("permutation4.txt");
+
+             for(rowIndex = 0; inFile.good() && rowIndex < row; rowIndex++)
+              inFile>>temp;
+
+             inFile.close();
+
+             if(rowIndex>=row && column<=temp.size())
+              result = temp.at(column - 1) - '0';
+            }
+
+ return result;
+}
+} //namespace

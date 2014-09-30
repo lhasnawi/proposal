@@ -372,7 +372,6 @@ $O/SSCombiner.o: SSCombiner.cc \
 	SSCombiner.h
 $O/SSController.o: SSController.cc \
 	P3DBroadcastParameter_m.h \
-	P3DMod.h \
 	P3DModuleCont_m.h \
 	P3DModuleDB.h \
 	SSController.h \
