@@ -273,6 +273,7 @@ void SSController::reservePath(int pathIndex, int delay) {
     list<P3DModuleDB>::iterator iStart = switchesList.begin();
     list<P3DModuleDB>::iterator iEnd = switchesList.end();
     string moduleName;
+    SSSwitchingCont * SWCont;
 
     for (int i = 0; i< 6; i++)
     {
@@ -282,7 +283,10 @@ void SSController::reservePath(int pathIndex, int delay) {
             if ( itt->getModuleName()==moduleName)
                 {
                 itt->setBusy(true);
-               // itt->setDelay(commulatedDelayMatrix[i][delay]);
+                itt->setDelay(commulatedDelayMatrix[i][delay+1]);
+
+
+
                 }
         }
     }

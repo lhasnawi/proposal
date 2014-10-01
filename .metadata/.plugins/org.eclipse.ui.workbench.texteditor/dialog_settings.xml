@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="289" key="DIALOG_WIDTH"/>
-		<item value="155" key="DIALOG_Y_ORIGIN"/>
-		<item value="417" key="DIALOG_HEIGHT"/>
-		<item value="1248" key="DIALOG_X_ORIGIN"/>
-		<item value="1|Lucida Grande|13.0|0|COCOA|1|LucidaGrande" key="DIALOG_FONT_NAME"/>
+		<item value="305" key="DIALOG_WIDTH"/>
+		<item value="393" key="DIALOG_Y_ORIGIN"/>
+		<item value="1477" key="DIALOG_X_ORIGIN"/>
+		<item value="444" key="DIALOG_HEIGHT"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="true" key="wrap"/>
-		<item value="false" key="isRegEx"/>
 		<item value="false" key="casesensitive"/>
+		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="commulatedDelayMatrix" key="selection"/>
+		<item value="" key="selection"/>
 		<list key="findhistory">
+			<item value="sssw"/>
+			<item value="ssw"/>
+			<item value="reser"/>
+			<item value="setrel"/>
+			<item value="setrelea"/>
 			<item value="commulatedDelayMatrix"/>
 			<item value="push"/>
 			<item value="reserve"/>
-			<item value="pathnames"/>
-			<item value="computede"/>
-			<item value="handleM"/>
-			<item value="fromFile"/>
-			<item value="ini"/>
 		</list>
 		<list key="replacehistory">
 			<item value="dataOut"/>

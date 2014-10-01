@@ -33,6 +33,7 @@ private:
     cQueue SwitchingContQ;
     bool busy;
     bool barState;
+    int delay;
 public:
     P3DModuleDB();
     virtual ~P3DModuleDB();
@@ -49,6 +50,14 @@ public:
     void setBarState(bool barState);
     bool isBusy() const;
     void setBusy(bool busy);
+    int getDelay() const;
+    void setDelay(int delay);
+    const simtime_t& getStartHoldingTime() const;
+    void setStartHoldingTime(const simtime_t& startHoldingTime);
+    const cQueue& getSwitchingContQ() const;
+    void setSwitchingContQ(const cQueue& switchingContQ);
+    const simtime_t& getReleaseHoldingTime() const;
+    void setReleaseHoldingTime(const simtime_t& releaseHoldingTime);
 };
 
 } /* namespace queueing */
