@@ -282,7 +282,7 @@ void SSController::reservePath(int pathIndex, int delay) {
             if ( itt->getModuleName()==moduleName)
                 {
                 itt->setBusy(true);
-               // itt->setDelay(commulatedDelayMatrix[i][delay]);
+                itt->setDelay(commulatedDelayMatrix[i][delay+1]);
                 }
         }
     }
@@ -337,6 +337,7 @@ void SSController::setDelayMatrix()
            EV<<endl;
            }
 }
+
 
 
 } //namespace

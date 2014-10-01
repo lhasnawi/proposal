@@ -33,6 +33,7 @@ private:
     cQueue SwitchingContQ;
     bool busy;
     bool barState;
+    int delay;
 public:
     P3DModuleDB();
     virtual ~P3DModuleDB();
@@ -49,6 +50,12 @@ public:
     void setBarState(bool barState);
     bool isBusy() const;
     void setBusy(bool busy);
+    int getQueueLength();
+    void insertOrderedSWC(SSSwitchingCont *SWC);
+    int getDelay() const;
+    void setDelay(int delay);
+    const cQueue& getSwitchingContQ() const;
+    void setSwitchingContQ(const cQueue& switchingContQ);
 };
 
 } /* namespace queueing */

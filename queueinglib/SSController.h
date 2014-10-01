@@ -24,6 +24,7 @@
 #include "P3DModuleCont_m.h"
 #include "P3DBroadcastParameter_m.h"
 #include <fstream>
+#include "SSSwitchingCont_m.h"
 
 
 namespace queueing {
