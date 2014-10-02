@@ -72,6 +72,23 @@ bool P3DModuleDB::isBusy() const {
     return busy;
 }
 
+int P3DModuleDB::getDelay() const {
+    return delay;
+}
+
+void P3DModuleDB::setDelay(int delay) {
+    this->delay = delay;
+}
+
+
+const cQueue& P3DModuleDB::getSwitchingContQ() const {
+    return SwitchingContQ;
+}
+
+void P3DModuleDB::setSwitchingContQ(const cQueue& switchingContQ) {
+    SwitchingContQ = switchingContQ;
+}
+
 void P3DModuleDB::setBusy(bool busy) {
     this->busy = busy;
 }
