@@ -36,7 +36,8 @@ namespace queueing {
  *     simtime_t StartHoldingTime;
  *     int outputPortIndex;
  *     int delay;
- *     string targetModule;
+ *     int targetModuleID;
+ *     string TargetModule;
  * }
  * </pre>
  */
@@ -48,7 +49,8 @@ class QUEUEING_API SSSwitchingCont : public ::cMessage
     simtime_t StartHoldingTime_var;
     int outputPortIndex_var;
     int delay_var;
-    opp_string targetModule_var;
+    int targetModuleID_var;
+    opp_string TargetModule_var;
 
   private:
     void copy(const SSSwitchingCont& other);
@@ -77,8 +79,10 @@ class QUEUEING_API SSSwitchingCont : public ::cMessage
     virtual void setOutputPortIndex(int outputPortIndex);
     virtual int getDelay() const;
     virtual void setDelay(int delay);
+    virtual int getTargetModuleID() const;
+    virtual void setTargetModuleID(int targetModuleID);
     virtual const char * getTargetModule() const;
-    virtual void setTargetModule(const char * targetModule);
+    virtual void setTargetModule(const char * TargetModule);
 };
 
 inline void doPacking(cCommBuffer *b, SSSwitchingCont& obj) {obj.parsimPack(b);}

@@ -63,7 +63,8 @@ SSSwitchingCont::SSSwitchingCont(const char *name, int kind) : ::cMessage(name,k
     this->StartHoldingTime_var = 0;
     this->outputPortIndex_var = 0;
     this->delay_var = 0;
-    this->targetModule_var = 0;
+    this->targetModuleID_var = 0;
+    this->TargetModule_var = 0;
 }
 
 SSSwitchingCont::SSSwitchingCont(const SSSwitchingCont& other) : ::cMessage(other)
@@ -90,7 +91,8 @@ void SSSwitchingCont::copy(const SSSwitchingCont& other)
     this->StartHoldingTime_var = other.StartHoldingTime_var;
     this->outputPortIndex_var = other.outputPortIndex_var;
     this->delay_var = other.delay_var;
-    this->targetModule_var = other.targetModule_var;
+    this->targetModuleID_var = other.targetModuleID_var;
+    this->TargetModule_var = other.TargetModule_var;
 }
 
 void SSSwitchingCont::parsimPack(cCommBuffer *b)
@@ -101,7 +103,8 @@ void SSSwitchingCont::parsimPack(cCommBuffer *b)
     doPacking(b,this->StartHoldingTime_var);
     doPacking(b,this->outputPortIndex_var);
     doPacking(b,this->delay_var);
-    doPacking(b,this->targetModule_var);
+    doPacking(b,this->targetModuleID_var);
+    doPacking(b,this->TargetModule_var);
 }
 
 void SSSwitchingCont::parsimUnpack(cCommBuffer *b)
@@ -112,7 +115,8 @@ void SSSwitchingCont::parsimUnpack(cCommBuffer *b)
     doUnpacking(b,this->StartHoldingTime_var);
     doUnpacking(b,this->outputPortIndex_var);
     doUnpacking(b,this->delay_var);
-    doUnpacking(b,this->targetModule_var);
+    doUnpacking(b,this->targetModuleID_var);
+    doUnpacking(b,this->TargetModule_var);
 }
 
 bool SSSwitchingCont::getSwitchingState() const
@@ -165,14 +169,24 @@ void SSSwitchingCont::setDelay(int delay)
     this->delay_var = delay;
 }
 
-const char * SSSwitchingCont::getTargetModule() const
+int SSSwitchingCont::getTargetModuleID() const
 {
-    return targetModule_var.c_str();
+    return targetModuleID_var;
 }
 
-void SSSwitchingCont::setTargetModule(const char * targetModule)
+void SSSwitchingCont::setTargetModuleID(int targetModuleID)
 {
-    this->targetModule_var = targetModule;
+    this->targetModuleID_var = targetModuleID;
+}
+
+const char * SSSwitchingCont::getTargetModule() const
+{
+    return TargetModule_var.c_str();
+}
+
+void SSSwitchingCont::setTargetModule(const char * TargetModule)
+{
+    this->TargetModule_var = TargetModule;
 }
 
 class SSSwitchingContDescriptor : public cClassDescriptor
@@ -222,7 +236,7 @@ const char *SSSwitchingContDescriptor::getProperty(const char *propertyname) con
 int SSSwitchingContDescriptor::getFieldCount(void *object) const
 {
     cClassDescriptor *basedesc = getBaseClassDescriptor();
-    return basedesc ? 6+basedesc->getFieldCount(object) : 6;
+    return basedesc ? 7+basedesc->getFieldCount(object) : 7;
 }
 
 unsigned int SSSwitchingContDescriptor::getFieldTypeFlags(void *object, int field) const
@@ -240,8 +254,9 @@ unsigned int SSSwitchingContDescriptor::getFieldTypeFlags(void *object, int fiel
         FD_ISEDITABLE,
         FD_ISEDITABLE,
         FD_ISEDITABLE,
+        FD_ISEDITABLE,
     };
-    return (field>=0 && field<6) ? fieldTypeFlags[field] : 0;
+    return (field>=0 && field<7) ? fieldTypeFlags[field] : 0;
 }
 
 const char *SSSwitchingContDescriptor::getFieldName(void *object, int field) const
@@ -258,9 +273,10 @@ const char *SSSwitchingContDescriptor::getFieldName(void *object, int field) con
         "StartHoldingTime",
         "outputPortIndex",
         "delay",
-        "targetModule",
+        "targetModuleID",
+        "TargetModule",
     };
-    return (field>=0 && field<6) ? fieldNames[field] : NULL;
+    return (field>=0 && field<7) ? fieldNames[field] : NULL;
 }
 
 int SSSwitchingContDescriptor::findField(void *object, const char *fieldName) const
@@ -272,7 +288,8 @@ int SSSwitchingContDescriptor::findField(void *object, const char *fieldName) co
     if (fieldName[0]=='S' && strcmp(fieldName, "StartHoldingTime")==0) return base+2;
     if (fieldName[0]=='o' && strcmp(fieldName, "outputPortIndex")==0) return base+3;
     if (fieldName[0]=='d' && strcmp(fieldName, "delay")==0) return base+4;
-    if (fieldName[0]=='t' && strcmp(fieldName, "targetModule")==0) return base+5;
+    if (fieldName[0]=='t' && strcmp(fieldName, "targetModuleID")==0) return base+5;
+    if (fieldName[0]=='T' && strcmp(fieldName, "TargetModule")==0) return base+6;
     return basedesc ? basedesc->findField(object, fieldName) : -1;
 }
 
@@ -290,9 +307,10 @@ const char *SSSwitchingContDescriptor::getFieldTypeString(void *object, int fiel
         "simtime_t",
         "int",
         "int",
+        "int",
         "string",
     };
-    return (field>=0 && field<6) ? fieldTypeStrings[field] : NULL;
+    return (field>=0 && field<7) ? fieldTypeStrings[field] : NULL;
 }
 
 const char *SSSwitchingContDescriptor::getFieldProperty(void *object, int field, const char *propertyname) const
@@ -337,7 +355,8 @@ std::string SSSwitchingContDescriptor::getFieldAsString(void *object, int field,
         case 2: return double2string(pp->getStartHoldingTime());
         case 3: return long2string(pp->getOutputPortIndex());
         case 4: return long2string(pp->getDelay());
-        case 5: return oppstring2string(pp->getTargetModule());
+        case 5: return long2string(pp->getTargetModuleID());
+        case 6: return oppstring2string(pp->getTargetModule());
         default: return "";
     }
 }
@@ -357,7 +376,8 @@ bool SSSwitchingContDescriptor::setFieldAsString(void *object, int field, int i,
         case 2: pp->setStartHoldingTime(string2double(value)); return true;
         case 3: pp->setOutputPortIndex(string2long(value)); return true;
         case 4: pp->setDelay(string2long(value)); return true;
-        case 5: pp->setTargetModule((value)); return true;
+        case 5: pp->setTargetModuleID(string2long(value)); return true;
+        case 6: pp->setTargetModule((value)); return true;
         default: return false;
     }
 }

@@ -24,5 +24,6 @@ message SSSwitchingCont {
     simtime_t StartHoldingTime;
     int outputPortIndex;
     int delay;
-    string targetModule;
+    int targetModuleID;
+    string TargetModule;
 }

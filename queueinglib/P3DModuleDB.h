@@ -45,7 +45,6 @@ public:
     void setModuleName(string moduleName);
     int getModuleType() const;
     void setModuleType(int moduleType);
-    void insertInOrder(SSSwitchingCont * sw);
     bool isBarState() const;
     void setBarState(bool barState);
     bool isBusy() const;

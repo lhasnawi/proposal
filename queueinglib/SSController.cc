@@ -115,10 +115,11 @@ void SSController::handleMessage(cMessage *msg)
            this->frameCounter++;
            this->timeslotCounter = 0;
        }
-       pathIndex= delay/2;
+       pathIndex= delay;
+       EV<<"Path Index  "<<pathIndex<<endl;
        SSController::reservePath(pathIndex, delay);
-       /*Ocontroller::reserveOFDLStage(PathNamesIndex,delay);
-       //Ocontroller::sendSwitchingCont(PathNamesIndex, pathIndex, delay);
+
+       /*Ocontroller::sendSwitchingCont(PathNamesIndex, pathIndex, delay);
        Ocontroller::sendSwitchingCont();
 
        scheduleAt(simTime()+Ocontroller::getTimeslotDuration(), event);
@@ -148,7 +149,8 @@ void SSController::handleMessage(cMessage *msg)
 
         scheduleAt(simTime()+this->timeslotDuration, P3DControllerEvent);
         }
-        else{
+        else
+        {
             cancelAndDelete(P3DControllerEvent);
         }
 
@@ -273,17 +275,58 @@ void SSController::reservePath(int pathIndex, int delay) {
     list<P3DModuleDB>::iterator iStart = switchesList.begin();
     list<P3DModuleDB>::iterator iEnd = switchesList.end();
     string moduleName;
+    SSSwitchingCont * SWCont;
+    int counter=0;
+    EV<<"Path names index is "<<pathIndex/2<<endl;
 
     for (int i = 0; i< 6; i++)
     {
-        moduleName = this->pathNames[pathIndex][i];
+        moduleName = this->pathNames[pathIndex/2][i];
+
+
+
         for (itt = iStart ; itt != iEnd ; ++itt)
         {
             if ( itt->getModuleName()==moduleName)
                 {
                 itt->setBusy(true);
-                itt->setDelay(commulatedDelayMatrix[i][delay+1]);
+                EV<<"Set to busy"<<endl;
+                itt->setDelay(commulatedDelayMatrix[i][delay]);
+                EV<<"Set Comm Delay"<<commulatedDelayMatrix[i][delay]<<endl;
+                bool SWCfromFile = SSController::getSWC(pathIndex+1,i+1);
+                EV<<"SWC from file is "<<SWCfromFile<<"  ";
+                SWCont = new SSSwitchingCont;
+                SWCont->setSwitchingState(SWCfromFile);
+                SWCont->setKind(4);
+                SWCont->setName("SWC");
+                SWCont->setOutputPortIndex(itt->getContOutputPortId());
+                SWCont->setDelay(commulatedDelayMatrix[i][delay]);
+                SWCont->setTargetModuleID(itt->getModuleId());
+                SWCont->setStartHoldingTime(simTime()+commulatedDelayMatrix[i][delay+1]*this->timeslotDuration);
+                SWCont->setReleaseTime(simTime()+commulatedDelayMatrix[i][delay]*this->timeslotDuration+this->guardTime);
+                SWCont->setTargetModule(itt->getModuleName().c_str());
+              // itt->insertOrderedSWC(SWCont);
                 }
+            /*cQueue::Iterator currentIter =  cQueue::Iterator ( itt->getSwitchingContQ(), 0);
+            SSSwitchingCont * SWC;
+            EV<<"=============================="<<endl;
+            EV<<"Module ( "<<moduleName<<" )"<<endl;
+            EV<<"Length = "<<itt->getQueueLength()<<endl;
+            EV<<"=============================="<<endl;
+
+            for (currentIter; currentIter.end()==false;currentIter++)
+            {
+                SWC = (  SSSwitchingCont *) currentIter();
+
+                EV<<"Job # "<<counter+1<<"-----------------"<<endl;
+                EV<<"Start Holding Time  = "<<SWC->getStartHoldingTime()<<endl;
+                EV<<"Switching State     = "<<SWC->getSwitchingState()<<endl;
+                EV<<"Delay               = "<<SWC->getDelay()<<endl;
+                EV<<"Release Time        = "<<SWC->getReleaseTime()<<endl;
+                EV<<"Target Module       = "<<SWC->getTargetModule()<<endl;
+                EV<<"Target Module ID    = "<<SWC->getTargetModuleID()<<endl;
+                counter++;
+            }*/
         }
     }
 
@@ -337,6 +380,29 @@ void SSController::setDelayMatrix()
            EV<<endl;
            }
 }
+
+int SSController::getSWC(int row, int column)
+{
+ int result = -1, rowIndex = 0;
+ string temp;
+ ifstream inFile;
+
+     if(row > 0 && column > 0)
+     {
+      inFile.open("SSSWC4.txt");
+
+      for(rowIndex = 0; inFile.good() && rowIndex < row; rowIndex++)
+       inFile>>temp;
+
+      inFile.close();
+
+      if(rowIndex>=row && column<=temp.size())
+       result = temp.at(column - 1) - '0';
+     }
+
+ return result;
+}
+
 
 
 
