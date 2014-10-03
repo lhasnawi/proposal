@@ -139,5 +139,11 @@ Oframe *SSFDL::getFromQueue()
 }
 
 
+SSFDL::~SSFDL()
+{
+cancelAndDelete(endServiceMsg);
+}
+
+
 
 } //namespace

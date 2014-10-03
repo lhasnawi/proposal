@@ -95,54 +95,156 @@ void P3DModuleDB::setBusy(bool busy) {
 
 void P3DModuleDB::insertOrderedSWC(SSSwitchingCont * sw)
 {
-    int newDelay = sw->getDelay();
 
-    if (SwitchingContQ.isEmpty()==true) // Switching Control Queue is empty
+    bool exit = false;
+    int queueLegnth=0;
+
+    queueLegnth = this->SwitchingContQ.getLength();
+
+    if (SwitchingContQ.isEmpty()==true) //Case 1: Switching Control Queue is empty
     {
+        //EV<<"Queue is Empty .. "<<endl;
         SwitchingContQ.insert(sw);
-    }
-    else
-        {
-        bool found = false;
-        cQueue::Iterator currentIter =  cQueue::Iterator ( SwitchingContQ, 1);
-        SSSwitchingCont * contCurrent = (  SSSwitchingCont *) currentIter();
-        cQueue::Iterator nextIter =  cQueue::Iterator ( SwitchingContQ, 1);
-        SSSwitchingCont * contNext = (  SSSwitchingCont *) nextIter();
-        nextIter++;
-        do
-        {
+       // EV<<"DONE... Inserted to Empty Queue .. Length = "<<SwitchingContQ.getLength()<<endl;
+        //EV<<"//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--//--"<<endl;
+    } // end of IfEmpty
+    else // Case 2: Switching Control Queue is NOT Empty
+    {
+       // EV<<"Queue is NOT Empty .. Length = "<<SwitchingContQ.getLength()<<endl;
+        cQueue::Iterator currentIter =  cQueue::Iterator ( SwitchingContQ, 0);
+        SSSwitchingCont * SWC = (  SSSwitchingCont *) currentIter();
 
-            if (newDelay < contCurrent->getDelay())
-            {
-                SwitchingContQ.insertBefore(currentIter.operator ()(),sw) ;
-                found = true;
-            }
-            else if (newDelay > contCurrent->getDelay())
-            {
-                if (newDelay < contNext->getDelay())
-                {
-                    //SwitchingContQ->insertBefore(contNext.operator ()(),sw) ;
-                    found = true;
-                }
 
+        // case 2.1 Only one Job in Queue
+        if (SwitchingContQ.length()==1)
+        {
+            // Case 2.1.1: Holding Time LESS than Head Of Queue
+            if (sw->getStartHoldingTime() < SWC->getStartHoldingTime())
+            {
+                //EV<<"new SWC is LESS than the head of the Queue"<<endl;
+                SwitchingContQ.insertBefore(currentIter.operator ()(),sw);
+               // EV<<"DONE... Inserted to head of the queue where new SWC (Start Holding Time) ="<< sw->getStartHoldingTime() <<" and head of the Queue ReleaseTime =  "<<SWC->getStartHoldingTime()<<endl;
+               // EV<<"DONE... Inserted to head of the queue where new SWC delay ="<< sw->getDelay() <<" and head of the Queue delay =  "<<SWC->getDelay()<<endl;
+               // EV<<SwitchingContQ.getLength()<<endl;
+               // EV<<"+++++++++++++++++++++++++++++++++++++++++++++++++"<<endl;
             }
+
+            // Case 2.1.2 Holding Time GREATER than Head Of Queue and Only One Job in Queue
             else
             {
-            currentIter++;
-            nextIter++;
-            contCurrent = (  SSSwitchingCont *) currentIter();
-            contNext = (  SSSwitchingCont *) nextIter();
-
-            }
-        }while (nextIter.end()!=true || found == false);
+            //EV<<"new SWC is GREATER than the head of the Queue & only one job in Q"<<endl;
+            SwitchingContQ.insertAfter(currentIter.operator ()(),sw);
+           // EV<<"DONE... Inserted to tail of the queue where new SWC (Start Holding Time) ="<< sw->getStartHoldingTime() <<" and head of the Queue ReleaseTime =  "<<SWC->getStartHoldingTime()<<endl;
+            //EV<<"DONE... Inserted to tail of the queue where new SWC delay ="<< sw->getDelay() <<" and head of the Queue delay =  "<<SWC->getDelay()<<endl;
+            //EV<<SwitchingContQ.getLength()<<endl;
+            //EV<<"--------------------------------------------------------------------------------"<<endl;
+            } // end 2.1.2
         }
+        // Case 2.2: More Than One Job in Queue
+        else
+        {
+            //cQueue::Iterator currentIter =  cQueue::Iterator (* itt->SwitchingContQ, 0);
+            cQueue::Iterator nextIter =  cQueue::Iterator ( SwitchingContQ, 0);
+            nextIter++;
+            SSSwitchingCont * SWCN;
+            bool exit = false;
 
+
+                SWC = (  SSSwitchingCont *) currentIter();
+                SWCN = (  SSSwitchingCont *) nextIter();
+
+                if (sw->getStartHoldingTime() < SWC->getStartHoldingTime())// && sw->getStartHoldingTime()< SWCN->getStartHoldingTime())
+                {
+                    SwitchingContQ.insertBefore(currentIter.operator ()(),sw);
+                    exit = true;
+
+                   // EV<<"DONE... Inserted to queue where new SWC (Start Holding Time) = "<< sw->getStartHoldingTime() <<" before   "<<SWC->getStartHoldingTime()<<endl;
+                    //EV<<"DONE... Inserted to queue where new SWC delay = "<< sw->getDelay() <<" after  "<<SWC->getDelay()<<endl;
+                    //EV<<itt->SwitchingContQ->getLength()<<endl;
+                    //EV<<"cccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"<<endl;
+                }
+                else //if (sw->getStartHoldingTime()>SWC->getStartHoldingTime())
+                {
+                    do
+                    {
+                        SWC = (  SSSwitchingCont *) currentIter();
+                        SWCN = (  SSSwitchingCont *) nextIter();
+                    if(nextIter.end()==true)
+                    {
+                    SwitchingContQ.insertAfter(currentIter.operator ()(),sw);
+                    exit = true;
+                    }
+                    else if (sw->getStartHoldingTime()<SWCN->getStartHoldingTime())
+                    {
+                    SwitchingContQ.insertBefore(nextIter.operator ()(),sw);
+                    exit = true;
+                    }
+                    else
+                    {
+                            currentIter++;
+                            nextIter++;
+                    }
+
+                    }while (exit == false);
+                }
+        } // end case 2.2
+    }// end case 2
 }
 
-
-
-
-int queueing::P3DModuleDB::getQueueLength() {
+int P3DModuleDB::getQueueLength() {
     return this->SwitchingContQ.getLength();
 }
+
+void P3DModuleDB::printSwitcchingContQ() {
+    cQueue::Iterator currentIter =  cQueue::Iterator ( this->SwitchingContQ, 0);
+    SSSwitchingCont * SWC;
+    int counter=0;
+    EV<<"=============================="<<endl;
+    EV<<"Module ( "<<moduleName<<" )"<<endl;
+    EV<<"Length = "<<this->SwitchingContQ.getLength()<<endl;
+    EV<<"=============================="<<endl;
+
+    for (currentIter; currentIter.end()==false;currentIter++)
+    {
+       SWC = (  SSSwitchingCont *) currentIter();
+
+       EV<<"Job # "<<counter+1<<"-----------------"<<endl;
+       EV<<"Start Holding Time  = "<<SWC->getStartHoldingTime()<<endl;
+       EV<<"Switching State     = "<<SWC->getSwitchingState()<<endl;
+       EV<<"Delay               = "<<SWC->getDelay()<<endl;
+       EV<<"Release Time        = "<<SWC->getReleaseTime()<<endl;
+       EV<<"Target Module       = "<<SWC->getTargetModule()<<endl;
+       EV<<"Target Module ID    = "<<SWC->getTargetModuleID()<<endl;
+       counter++;
+    }
+
+}
+
+SSSwitchingCont * P3DModuleDB::getSWC() {
+       cQueue::Iterator currentIter =  cQueue::Iterator ( SwitchingContQ, 0);
+       SSSwitchingCont * contCurrent = (  SSSwitchingCont *) currentIter();
+       if (SwitchingContQ.isEmpty()==0)
+       {
+
+           if (  contCurrent->getStartHoldingTime()== simTime())
+               {
+               SSSwitchingCont * SWC = new SSSwitchingCont (*contCurrent);
+               return SWC;
+
+               }
+           else
+           {
+               return NULL;
+           }
+       }
+}
+
+
+
+void P3DModuleDB::popTheHead() {
+    this->SwitchingContQ.pop();
+}
+
 } /* namespace queueing */
+
+

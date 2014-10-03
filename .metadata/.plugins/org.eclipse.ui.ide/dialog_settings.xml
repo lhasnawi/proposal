@@ -8,13 +8,24 @@
 		<list key="ENABLED_TRANSFERS">
 		</list>
 	</section>
+	<section name="ExternalProjectImportWizard">
+		<item value="false" key="WizardProjectsImportPage.STORE_ARCHIVE_SELECTED"/>
+		<item value="true" key="WizardProjectsImportPage.STORE_COPY_PROJECT_ID"/>
+		<item value="false" key="WizardProjectsImportPage.STORE_NESTED_PROJECTS"/>
+		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="C:\Users\Luai\proposal"/>
+		</list>
+		<list key="WizardProjectsImportPage.STORE_ARCHIVES">
+			<item value=""/>
+		</list>
+	</section>
 	<section name="CleanDialogSettings">
-		<item value="563" key="DIALOG_WIDTH"/>
+		<item value="662" key="DIALOG_WIDTH"/>
 		<item value="true" key="BUILD_NOW"/>
 		<item value="205" key="DIALOG_Y_ORIGIN"/>
 		<item value="true" key="BUILD_ALL"/>
 		<item value="705" key="DIALOG_X_ORIGIN"/>
-		<item value="439" key="DIALOG_HEIGHT"/>
+		<item value="498" key="DIALOG_HEIGHT"/>
 		<item value="false" key="TOGGLE_SELECTED"/>
 	</section>
 </section>

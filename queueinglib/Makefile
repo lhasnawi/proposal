@@ -390,7 +390,8 @@ $O/SSSplitter.o: SSSplitter.cc \
 	Oframe_m.h \
 	P3DBroadcastParameter_m.h \
 	P3DModuleCont_m.h \
-	SSSplitter.h
+	SSSplitter.h \
+	SSSwitchingCont_m.h
 $O/SSSwitchingCont_m.o: SSSwitchingCont_m.cc \
 	SSSwitchingCont_m.h
 $O/SelectionStrategies.o: SelectionStrategies.cc \

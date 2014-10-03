@@ -20,6 +20,7 @@
 #include "Oframe_m.h"
 #include "P3DBroadcastParameter_m.h"
 #include "P3DModuleCont_m.h"
+#include "SSSwitchingCont_m.h"
 
 namespace queueing {
 
@@ -28,12 +29,21 @@ namespace queueing {
  */
 class SSSplitter : public cSimpleModule
 {
+public:
+    bool isBarState() const;
+    void setBarState(bool barState);
+
 private:
    bool barState;           // bar state -> True;  Cross state -> False
    int numberOfTimeslots;
    int numberOfFrames;
    int numberOfJobs;
    bool moduleUsed;
+   simtime_t startHolding;
+   simtime_t releaseTime;
+   double timeslotDuration;
+   double guardTime;
+   cMessage * releaseMessage;
 
   protected:
     virtual void initialize();

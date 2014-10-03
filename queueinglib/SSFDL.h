@@ -45,6 +45,7 @@ private:
        Oframe *getFromQueue();
 
   protected:
+       ~SSFDL();
     virtual void initialize();
     virtual void handleMessage(cMessage *msg);
     virtual void arrival(Oframe *frm);

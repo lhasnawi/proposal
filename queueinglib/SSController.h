@@ -25,6 +25,7 @@
 #include "P3DBroadcastParameter_m.h"
 #include <fstream>
 #include "SSSwitchingCont_m.h"
+#include <clinkedlist.h>
 
 
 namespace queueing {
@@ -62,6 +63,8 @@ class SSController : public cSimpleModule
     void reservePath(int pathIndex, int delay);
     void setDelayMatrix();
     int getSWC(int row, int column);
+    void sendSWC();
+    void printSwitchList();
 };
 
 } //namespace

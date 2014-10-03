@@ -38,6 +38,8 @@ void SSSplitter::handleMessage(cMessage *msg)
         this->numberOfTimeslots = BP->getNumberOfTimeslots();
         this->numberOfFrames = BP->getNumberOfFrames();
         this->numberOfJobs = this->numberOfTimeslots * this->numberOfFrames;
+        this->timeslotDuration = BP->getTimeslotDuration();
+        this->guardTime = BP->getGuardTime();
         delete msg;
 
         P3DModuleCont * splitterCont = SSSplitter::genrateModuleCont();
@@ -47,6 +49,21 @@ void SSSplitter::handleMessage(cMessage *msg)
         splitterCont->setKind(2);
         send(splitterCont,"control$o");
     }
+    else if (msg->getKind()==4)       // it is control Packet
+       {
+           //Control Message
+        SSSwitchingCont * cont = check_and_cast<SSSwitchingCont *>(msg);
+
+           barState = cont->getSwitchingState();
+           startHolding = cont->getStartHoldingTime();
+           releaseTime =cont->getArrivalTime()+timeslotDuration*.9;
+           releaseMessage = new cMessage();
+           releaseMessage->setName("releaseMessage");
+           scheduleAt(releaseTime, releaseMessage);
+           delete msg;
+
+
+       }
     else if (msg->getKind()==0)
     {
         if (moduleUsed == false)
@@ -68,10 +85,24 @@ void SSSplitter::handleMessage(cMessage *msg)
         }
     }
 
-    else
-    {
-        delete msg;
-    }
+    else if (strcmp(msg->getName(),"releaseMessage")==0)
+        {
+            //Message to release switching state
+           SSSplitter::setBarState(true);
+            bubble ("StateReleased");
+            cancelAndDelete (releaseMessage);
+
+
+
+        }
+}
+
+bool SSSplitter::isBarState() const {
+    return barState;
+}
+
+void SSSplitter::setBarState(bool barState) {
+    this->barState = barState;
 }
 
 bool SSSplitter::getSwitchState()

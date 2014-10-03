@@ -23,5 +23,5 @@ import ned.IdealChannel;
 //
 channel ControlChannel extends IdealChannel
 {
-    @display("ls=grey,,da");
+    @display("ls=grey,00,da");
 }

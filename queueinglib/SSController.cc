@@ -117,16 +117,12 @@ void SSController::handleMessage(cMessage *msg)
        }
        pathIndex= delay;
        EV<<"Path Index  "<<pathIndex<<endl;
+       SSController::printSwitchList();
        SSController::reservePath(pathIndex, delay);
+       SSController::sendSWC();
+       scheduleAt(simTime()+timeslotDuration, P3DControllerEvent);
 
-       /*Ocontroller::sendSwitchingCont(PathNamesIndex, pathIndex, delay);
-       Ocontroller::sendSwitchingCont();
-
-       scheduleAt(simTime()+Ocontroller::getTimeslotDuration(), event);
-       Ocontroller::increaseTimeslotCounter();
-       this->jobCounter++;
-
-        }
+/*
             else
             {
                 EV<<"I am here ....1 "<<endl;
@@ -166,7 +162,12 @@ void SSController::handleMessage(cMessage *msg)
                    mod.setModuleId(modCont->getModuleID());
                    mod.setModuleName(modCont->getModuleName());
                    mod.setModuleType(modCont->getModuleType());
-                   mod.setContOutputPortId(modCont->getArrivalGateId());
+                   for (int i=0;i<SSController::gateSize("control$o");i++)
+                       {
+                           cGate * outputGate = SSController::gate("control$o",i);
+                           if (outputGate->getNextGate()== simulation.getModule(mod.getModuleId())->gate("control$i"))
+                               mod.setContOutputPortId(outputGate->getId());
+                       }
                    sourceSinkList.push_back(mod);
                    delete msg;
                    bubble ("Source added");
@@ -177,7 +178,12 @@ void SSController::handleMessage(cMessage *msg)
                    mod.setModuleId(modCont->getModuleID());
                    mod.setModuleName(modCont->getModuleName());
                    mod.setModuleType(modCont->getModuleType());
-                   mod.setContOutputPortId(modCont->getArrivalGateId());
+                   for (int i=0;i<SSController::gateSize("control$o");i++)
+                       {
+                           cGate * outputGate = SSController::gate("control$o",i);
+                           if (outputGate->getNextGate()== simulation.getModule(mod.getModuleId())->gate("control$i"))
+                               mod.setContOutputPortId(outputGate->getId());
+                       }
                    sourceSinkList.push_back(mod);
                    delete msg;
                    bubble ("Sink added");
@@ -188,7 +194,12 @@ void SSController::handleMessage(cMessage *msg)
                    mod.setModuleId(modCont->getModuleID());
                    mod.setModuleName(modCont->getModuleName());
                    mod.setModuleType(modCont->getModuleType());
-                   mod.setContOutputPortId(modCont->getArrivalGateId());
+                   for (int i=0;i<SSController::gateSize("control$o");i++)
+                       {
+                           cGate * outputGate = SSController::gate("control$o",i);
+                           if (outputGate->getNextGate()== simulation.getModule(mod.getModuleId())->gate("control$i"))
+                               mod.setContOutputPortId(outputGate->getId());
+                       }
                    switchesList.push_back(mod);
                    delete msg;
                    bubble ("Splitter added");
@@ -200,7 +211,12 @@ void SSController::handleMessage(cMessage *msg)
                    mod.setModuleId(modCont->getModuleID());
                    mod.setModuleName(modCont->getModuleName());
                    mod.setModuleType(modCont->getModuleType());
-                   mod.setContOutputPortId(modCont->getArrivalGateId());
+                   for (int i=0;i<SSController::gateSize("control$o");i++)
+                       {
+                           cGate * outputGate = SSController::gate("control$o",i);
+                           if (outputGate->getNextGate()== simulation.getModule(mod.getModuleId())->gate("control$i"))
+                               mod.setContOutputPortId(outputGate->getId());
+                       }
                    switchesList.push_back(mod);
                    delete msg;
                    bubble ("Switch added");
@@ -211,7 +227,12 @@ void SSController::handleMessage(cMessage *msg)
                    mod.setModuleId(modCont->getModuleID());
                    mod.setModuleName(modCont->getModuleName());
                    mod.setModuleType(modCont->getModuleType());
-                   mod.setContOutputPortId(modCont->getArrivalGateId());
+                   for (int i=0;i<SSController::gateSize("control$o");i++)
+                       {
+                           cGate * outputGate = SSController::gate("control$o",i);
+                           if (outputGate->getNextGate()== simulation.getModule(mod.getModuleId())->gate("control$i"))
+                               mod.setContOutputPortId(outputGate->getId());
+                       }
                    switchesList.push_back(mod);
                    delete msg;
                    bubble ("Combiner added");
@@ -219,7 +240,9 @@ void SSController::handleMessage(cMessage *msg)
                    break;
                }
 
+
         }
+
 }
 
 void SSController::broadcastParameter() {
@@ -276,7 +299,7 @@ void SSController::reservePath(int pathIndex, int delay) {
     list<P3DModuleDB>::iterator iEnd = switchesList.end();
     string moduleName;
     SSSwitchingCont * SWCont;
-    int counter=0;
+
     EV<<"Path names index is "<<pathIndex/2<<endl;
 
     for (int i = 0; i< 6; i++)
@@ -305,28 +328,10 @@ void SSController::reservePath(int pathIndex, int delay) {
                 SWCont->setStartHoldingTime(simTime()+commulatedDelayMatrix[i][delay+1]*this->timeslotDuration);
                 SWCont->setReleaseTime(simTime()+commulatedDelayMatrix[i][delay]*this->timeslotDuration+this->guardTime);
                 SWCont->setTargetModule(itt->getModuleName().c_str());
-              // itt->insertOrderedSWC(SWCont);
+                itt->insertOrderedSWC(SWCont);
+                itt->printSwitcchingContQ();
                 }
-            /*cQueue::Iterator currentIter =  cQueue::Iterator ( itt->getSwitchingContQ(), 0);
-            SSSwitchingCont * SWC;
-            EV<<"=============================="<<endl;
-            EV<<"Module ( "<<moduleName<<" )"<<endl;
-            EV<<"Length = "<<itt->getQueueLength()<<endl;
-            EV<<"=============================="<<endl;
 
-            for (currentIter; currentIter.end()==false;currentIter++)
-            {
-                SWC = (  SSSwitchingCont *) currentIter();
-
-                EV<<"Job # "<<counter+1<<"-----------------"<<endl;
-                EV<<"Start Holding Time  = "<<SWC->getStartHoldingTime()<<endl;
-                EV<<"Switching State     = "<<SWC->getSwitchingState()<<endl;
-                EV<<"Delay               = "<<SWC->getDelay()<<endl;
-                EV<<"Release Time        = "<<SWC->getReleaseTime()<<endl;
-                EV<<"Target Module       = "<<SWC->getTargetModule()<<endl;
-                EV<<"Target Module ID    = "<<SWC->getTargetModuleID()<<endl;
-                counter++;
-            }*/
         }
     }
 
@@ -364,11 +369,6 @@ void SSController::setDelayMatrix()
 
                   }//end for
 
-
-
-
-
-
        for (int i=0;i<MaximumDelayPlus1;i++)
            {
                    for (int x = 0; x <numSWPerPath; x++)
@@ -403,7 +403,40 @@ int SSController::getSWC(int row, int column)
  return result;
 }
 
+void SSController::sendSWC() {
 
+    list<P3DModuleDB>::iterator itt;
+    list<P3DModuleDB>::iterator iStart = switchesList.begin();
+    list<P3DModuleDB>::iterator iEnd = switchesList.end();
+    int outputGateID;
+    for (itt = iStart ; itt != iEnd ; ++itt)
+       {
+        SSSwitchingCont * SWC = itt->getSWC();
+        if (SWC !=NULL)
+            {
+            outputGateID = itt->getContOutputPortId();
+            send (SWC,outputGateID);
+            itt->popTheHead();
+            }
+        else
+            EV<<"NULL return "<<endl;
+       }
 
+}
+
+void SSController::printSwitchList() {
+
+    list<P3DModuleDB>::iterator itt;
+    list<P3DModuleDB>::iterator iStart = switchesList.begin();
+    list<P3DModuleDB>::iterator iEnd = switchesList.end();
+
+    for (itt = iStart ; itt != iEnd ; ++itt)
+       {
+        EV<<"Module Name : "<<itt->getModuleName()<<endl;
+        EV<<"Module ID : "<<itt->getModuleId()<<endl;
+        EV<<"Module OutputID : "<<itt->getContOutputPortId()<<endl;
+        EV<<"=================== "<<endl;
+       }
+}
 
 } //namespace

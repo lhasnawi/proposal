@@ -21,6 +21,7 @@
 #include "P3DBroadcastParameter_m.h"
 #include "P3DModuleCont_m.h"
 
+
 namespace queueing {
 
 /**
@@ -36,6 +37,8 @@ private:
   int frameIndex;
   double timeslotDuration;
   double guardTime;
+  simtime_t startHolding;
+  simtime_t releaseTime;
 
 
   Oframe *frm;
