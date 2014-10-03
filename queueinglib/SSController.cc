@@ -75,7 +75,7 @@ void SSController::initialize()
                            pathNames [3][5]="ssCombiner0";
 
     SSController::setDelayMatrix();
-    scheduleAt(1+this->guardTime, P3DControllerEvent);
+    scheduleAt(1, P3DControllerEvent);
 }
 
 void SSController::handleMessage(cMessage *msg)
@@ -143,11 +143,6 @@ void SSController::handleMessage(cMessage *msg)
 
             }*/
 
-        scheduleAt(simTime()+this->timeslotDuration, P3DControllerEvent);
-        }
-        else
-        {
-            cancelAndDelete(P3DControllerEvent);
         }
 
     }
