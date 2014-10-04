@@ -36,9 +36,9 @@ private:
 
        bool fifo;
 
-       double timeslotDuration;
-       double guardTime;
-       double serviceTime;
+       simtime_t timeslotDuration;
+       simtime_t guardTime;
+       simtime_t serviceTime;
        int numberOfTimeslots;
        int numberOfFrames;
 
@@ -51,8 +51,8 @@ private:
     virtual void arrival(Oframe *frm);
     virtual simtime_t startService(Oframe *frm);
     virtual void endService(Oframe *frm);
-    double getServiceTime();
-    void setServiceTime(double serviceTime);
+    simtime_t getServiceTime();
+    void setServiceTime(simtime_t serviceTime);
 };
 
 } //namespace

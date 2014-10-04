@@ -20,6 +20,8 @@
 #include "Oframe_m.h"
 #include "P3DBroadcastParameter_m.h"
 #include "P3DModuleCont_m.h"
+#include "P3DModuleCont_m.h"
+#include "SSSwitchingCont_m.h"
 
 namespace queueing {
 
@@ -28,6 +30,10 @@ namespace queueing {
  */
 class SSCombiner : public cSimpleModule
 {
+public:
+    bool isBarState() const;
+    void setBarState(bool barState);
+
 private:
     bool barState;           // bar state -> True;  Cross state -> False
     int numberOfTimeslots;
@@ -35,6 +41,11 @@ private:
     int numberOfJobs;
     bool moduleUsed;
     int droppedTS;
+    simtime_t startHolding;
+    simtime_t releaseTime;
+    simtime_t timeslotDuration;
+    simtime_t guardTime;
+    cMessage * releaseMessage;
   protected:
     virtual void initialize();
     virtual void handleMessage(cMessage *msg);

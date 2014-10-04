@@ -33,23 +33,8 @@ void SSCombiner::initialize()
 
 void SSCombiner::handleMessage(cMessage *msg)
 {
-    if (msg->getKind()==3)
-    {
-        P3DBroadcastParameter * BP = check_and_cast<P3DBroadcastParameter *>(msg);
-        this->numberOfTimeslots = BP->getNumberOfTimeslots();
-        this->numberOfFrames = BP->getNumberOfFrames();
-        this->numberOfJobs = this->numberOfTimeslots * this->numberOfFrames;
-        delete msg;
 
-        P3DModuleCont * combinerCont = SSCombiner::genrateModuleCont();
-        combinerCont->setModuleID(this->getId());
-        combinerCont->setModuleName(this->getName());
-        combinerCont->setModuleType(4);
-        combinerCont->setKind(2);
-        send(combinerCont,"control$o");
-    }
-
-    else if (msg->getKind()==0)
+     if (msg->getKind()==0)
     {
         if (moduleUsed == false)
         {
@@ -90,11 +75,57 @@ void SSCombiner::handleMessage(cMessage *msg)
 
 
     }
-
-    else
+    else if (msg->getKind()==3)
     {
+        P3DBroadcastParameter * BP = check_and_cast<P3DBroadcastParameter *>(msg);
+        this->numberOfTimeslots = BP->getNumberOfTimeslots();
+        this->numberOfFrames = BP->getNumberOfFrames();
+        this->numberOfJobs = this->numberOfTimeslots * this->numberOfFrames;
+        this->timeslotDuration = BP->getTimeslotDuration();
+        this->guardTime = BP->getGuardTime();
         delete msg;
+
+        P3DModuleCont * combinerCont = SSCombiner::genrateModuleCont();
+        combinerCont->setModuleID(this->getId());
+        combinerCont->setModuleName(this->getName());
+        combinerCont->setModuleType(4);
+        combinerCont->setKind(2);
+        send(combinerCont,"control$o");
     }
+    else if (msg->getKind()==4)       // it is control Packet
+       {
+           //Control Message
+        SSSwitchingCont * cont = check_and_cast<SSSwitchingCont *>(msg);
+
+           barState = cont->getSwitchingState();
+           startHolding = cont->getStartHoldingTime();
+           releaseTime =cont->getArrivalTime()+timeslotDuration*.9;
+           releaseMessage = new cMessage();
+           releaseMessage->setKind(5);
+           releaseMessage->setName("releaseMessage");
+           scheduleAt(releaseTime, releaseMessage);
+           delete cont;
+       }
+
+
+    else if (msg->getKind()==5)
+        {
+            //Message to release switching state
+        SSCombiner::setBarState(true);
+            bubble ("StateReleased");
+            cancelAndDelete (releaseMessage);
+
+
+
+        }
+}
+
+bool SSCombiner::isBarState() const {
+    return barState;
+}
+
+void SSCombiner::setBarState(bool barState) {
+    this->barState = barState;
 }
 
 bool SSCombiner::getSwitchState()

@@ -22,6 +22,6 @@ message P3DBroadcastParameter {
 	int numberOfTimeslots;
 	int numberOfFrames;
 	int timeslotSize;
-	double timeslotDuration;
-	double guardTime;
+	simtime_t timeslotDuration;
+	simtime_t guardTime;
 }

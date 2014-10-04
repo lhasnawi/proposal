@@ -80,8 +80,12 @@ void SSController::initialize()
 
 void SSController::handleMessage(cMessage *msg)
 {
+
+
     if (msg->getKind()==1) // events
     {
+        EV<<"Frame Counter is "<<this->frameCounter<<" --Number of frames "<<this->numberOfFrames<<endl;
+        EV<<"Timeslot Counter is "<<this->timeslotCounter<<" --Number of timeslots "<<this->numberOfTimeslots<<endl;
         if(this->frameCounter < this->numberOfFrames && this->timeslotCounter < this->numberOfTimeslots)
         {
         int inTS;
@@ -117,31 +121,28 @@ void SSController::handleMessage(cMessage *msg)
        }
        pathIndex= delay;
        EV<<"Path Index  "<<pathIndex<<endl;
-       SSController::printSwitchList();
+       //SSController::printSwitchList();
        SSController::reservePath(pathIndex, delay);
        SSController::sendSWC();
        scheduleAt(simTime()+timeslotDuration, P3DControllerEvent);
 
-/*
+        }
+        else
+        {   EV<<"I am here ....1 "<<endl;
+            if (SSController::allSWCQEmpty()==false)
+           {
+                EV<<"I am here ....2 "<<endl;
+                SSController::sendSWC();
+               scheduleAt(simTime()+timeslotDuration, P3DControllerEvent);
+               this->timeslotCounter++;
+
+           }
             else
-            {
-                EV<<"I am here ....1 "<<endl;
-                if (Ocontroller::allSWCQEmpty()==false)
-                    {
-                    EV<<"I am here ....2 "<<endl;
-                    Ocontroller::sendSwitchingCont();
-                    scheduleAt(simTime()+Ocontroller::getTimeslotDuration(), event);
-                    Ocontroller::increaseTimeslotCounter();
+                {
+                EV<<"I am here ....3 "<<endl;
+                SSController::finish();
+                }
 
-                    }
-                else
-                    {
-                    EV<<"I am here ....3 "<<endl;
-                    Ocontroller::finish();
-                    }
-
-
-            }*/
 
         }
 
@@ -247,6 +248,7 @@ void SSController::broadcastParameter() {
     BC->setName("Broadcast");
     BC->setNumberOfTimeslots(this->numberOfTimeslots);
     BC->setNumberOfFrames(this->numberOfFrames);
+    BC->setTimeslotDuration(this->timeslotCounter);
     BC->setTimeslotDuration(this->timeslotDuration);
     BC->setGuardTime(this->guardTime);
 
@@ -310,7 +312,7 @@ void SSController::reservePath(int pathIndex, int delay) {
                 itt->setBusy(true);
                 EV<<"Set to busy"<<endl;
                 itt->setDelay(commulatedDelayMatrix[i][delay]);
-                EV<<"Set Comm Delay"<<commulatedDelayMatrix[i][delay]<<endl;
+                EV<<"######### Set Comm Delay"<<commulatedDelayMatrix[i][delay]<<endl;
                 bool SWCfromFile = SSController::getSWC(pathIndex+1,i+1);
                 EV<<"SWC from file is "<<SWCfromFile<<"  ";
                 SWCont = new SSSwitchingCont;
@@ -320,7 +322,7 @@ void SSController::reservePath(int pathIndex, int delay) {
                 SWCont->setOutputPortIndex(itt->getContOutputPortId());
                 SWCont->setDelay(commulatedDelayMatrix[i][delay]);
                 SWCont->setTargetModuleID(itt->getModuleId());
-                SWCont->setStartHoldingTime(simTime()+commulatedDelayMatrix[i][delay+1]*this->timeslotDuration);
+                SWCont->setStartHoldingTime(simTime()+commulatedDelayMatrix[i][delay]*this->timeslotDuration);
                 SWCont->setReleaseTime(simTime()+commulatedDelayMatrix[i][delay]*this->timeslotDuration+this->guardTime);
                 SWCont->setTargetModule(itt->getModuleName().c_str());
                 itt->insertOrderedSWC(SWCont);
@@ -329,6 +331,7 @@ void SSController::reservePath(int pathIndex, int delay) {
 
         }
     }
+
 
 
 }
@@ -417,6 +420,8 @@ void SSController::sendSWC() {
             EV<<"NULL return "<<endl;
        }
 
+
+
 }
 
 void SSController::printSwitchList() {
@@ -432,6 +437,30 @@ void SSController::printSwitchList() {
         EV<<"Module OutputID : "<<itt->getContOutputPortId()<<endl;
         EV<<"=================== "<<endl;
        }
+}
+
+bool SSController::allSWCQEmpty() {
+    bool allEmpty;
+    int sum=0;
+    list<P3DModuleDB>::iterator itt;
+    list<P3DModuleDB>::iterator iStart = switchesList.begin();
+    list<P3DModuleDB>::iterator iEnd = switchesList.end();
+
+       for (itt = iStart ; itt != iEnd ; ++itt)
+          {
+           sum+= itt->getQueueLength();
+          }
+       if (sum==0)
+           return true;
+       else
+           return false;
+
+
+}
+
+SSController::~SSController() {
+    cancelAndDelete (BC);
+    cancelAndDelete (P3DControllerEvent);
 }
 
 } //namespace

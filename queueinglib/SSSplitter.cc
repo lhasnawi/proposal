@@ -32,7 +32,28 @@ void SSSplitter::initialize()
 
 void SSSplitter::handleMessage(cMessage *msg)
 {
-    if (msg->getKind()==3)
+
+     if (msg->getKind()==0)
+        {
+            if (moduleUsed == false)
+               moduleUsed = true;
+
+            switch (SSSplitter::getSwitchState())
+            {
+                case true:
+                {
+                    send(msg,SSSplitter::gate("dataOut",0));
+                    break;
+                }
+                case false:
+                {
+                    send(msg,SSSplitter::gate("dataOut",1));
+                    break;
+                }
+
+            }
+        }
+else if (msg->getKind()==3)
     {
         P3DBroadcastParameter * BP = check_and_cast<P3DBroadcastParameter *>(msg);
         this->numberOfTimeslots = BP->getNumberOfTimeslots();
@@ -58,34 +79,15 @@ void SSSplitter::handleMessage(cMessage *msg)
            startHolding = cont->getStartHoldingTime();
            releaseTime =cont->getArrivalTime()+timeslotDuration*.9;
            releaseMessage = new cMessage();
+           releaseMessage->setKind(5);
            releaseMessage->setName("releaseMessage");
            scheduleAt(releaseTime, releaseMessage);
            delete msg;
 
 
        }
-    else if (msg->getKind()==0)
-    {
-        if (moduleUsed == false)
-           moduleUsed = true;
 
-        switch (SSSplitter::getSwitchState())
-        {
-            case true:
-            {
-                send(msg,SSSplitter::gate("dataOut",0));
-                break;
-            }
-            case false:
-            {
-                send(msg,SSSplitter::gate("dataOut",1));
-                break;
-            }
-
-        }
-    }
-
-    else if (strcmp(msg->getName(),"releaseMessage")==0)
+    else if (msg->getKind()==5)
         {
             //Message to release switching state
            SSSplitter::setBarState(true);

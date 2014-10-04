@@ -1,0 +1,150 @@
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+// 
+
+#include "SSFDL.h"
+
+namespace queueing {
+
+Define_Module(SSFDL);
+
+void SSFDL::initialize()
+{
+   WATCH(this->guardTime);
+    endServiceMsg = new cMessage("end-service");
+    fifo = par("fifo");
+    capacity = par("capacity");
+    queue.setName("queue");
+
+}
+
+void SSFDL::handleMessage(cMessage *msg)
+{
+    if (msg->getKind()==3)
+    {
+        P3DBroadcastParameter * BP = check_and_cast<P3DBroadcastParameter *>(msg);
+        this->timeslotDuration = BP->getTimeslotDuration();
+        this->guardTime = BP->getGuardTime();
+
+        this->serviceTime=this->timeslotDuration*1.01;
+        this->numberOfTimeslots=BP->getNumberOfTimeslots();
+        this->numberOfFrames=BP->getNumberOfFrames();
+        delete msg;
+    }
+    else if (msg==endServiceMsg)
+        {
+            endService( frmServiced );
+            if (queue.empty())
+            {
+                frmServiced = NULL;
+            }
+            else
+            {
+                frmServiced = getFromQueue();
+                simtime_t serviceTime = startService( frmServiced );
+                scheduleAt( simTime()+serviceTime, endServiceMsg );
+            }
+        }
+
+    else if (msg->getKind()==0)
+    {
+
+        Oframe *frm = check_and_cast<Oframe *>(msg);
+        if (frm->getFrameDelayed()==false)
+        {
+            int currentFrameIndex = frm->getNewFrameIndex();
+            frm->setNewFrameIndex(currentFrameIndex+1);
+            frm->setFrameDelayed(true);
+            if (frm->getNewFrameIndex()>=this->numberOfFrames)
+            {
+                frm->setNewFrameIndex(0);
+            }
+
+        }
+        int currentTimeslotIndex = frm->getNewTimeslotIndex();
+        frm->setNewTimeslotIndex(currentTimeslotIndex+1);
+        if (frm->getNewTimeslotIndex()==this->numberOfTimeslots)
+        {
+            frm->setNewTimeslotIndex(0);
+        }
+
+        arrival(frm);
+
+        if (!frmServiced)
+        {
+        // processor was idle
+
+            frmServiced = frm;
+           // emit(busySignal, 1);
+            simtime_t serviceTime = startService( frmServiced );
+            scheduleAt( simTime()+serviceTime, endServiceMsg );
+
+        }
+        else
+        {
+            // check for container capacity
+            if (capacity >=0 && queue.length() >= capacity)
+            {
+                EV << "Capacity full! Job dropped.\n";
+                if (ev.isGUI()) bubble("Dropped!");
+              //  emit(droppedSignal, 1);
+                 delete frm; // do not know what is this
+                return;
+            }
+            queue.insert( frm );
+        }
+    }
+
+}
+void SSFDL::arrival(Oframe *frm)
+{
+    frm->setTimestamp();
+}
+
+simtime_t SSFDL::startService(Oframe *frm)
+{
+    // gather queueing time statistics
+    frm->setTimestamp();
+    return SSFDL::getServiceTime();
+}
+
+void SSFDL::endService(Oframe *frm)
+{
+    frm->setDelayCount(frm->getDelayCount()+1);
+    send(frm, "dataOut");
+}
+
+simtime_t SSFDL::getServiceTime() {
+    return serviceTime;
+}
+
+void SSFDL::setServiceTime(simtime_t serviceTime) {
+    this->serviceTime = serviceTime;
+}
+
+Oframe *SSFDL::getFromQueue()
+{
+    Oframe *frm = (Oframe *)queue.pop();
+    return frm;
+}
+
+
+SSFDL::~SSFDL()
+{
+cancelAndDelete(endServiceMsg);
+}
+
+
+
+} //namespace

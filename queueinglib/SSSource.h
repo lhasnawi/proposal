@@ -35,8 +35,8 @@ private:
   int numberOfFrames;
   int timeslotIndex;
   int frameIndex;
-  double timeslotDuration;
-  double guardTime;
+  simtime_t timeslotDuration;
+  simtime_t guardTime;
   simtime_t startHolding;
   simtime_t releaseTime;
 

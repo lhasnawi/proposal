@@ -43,8 +43,8 @@ class SSController : public cSimpleModule
         int frameCounter;
         int timeslotSize;
         double dataRate;
-        double timeslotDuration;
-        double guardTime;
+        simtime_t timeslotDuration;
+        simtime_t guardTime;
         cMessage * P3DControllerEvent;
         P3DBroadcastParameter * BC;
         list <P3DModuleDB> sourceSinkList;
@@ -65,6 +65,10 @@ class SSController : public cSimpleModule
     int getSWC(int row, int column);
     void sendSWC();
     void printSwitchList();
+    bool allSWCQEmpty();
+  public:
+    ~SSController();
+
 };
 
 } //namespace

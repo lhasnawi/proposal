@@ -141,22 +141,22 @@ void P3DBroadcastParameter::setTimeslotSize(int timeslotSize)
     this->timeslotSize_var = timeslotSize;
 }
 
-double P3DBroadcastParameter::getTimeslotDuration() const
+simtime_t P3DBroadcastParameter::getTimeslotDuration() const
 {
     return timeslotDuration_var;
 }
 
-void P3DBroadcastParameter::setTimeslotDuration(double timeslotDuration)
+void P3DBroadcastParameter::setTimeslotDuration(simtime_t timeslotDuration)
 {
     this->timeslotDuration_var = timeslotDuration;
 }
 
-double P3DBroadcastParameter::getGuardTime() const
+simtime_t P3DBroadcastParameter::getGuardTime() const
 {
     return guardTime_var;
 }
 
-void P3DBroadcastParameter::setGuardTime(double guardTime)
+void P3DBroadcastParameter::setGuardTime(simtime_t guardTime)
 {
     this->guardTime_var = guardTime;
 }
@@ -271,8 +271,8 @@ const char *P3DBroadcastParameterDescriptor::getFieldTypeString(void *object, in
         "int",
         "int",
         "int",
-        "double",
-        "double",
+        "simtime_t",
+        "simtime_t",
     };
     return (field>=0 && field<5) ? fieldTypeStrings[field] : NULL;
 }

@@ -41,8 +41,8 @@ private:
    bool moduleUsed;
    simtime_t startHolding;
    simtime_t releaseTime;
-   double timeslotDuration;
-   double guardTime;
+   simtime_t timeslotDuration;
+   simtime_t guardTime;
    cMessage * releaseMessage;
 
   protected:
