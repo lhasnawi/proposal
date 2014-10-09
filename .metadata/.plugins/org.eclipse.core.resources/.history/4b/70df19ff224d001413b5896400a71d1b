@@ -1,0 +1,11 @@
+[General]
+network = SSPTSI
+description = "4TS-OTSI_Single Stage"
+*.*.switchingAssignmentEven = ${0..23}
+*.*.switchingAssignmentOdd = ${0..23}
+**.scalar-recording = true
+**.param-record-as-scalar = true  
+*.osplitter[*].arrival.result-recording-modes = default
+*.osource.created.result-recording-modes = default
+*.osink.arrivedToSink.result-recording-modes = default
+

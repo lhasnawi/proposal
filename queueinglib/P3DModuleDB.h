@@ -36,6 +36,7 @@ private:
     bool busy;
     bool barState;
     int delay;
+
 public:
     P3DModuleDB();
     virtual ~P3DModuleDB();
@@ -60,6 +61,7 @@ public:
     void printSwitcchingContQ();
     SSSwitchingCont * getSWC();
     void popTheHead();
+
 };
 
 } /* namespace queueing */

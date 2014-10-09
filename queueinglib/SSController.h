@@ -54,6 +54,8 @@ class SSController : public cSimpleModule
         int evenTimeslotAssignment;
         int oddTimeslotAssignment;
 
+
+
   protected:
     virtual void initialize();
     virtual void handleMessage(cMessage *msg);
@@ -66,6 +68,7 @@ class SSController : public cSimpleModule
     void sendSWC();
     void printSwitchList();
     bool allSWCQEmpty();
+    SSSwitchingCont *genrateSWCont();
   public:
     ~SSController();
 

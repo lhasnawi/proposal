@@ -33,6 +33,7 @@ void SSController::initialize()
     this->oddTimeslotAssignment = par("switchingAssignmentOdd");
     P3DControllerEvent = new cMessage();
     P3DControllerEvent->setKind(1);
+
     SSController::broadcastParameter();
 
         const int numTS = this->numberOfTimeslots;
@@ -295,7 +296,7 @@ void SSController::reservePath(int pathIndex, int delay) {
     list<P3DModuleDB>::iterator iStart = switchesList.begin();
     list<P3DModuleDB>::iterator iEnd = switchesList.end();
     string moduleName;
-    SSSwitchingCont * SWCont;
+
 
     EV<<"Path names index is "<<pathIndex/2<<endl;
 
@@ -315,22 +316,32 @@ void SSController::reservePath(int pathIndex, int delay) {
                 EV<<"######### Set Comm Delay"<<commulatedDelayMatrix[i][delay]<<endl;
                 bool SWCfromFile = SSController::getSWC(pathIndex+1,i+1);
                 EV<<"SWC from file is "<<SWCfromFile<<"  ";
-                SWCont = new SSSwitchingCont;
+                SSSwitchingCont * SWCont = genrateSWCont();
                 SWCont->setSwitchingState(SWCfromFile);
                 SWCont->setKind(4);
-                SWCont->setName("SWC");
+                SWCont->setName("SWCM");
                 SWCont->setOutputPortIndex(itt->getContOutputPortId());
                 SWCont->setDelay(commulatedDelayMatrix[i][delay]);
                 SWCont->setTargetModuleID(itt->getModuleId());
                 SWCont->setStartHoldingTime(simTime()+commulatedDelayMatrix[i][delay]*this->timeslotDuration);
                 SWCont->setReleaseTime(simTime()+commulatedDelayMatrix[i][delay]*this->timeslotDuration+this->guardTime);
                 SWCont->setTargetModule(itt->getModuleName().c_str());
+
                 itt->insertOrderedSWC(SWCont);
-                itt->printSwitcchingContQ();
+
+
+               // itt->printSwitcchingContQ();
+
+
+
+
+
+
                 }
 
         }
     }
+
 
 
 
@@ -409,16 +420,19 @@ void SSController::sendSWC() {
     int outputGateID;
     for (itt = iStart ; itt != iEnd ; ++itt)
        {
-        SSSwitchingCont * SWC = itt->getSWC();
-        if (SWC !=NULL)
+        SSSwitchingCont * SWCX = itt->getSWC();
+        if (SWCX !=NULL)
             {
             outputGateID = itt->getContOutputPortId();
-            send (SWC,outputGateID);
-            itt->popTheHead();
+            send (SWCX,outputGateID);
+
+
             }
         else
             EV<<"NULL return "<<endl;
+
        }
+
 
 
 
@@ -461,6 +475,25 @@ bool SSController::allSWCQEmpty() {
 SSController::~SSController() {
     cancelAndDelete (BC);
     cancelAndDelete (P3DControllerEvent);
+    for (int i=0;i<6;i++)
+        {
+
+        delete []commulatedDelayMatrix[i];
+        }
+    delete[] commulatedDelayMatrix;
+        list<P3DModuleDB>::iterator it;
+       list<P3DModuleDB>::iterator iStart = switchesList.begin();
+       list<P3DModuleDB>::iterator iEnd = switchesList.end();
+       switchesList.erase(iStart,iEnd);
+
+
+}
+
+SSSwitchingCont * SSController::genrateSWCont()
+{
+    SSSwitchingCont *SWCont = new SSSwitchingCont();
+    return SWCont;
+
 }
 
 } //namespace

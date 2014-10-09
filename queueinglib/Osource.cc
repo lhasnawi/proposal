@@ -34,6 +34,7 @@ Oframe * Osource::generateFrame()
                     frm->setDelayCount(0);
                     Osource::increaseTimeslotCounter();
                     frm->setKind(4);
+                    frm->setName("Oframe");
                     return frm;
 
     }
@@ -53,6 +54,7 @@ Oframe * Osource::generateFrame()
             frm->setDelayCount(0);
             Osource::increaseTimeslotCounter();
             frm->setKind(4);
+            frm->setName("Oframe");
             return frm;
 
         }
@@ -72,6 +74,7 @@ Oframe * Osource::generateFrame()
             frm->setDelayCount(0);
             Osource::increaseTimeslotCounter();
             frm->setKind(4);
+            frm->setName("Oframe");
             return frm;
 
 

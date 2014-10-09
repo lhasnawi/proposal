@@ -23,7 +23,7 @@ P3DModuleDB::P3DModuleDB() {
 }
 
 P3DModuleDB::~P3DModuleDB() {
-    // TODO Auto-generated destructor stub
+
 }
 
 
@@ -228,8 +228,11 @@ SSSwitchingCont * P3DModuleDB::getSWC() {
 
            if (  contCurrent->getStartHoldingTime()== simTime())
                {
-               SSSwitchingCont * SWC = new SSSwitchingCont (*contCurrent);
-               return SWC;
+               SSSwitchingCont * SWCN = contCurrent;
+               this->SwitchingContQ.pop();
+               return SWCN;
+
+
 
                }
            else
@@ -237,6 +240,8 @@ SSSwitchingCont * P3DModuleDB::getSWC() {
                return NULL;
            }
        }
+
+
 }
 
 

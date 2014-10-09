@@ -1,0 +1,23 @@
+Loading NED files from .: 18
+Loading NED files from ../queueinglib: 40
+
+Preparing for running configuration General, run #562...
+Scenario: $0=23, $1=10, $repetition=0
+Assigned runID=General-562-20141006-02:56:29-4208
+Setting up network `SSPTSI'...
+Initializing...
+
+Running simulation...
+** Event #1   T=0   Elapsed: 0.000s (0m 00s)
+     Speed:     ev/sec=0   simsec/sec=0   ev/simsec=0
+     Messages:  created: 75   present: 74   in FES: 45
+** Event #272   T=1.000001439988   Elapsed: 0.025s (0m 00s)
+     Speed:     ev/sec=10840   simsec/sec=40.0001   ev/simsec=271
+     Messages:  created: 242   present: 85   in FES: 0
+
+<!> No more events -- simulation ended at event #272, t=1.000001439988.
+
+
+Calling finish() at end of Run #572...
+
+

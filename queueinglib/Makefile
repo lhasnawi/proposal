@@ -269,6 +269,7 @@ $O/Oframe_m.o: Oframe_m.cc \
 $O/Osink.o: Osink.cc \
 	Oframe_m.h \
 	Osink.h \
+	P3DBroadcastParameter_m.h \
 	ParameterCont_m.h \
 	QueueingDefs.h \
 	contFrame_m.h

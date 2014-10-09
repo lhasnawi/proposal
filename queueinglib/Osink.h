@@ -21,6 +21,7 @@
 #include "Oframe_m.h"
 #include "ParameterCont_m.h"
 #include <cmessage.h>
+#include "P3DBroadcastParameter_m.h"
 using namespace std;
 
 
@@ -65,6 +66,7 @@ private:
   double dataRate;
   double timeslotDuration;
   double guardTime;
+  int numberOfJobs;
  // cMessage * osinkEvent;
 
 

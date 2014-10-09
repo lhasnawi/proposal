@@ -104,7 +104,7 @@ void SSCombiner::handleMessage(cMessage *msg)
            releaseMessage->setKind(5);
            releaseMessage->setName("releaseMessage");
            scheduleAt(releaseTime, releaseMessage);
-           delete cont;
+           delete msg;
        }
 
 

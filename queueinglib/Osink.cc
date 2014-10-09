@@ -85,10 +85,10 @@ void Osink::handleMessage(cMessage *msg)
     emit(delaysVisitedSignal, job->getDelayCount());
     emit(generationSignal, job->getGeneration());*/
     this->tsArrivals++;
+
     //cout<<"Defalut list size "<<this->defaultListSize()<<endl;
     //this->defaultListGet(tsArrivals)->removeFromOwnershipTree();
-    //this->dropAndDelete(frm);
-    //delete frm;
+    //this->dropAndDelete(msg);
     frm->removeFromOwnershipTree();
 
     //cout<<"Defalut list contains "<<this->defaultListContains(frm)<<endl;
@@ -102,6 +102,16 @@ void Osink::handleMessage(cMessage *msg)
         delete  msg;
 
         }*/
+    }
+    else if (strcmp(msg->getName(),"Broadcast")==0)
+    {
+        P3DBroadcastParameter * BP = check_and_cast<P3DBroadcastParameter *>(msg);
+        this->numTimeslots = BP->getNumberOfTimeslots();
+        this->numFrames = BP->getNumberOfFrames();
+        this->numberOfJobs = numTimeslots * numFrames;
+        delete msg;
+
+
     }
 
 }

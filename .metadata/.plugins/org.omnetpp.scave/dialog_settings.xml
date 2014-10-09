@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.omnetpp.scave.wizard.CsvExportWizard">
+		<item value="false" key="groupBy.run"/>
+		<item value="false" key="groupBy.file"/>
+		<item value="false" key="groupBy.name"/>
+		<item value="&quot;" key="quoteChar"/>
+		<item value="18" key="precision"/>
+		<item value="true" key="groupBy.module"/>
+		<item value="CR LF" key="eol"/>
+		<item value="C:\Users\Luai\Desktop\SSPTSI.csv" key="filename"/>
+		<item value="true" key="header"/>
+		<item value="Comma" key="separator"/>
+	</section>
+	<section name="ChartEditForm">
+		<item value="Main" key="default-page"/>
+	</section>
+	<section name="org.omnetpp.scave.editors.ui.EditDialog">
+		<item value="1024" key="DIALOG_WIDTH"/>
+		<item value="91" key="DIALOG_Y_ORIGIN"/>
+		<item value="697" key="DIALOG_X_ORIGIN"/>
+		<item value="845" key="DIALOG_HEIGHT"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+	</section>
+</section>
