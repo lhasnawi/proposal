@@ -129,10 +129,10 @@ void SSController::handleMessage(cMessage *msg)
 
         }
         else
-        {
+        {   EV<<"I am here ....1 "<<endl;
             if (SSController::allSWCQEmpty()==false)
            {
-
+                EV<<"I am here ....2 "<<endl;
                 SSController::sendSWC();
                scheduleAt(simTime()+timeslotDuration, P3DControllerEvent);
                this->timeslotCounter++;
@@ -140,7 +140,7 @@ void SSController::handleMessage(cMessage *msg)
            }
             else
                 {
-
+                EV<<"I am here ....3 "<<endl;
                 SSController::finish();
                 }
 
@@ -428,6 +428,8 @@ void SSController::sendSWC() {
 
 
             }
+        else
+            EV<<"NULL return "<<endl;
 
        }
 

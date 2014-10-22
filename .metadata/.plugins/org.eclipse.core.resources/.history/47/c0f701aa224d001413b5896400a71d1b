@@ -1,5 +1,0 @@
-[General]
-network = SSPTSI
-*.*.switchingAssignmentEven = 10
-*.*.switchingAssignmentOdd = 10
-
