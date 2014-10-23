@@ -20,7 +20,7 @@
 #include <string>
 #include <omnetpp.h>
 #include "SSSwitchingCont_m.h"
-#include <cQueue.h>
+#include <cqueue.h>
 
 namespace queueing {
 

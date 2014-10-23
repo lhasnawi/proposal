@@ -24,70 +24,70 @@ O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cc and .msg files
 OBJS = \
-    $O/Allocate.o \
-    $O/Classifier.o \
-    $O/Clone.o \
-    $O/Deallocate.o \
-    $O/Delay.o \
-    $O/Fork.o \
-    $O/Job.o \
-    $O/JobList.o \
-    $O/Join.o \
-    $O/Merge.o \
-    $O/ModuleInfo.o \
-    $O/Ocombiner.o \
-    $O/Ocontroller.o \
-    $O/OFDL.o \
-    $O/Osink.o \
-    $O/Osource.o \
-    $O/Osplitter.o \
-    $O/Oswitch.o \
-    $O/P3DController.o \
-    $O/P3DMod.o \
-    $O/P3DModuleDB.o \
-    $O/P3DSink.o \
-    $O/P3DSource.o \
-    $O/P3DSwitch.o \
-    $O/P3DWLC.o \
-    $O/PassiveQueue.o \
-    $O/Queue.o \
-    $O/ResourceBasedQueue.o \
     $O/ResourcePool.o \
-    $O/Router.o \
-    $O/SelectionStrategies.o \
+    $O/Delay.o \
+    $O/Queue.o \
+    $O/P3DWLC.o \
+    $O/Classifier.o \
+    $O/SSController.o \
+    $O/P3DSource.o \
+    $O/Osource.o \
+    $O/ModuleInfo.o \
+    $O/OFDL.o \
+    $O/SSSource.o \
+    $O/Source.o \
+    $O/Ocontroller.o \
+    $O/SSCombiner.o \
     $O/Server.o \
     $O/Sink.o \
-    $O/Source.o \
-    $O/SSCombiner.o \
-    $O/SSController.o \
-    $O/SSFDL.o \
-    $O/SSSource.o \
+    $O/Deallocate.o \
+    $O/Merge.o \
     $O/SSSplitter.o \
-    $O/contFrame_m.o \
-    $O/Job_m.o \
+    $O/Job.o \
+    $O/Ocombiner.o \
+    $O/P3DModuleDB.o \
+    $O/P3DSink.o \
+    $O/PassiveQueue.o \
+    $O/SSFDL.o \
+    $O/Osink.o \
+    $O/P3DSwitch.o \
+    $O/Clone.o \
+    $O/Allocate.o \
+    $O/JobList.o \
+    $O/Fork.o \
+    $O/ResourceBasedQueue.o \
+    $O/P3DController.o \
+    $O/Oswitch.o \
+    $O/Router.o \
+    $O/Osplitter.o \
+    $O/P3DMod.o \
+    $O/SelectionStrategies.o \
+    $O/Join.o \
+    $O/SyncFrame_m.o \
+    $O/ParameterCont_m.o \
     $O/Oframe_m.o \
+    $O/releaseOFDL_m.o \
     $O/P3DBroadcastParameter_m.o \
     $O/P3DModuleCont_m.o \
-    $O/P3DTimeslot_m.o \
-    $O/ParameterCont_m.o \
-    $O/releaseOFDL_m.o \
-    $O/SSSwitchingCont_m.o \
+    $O/Job_m.o \
     $O/switchingCont_m.o \
-    $O/SyncFrame_m.o
+    $O/contFrame_m.o \
+    $O/SSSwitchingCont_m.o \
+    $O/P3DTimeslot_m.o
 
 # Message files
 MSGFILES = \
-    contFrame.msg \
-    Job.msg \
+    SyncFrame.msg \
+    ParameterCont.msg \
     Oframe.msg \
+    releaseOFDL.msg \
     P3DBroadcastParameter.msg \
     P3DModuleCont.msg \
-    P3DTimeslot.msg \
-    ParameterCont.msg \
-    releaseOFDL.msg \
-    SSSwitchingCont.msg \
+    Job.msg \
     switchingCont.msg \
-    SyncFrame.msg
+    contFrame.msg \
+    SSSwitchingCont.msg \
+    P3DTimeslot.msg
 
 #------------------------------------------------------------------------------
 

@@ -13,6 +13,7 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
+import org.omnetpp.queueing.ControlChannel;
 import org.omnetpp.queueing.OFDL;
 import org.omnetpp.queueing.Ocombiner;
 import org.omnetpp.queueing.Ocontroller;
@@ -100,4 +101,21 @@ network _2TS_OTSI
         ofdl22.out --> ofdl23.in;
         ofdl13.out --> ocombiner11.in[0];
         ofdl23.out --> ocombiner21.in[0];
+
+        ocontroller.control++ <--> ControlChannel <--> osource.control;
+        ocontroller.control++ <--> ControlChannel <--> ofdl11.control;
+        ocontroller.control++ <--> ControlChannel <--> ofdl12.control;
+        ocontroller.control++ <--> ControlChannel <--> ofdl13.control;
+        ocontroller.control++ <--> ControlChannel <--> ocombiner11.control;
+        ocontroller.control++ <--> ControlChannel <--> oswitch.control;
+        ocontroller.control++ <--> ControlChannel <--> osplitter11.control;
+        ocontroller.control++ <--> ControlChannel <--> osplitter0.control;
+        ocontroller.control++ <--> ControlChannel <--> ofdl21.control;
+        ocontroller.control++ <--> ControlChannel <--> ofdl22.control;
+        ocontroller.control++ <--> ControlChannel <--> ofdl23.control;
+        ocontroller.control++ <--> ControlChannel <--> ocombiner0.control;
+        ocontroller.control++ <--> ControlChannel <--> osink.control;
+        ocontroller.control++ <--> ControlChannel <--> ocombiner21.control;
+        ocontroller.control++ <--> ControlChannel <--> oswitch1.control;
+        ocontroller.control++ <--> ControlChannel <--> osplitter21.control;
 }
